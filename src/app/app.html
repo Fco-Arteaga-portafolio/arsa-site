@@ -1,39 +1,16 @@
 <!-- Contenedor Principal: Fondo Arsa Light y Tipografía Inter -->
-<div class="min-h-screen bg-arsa-light font-sans selection:bg-arsa-primary selection:text-white">
+<div
+  class="min-h-screen bg-arsa-light font-sans selection:bg-arsa-primary selection:text-white flex flex-col"
+>
   <!-- 1. NAVBAR COMPONENT -->
   <!-- Usamos fixed para que siempre esté visible y backdrop-blur para un look moderno -->
   <header class="fixed top-0 left-0 right-0 z-50">
     <app-navbar (openDiagnostic)="openDiagnosticModal()"> </app-navbar>
   </header>
 
-  <main class="pt-20">
-    <!-- Padding top para no quedar debajo del navbar fixed -->
-
-    <!-- 2. HERO SECTION -->
-    <!-- Animación: Aparece desde abajo (fade-up) -->
-    <section id="inicio" data-aos="fade-up">
-      <app-hero></app-hero>
-    </section>
-
-    <!-- 3. SERVICIOS (Consultoría y Software a Medida) -->
-    <!-- Animación: Aparece desde la izquierda con un pequeño retraso -->
-    <section id="servicios" class="py-20" data-aos="fade-right" data-aos-delay="200">
-      <div class="max-w-7xl mx-auto px-6">
-        <app-services></app-services>
-      </div>
-    </section>
-
-    <!-- 4. IFRAT SPOTLIGHT -->
-    <!-- Animación: Zoom suave para resaltar tu producto estrella -->
-    <section id="ifrat" class="py-20 bg-white" data-aos="zoom-in" data-aos-duration="1200">
-      <app-ifrat-preview></app-ifrat-preview>
-    </section>
-
-    <!-- 5. SECCIÓN DE CONTACTO -->
-    <!-- Animación: Fade up simple -->
-    <section id="contacto" class="py-20 bg-arsa-light" data-aos="fade-up">
-      <app-contact (openDiagnostic)="openDiagnosticModal()"> </app-contact>
-    </section>
+  <!-- Contenido dinámico (Landing o Privacidad) -->
+  <main class="flex-1 pt-20">
+    <router-outlet></router-outlet>
   </main>
 
   <!-- 6. FOOTER COMPONENT -->
@@ -46,6 +23,4 @@
     (close)="closeDiagnosticModal()"
     (submitForm)="handleDiagnosticSubmit($event)"
   ></app-diagnostic-modal>
-  <!-- Capa de Router Outlet por si navegas a páginas internas de IFRAT más adelante -->
-  <router-outlet></router-outlet>
 </div>

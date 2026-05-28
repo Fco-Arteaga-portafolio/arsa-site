@@ -1,26 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/components/navbar/navbar';
-import { Hero } from './features/landing/sections/hero/hero';
-import { IfratPreview } from './features/landing/sections/ifrat-preview/ifrat-preview';
-import { Footer } from './shared/components/footer/footer'; // <--- 1. Importa el archivo
-import { Services } from './features/landing/sections/services/services';
-import { Contact } from './features/landing/sections/contact/contact';
+import { Footer } from './shared/components/footer/footer';
 import { DiagnosticModalComponent } from './shared/components/diagnostic-modal/diagnostic-modal.component';
 import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    Navbar,
-    Hero,
-    IfratPreview,
-    Footer,
-    Services,
-    Contact,
-    DiagnosticModalComponent,
-  ],
+  imports: [RouterOutlet, Navbar, Footer, DiagnosticModalComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
