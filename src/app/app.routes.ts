@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
-import { Landing } from './features/landing/landing';
-import { Privacy } from './features/landing/sections/privacy/privacy';
-import { AccountDeletionComponent } from './features/landing/sections/account-deletion/account-deletion';
-import { ContactPageComponent } from './features/landing/pages/contact/contact-page';
-import { EcosistemasPageComponent } from './features/landing/pages/ecosistemas/ecosistemas-page';
-import { IfratComponent } from './features/ifrat/ifrat';
+import { Landing } from './features/pages/landing/landing';
+import { Privacidad } from './features/pages/privacidad/privacidad';
+import { EliminarCuentaComponent } from './features/pages/eliminar-cuenta/eliminar-cuenta';
+import { ContactoComponent } from './features/pages/contacto/contacto';
+import { EcosistemasComponent } from './features/pages/ecosistemas/ecosistemas';
+import { IfratComponent } from './features/pages/ifrat/ifrat';
+import { IfratEmiteComponent } from './features/pages/ifrat-emite/ifrat-emite';
+import { DescargasComponent } from './features/pages/descargas/descargas';
+import { AldamaComponent } from './features/pages/aldama/aldama';
 
 export const routes: Routes = [
   {
@@ -13,22 +16,38 @@ export const routes: Routes = [
   },
   {
     path: 'privacidad',
-    component: Privacy,
+    component: Privacidad,
   },
   {
     path: 'eliminar-cuenta',
-    component: AccountDeletionComponent,
+    component: EliminarCuentaComponent,
   },
   {
     path: 'contacto',
-    component: ContactPageComponent,
+    component: ContactoComponent,
   },
   {
     path: 'ecosistemas',
-    component: EcosistemasPageComponent,
+    component: EcosistemasComponent,
   },
   {
     path: 'ifrat',
     component: IfratComponent,
+  },
+  {
+    path: 'ifrat-emite',
+    component: IfratEmiteComponent,
+  },
+  {
+    path: 'descargas',
+    component: DescargasComponent,
+  },
+  {
+    path: 'deliveryaldama',
+    component: AldamaComponent,
+  },
+  {
+    path: 'deliveryaldama/:section',
+    component: AldamaComponent,
   },
 ];

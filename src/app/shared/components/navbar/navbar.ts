@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { DiagnosticService } from '../../services/diagnostic.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,5 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './navbar.css',
 })
 export class Navbar {
-  @Output()
-  openDiagnostic = new EventEmitter<void>();
+  constructor(public diagnosticService: DiagnosticService) {}
 }

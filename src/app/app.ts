@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/components/navbar/navbar';
 import { Footer } from './shared/components/footer/footer';
 import { DiagnosticModalComponent } from './shared/components/diagnostic-modal/diagnostic-modal.component';
+import { DiagnosticService } from './shared/services/diagnostic.service';
 import * as AOS from 'aos';
 
 @Component({
@@ -13,6 +14,9 @@ import * as AOS from 'aos';
 })
 export class AppComponent {
   title = 'arsa-landing';
+
+  constructor(public diagnosticService: DiagnosticService) {}
+
   ngOnInit() {
     AOS.init({
       duration: 1000,
@@ -21,14 +25,8 @@ export class AppComponent {
     });
   }
 
-  showDiagnosticModal = false;
-
-  openDiagnosticModal(): void {
-    this.showDiagnosticModal = true;
-  }
-
   closeDiagnosticModal(): void {
-    this.showDiagnosticModal = false;
+    this.diagnosticService.closeModal();
   }
 
   handleDiagnosticSubmit(data: any): void {

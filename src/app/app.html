@@ -5,7 +5,7 @@
   <!-- 1. NAVBAR COMPONENT -->
   <!-- Usamos fixed para que siempre esté visible y backdrop-blur para un look moderno -->
   <header class="fixed top-0 left-0 right-0 z-50">
-    <app-navbar (openDiagnostic)="openDiagnosticModal()"> </app-navbar>
+    <app-navbar></app-navbar>
   </header>
 
   <!-- Contenido dinámico (Landing o Privacidad) -->
@@ -19,7 +19,7 @@
   </footer>
 
   <app-diagnostic-modal
-    [isOpen]="showDiagnosticModal"
+    [isOpen]="diagnosticService.isModalOpen()"
     (close)="closeDiagnosticModal()"
     (submitForm)="handleDiagnosticSubmit($event)"
   ></app-diagnostic-modal>

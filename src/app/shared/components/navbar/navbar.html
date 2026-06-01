@@ -8,7 +8,7 @@
         <img src="/logo.png" alt="ARSA" class="h-10 w-auto" />
 
         <div>
-          <p class="text-white font-black text-xl leading-none">ARSA</p>
+          <p class="text-white font-black text-xl leading-none">AR-SA</p>
 
           <p class="text-slate-500 text-[10px] uppercase tracking-[0.3em] mt-1">
             Enterprise Software
@@ -37,7 +37,7 @@
       <!-- CTA -->
       <div class="hidden lg:flex items-center gap-4">
         <button
-          (click)="openDiagnostic.emit()"
+          (click)="diagnosticService.openModal()"
           class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-950/30"
         >
           Solicitar diagnóstico
