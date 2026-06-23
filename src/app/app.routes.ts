@@ -9,6 +9,7 @@ import { IfratEmiteComponent } from './features/pages/ifrat-emite/ifrat-emite';
 import { DescargasComponent } from './features/pages/descargas/descargas';
 import { SubetComponent } from './features/pages/subet/subet';
 import { PidefacilComponent } from './features/pages/pidefacil/pidefacil';
+import { MenusComponent } from './features/pages/menus/menus';
 
 export const routes: Routes = [
   {
@@ -62,5 +63,9 @@ export const routes: Routes = [
   {
     path: 'pidefacil/:section',
     component: PidefacilComponent,
+  },
+  {
+    path: 'menus/:idSucursal',
+    component: MenusComponent,
   },
 ];

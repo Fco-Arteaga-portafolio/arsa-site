@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { Navbar } from './shared/components/navbar/navbar';
 import { Footer } from './shared/components/footer/footer';
 import { DiagnosticModalComponent } from './shared/components/diagnostic-modal/diagnostic-modal.component';
@@ -13,11 +14,20 @@ import * as AOS from 'aos';
   styleUrl: './app.css',
 })
 export class AppComponent {
+  isMenusRoute = signal(false);
   title = 'arsa-landing';
 
-  constructor(public diagnosticService: DiagnosticService) {}
+  constructor(
+    public diagnosticService: DiagnosticService,
+    private router: Router,
+  ) {
+    this.router.events
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe((event) => this.isMenusRoute.set(event.url.startsWith('/menus')));
+  }
 
   ngOnInit() {
+    this.isMenusRoute.set(this.router.url.startsWith('/menus'));
     AOS.init({
       duration: 1000,
       once: true,
@@ -31,11 +41,5 @@ export class AppComponent {
 
   handleDiagnosticSubmit(data: any): void {
     console.log(data);
-
-    // Aquí luego:
-    // API
-    // email
-    // CRM
-    // etc
   }
 }

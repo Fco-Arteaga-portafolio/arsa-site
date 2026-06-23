@@ -1,22 +1,19 @@
-<!-- Contenedor Principal: Fondo Arsa Light y Tipografía Inter -->
 <div
   class="min-h-screen bg-arsa-light font-sans selection:bg-arsa-primary selection:text-white flex flex-col"
 >
-  <!-- 1. NAVBAR COMPONENT -->
-  <!-- Usamos fixed para que siempre esté visible y backdrop-blur para un look moderno -->
   <header class="fixed top-0 left-0 right-0 z-50">
     <app-navbar></app-navbar>
   </header>
 
-  <!-- Contenido dinámico (Landing o Privacidad) -->
   <main class="flex-1 pt-20">
     <router-outlet></router-outlet>
   </main>
 
-  <!-- 6. FOOTER COMPONENT -->
-  <footer class="border-t border-gray-200">
-    <app-footer></app-footer>
-  </footer>
+  @if (!isMenusRoute()) {
+    <footer class="border-t border-gray-200">
+      <app-footer></app-footer>
+    </footer>
+  }
 
   <app-diagnostic-modal
     [isOpen]="diagnosticService.isModalOpen()"
