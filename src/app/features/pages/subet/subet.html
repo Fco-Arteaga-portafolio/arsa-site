@@ -1,0 +1,281 @@
+<main>
+  <!-- Navigation Tabs -->
+  <nav class="sticky top-20 z-40 bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 flex gap-8">
+      <button
+        (click)="navigateTo('inicio')"
+        class="py-4 px-2 font-semibold"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'inicio',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'inicio',
+        }"
+      >
+        Inicio
+      </button>
+      <button
+        (click)="navigateTo('privacidad')"
+        class="py-4 px-2 font-semibold"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'privacidad',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'privacidad',
+        }"
+      >
+        Privacidad
+      </button>
+      <button
+        (click)="navigateTo('eliminar')"
+        class="py-4 px-2 font-semibold"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'eliminar',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'eliminar',
+        }"
+      >
+        Eliminar Cuenta
+      </button>
+    </div>
+  </nav>
+
+  <!-- Inicio Section -->
+  <section *ngIf="activeSection === 'inicio'" class="py-20 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <div
+          class="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-sm font-bold mb-6"
+        >
+          En Construcción
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black text-arsa-dark mb-6">Sube T</h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Plataforma de movilidad compartida y gestión de viajes diseñada para conectar pasajeros,
+          conductores independientes y administradores de flotas.
+        </p>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="grid md:grid-cols-2 gap-8 mb-16" data-aos="fade-up">
+        <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-all">
+          <div class="text-3xl mb-4">🚗</div>
+          <h3 class="text-2xl font-bold text-arsa-dark mb-3">Viajes Bajo Demanda y Programados</h3>
+          <p class="text-gray-600">
+            Solicita viajes en tiempo real o reserva tu asiento con anticipación en trayectos
+            programados de forma flexible.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-all">
+          <div class="text-3xl mb-4">💺</div>
+          <h3 class="text-2xl font-bold text-arsa-dark mb-3">Configuración Visual de Asientos</h3>
+          <p class="text-gray-600">
+            Interfaz interactiva para conductores y pasajeros que permite visualizar la distribución
+            interna del vehículo, bloquear o apartar lugares específicos.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-all">
+          <div class="text-3xl mb-4">🏢</div>
+          <h3 class="text-2xl font-bold text-arsa-dark mb-3">Administración de Flotas</h3>
+          <p class="text-gray-600">
+            Herramientas avanzadas para dar de alta múltiples vehículos, asignar conductores
+            calificados, gestionar disponibilidad y programar rutas optimizadas.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-all">
+          <div class="text-3xl mb-4">🛡️</div>
+          <h3 class="text-2xl font-bold text-arsa-dark mb-3">Seguridad y Reputación</h3>
+          <p class="text-gray-600">
+            Monitoreo de rutas en tiempo real, compartición de ubicación mediante enlaces temporales
+            y un sistema mutuo de calificaciones para mayor confianza.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center">
+        <p class="text-gray-600 mb-6">¿Interesado en Sube T?</p>
+        <button
+          (click)="diagnosticService.openModal()"
+          class="bg-orange-600 hover:bg-orange-500 text-white px-10 py-5 rounded-2xl font-black text-lg transition-all shadow-lg"
+        >
+          Solicitar Demostración
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacidad Section -->
+  <section *ngIf="activeSection === 'privacidad'" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-arsa-dark mb-2">Aviso de Privacidad</h1>
+      </div>
+      <p class="text-gray-600 mb-8">Última actualización: Junio 2026</p>
+
+      <div class="space-y-8 text-gray-700 leading-relaxed">
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            1. Información que recopilamos en Sube T
+          </h3>
+          <p>
+            Sube T recopila información personal como nombre, correo electrónico, número de teléfono
+            y datos de ubicación para que Sube T pueda funcionar correctamente. Esta información es
+            esencial para que Sube T brinde sus servicios.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">2. Uso de información en Sube T</h3>
+          <p>
+            Sube T utiliza tu información para proporcionar servicios de movilidad a través de Sube
+            T, mejorar nuestra plataforma Sube T, contactarte sobre actualizaciones de Sube T y
+            mantener la seguridad de tu cuenta en Sube T.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">3. Protección de datos en Sube T</h3>
+          <p>
+            Sube T implementa medidas de seguridad avanzadas, incluyendo encriptación de datos en
+            tránsito y en reposo, para proteger tu información personal dentro de Sube T.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">4. Compartir información de Sube T</h3>
+          <p>
+            Sube T no comparte tu información personal con terceros sin tu consentimiento, excepto
+            cuando es necesario para el funcionamiento del servicio de Sube T.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">5. Tus derechos en Sube T</h3>
+          <p>
+            Tienes derecho a acceder, corregir, actualizar o solicitar la eliminación de tu
+            información personal en Sube T en cualquier momento. Sube T respeta tus derechos.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            6. Duración de conservación de datos en Sube T
+          </h3>
+          <p>
+            Conservamos tus datos mientras tengas una cuenta activa en Sube T. Si solicitas la
+            eliminación de tu cuenta en Sube T, todos tus datos se borrarán en un plazo máximo de 20
+            días hábiles. Sube T no conservará información personal después de que hayas solicitado
+            la eliminación de tu cuenta en Sube T.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            7. Consentimiento y aceptación en Sube T
+          </h3>
+          <p>
+            Al utilizar Sube T, aceptas el tratamiento de tus datos conforme a este Aviso de
+            Privacidad de Sube T. Si no estás de acuerdo con las prácticas de privacidad de Sube T
+            descritas en este documento, no debes usar Sube T.
+          </p>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
+          <p class="text-sm text-gray-600">
+            Para más información sobre la privacidad en Sube T o ejercer tus derechos en Sube T,
+            contáctanos en
+            <span class="font-bold">contacto@ar-sa.com.mx</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eliminar Cuenta Section -->
+  <section *ngIf="activeSection === 'eliminar'" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-arsa-dark mb-2">Eliminar Cuenta</h1>
+      </div>
+
+      <div class="space-y-8">
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+          <h3 class="text-lg font-bold text-red-900 mb-2">⚠️ Acción irreversible en Sube T</h3>
+          <p class="text-red-800">
+            Eliminar tu cuenta de Sube T es una acción permanente. Se borrarán todos tus datos en
+            Sube T, historial de viajes de Sube T y configuraciones de Sube T.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold text-arsa-dark mb-6">
+            ¿Qué sucederá al eliminar tu cuenta de Sube T?
+          </h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span>
+              <span>Tu perfil de Sube T será desactivado inmediatamente</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span>
+              <span>Se eliminarán todos tus datos personales de Sube T</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span>
+              <span>No podrás acceder a tu historial de viajes en Sube T</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span>
+              <span>Se cancelarán todas tus suscripciones activas en Sube T</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold text-arsa-dark mb-4">
+            Proceso para eliminar tu cuenta en Sube T
+          </h3>
+          <ol class="space-y-4 text-gray-700">
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">1.</span>
+              <span>Accede a la configuración de tu cuenta de Sube T</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">2.</span>
+              <span>Selecciona "Eliminar cuenta de Sube T" en la sección de privacidad</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">3.</span>
+              <span>Confirma tu contraseña de Sube T para verificar tu identidad</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">4.</span>
+              <span>Revisa y acepta los términos de eliminación de Sube T</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">5.</span>
+              <span>Confirma la eliminación de tu cuenta en Sube T (no hay vuelta atrás)</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="text-center">
+          <p class="text-gray-600 mb-6">¿Necesitas ayuda antes de eliminar tu cuenta de Sube T?</p>
+          <button
+            (click)="diagnosticService.openModal()"
+            class="bg-arsa-primary hover:bg-arsa-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all"
+          >
+            Contactar soporte de Sube T
+          </button>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
+          <p class="text-sm text-gray-600">
+            También puedes eliminar tu cuenta de Sube T enviando un correo a
+            <span class="font-bold">contacto@ar-sa.com.mx</span> con tu solicitud de eliminación de
+            cuenta en Sube T.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,8 @@
+/* Estilos básicos para Aldama */
+:host {
+  display: block;
+}
+
+main {
+  min-height: 100vh;
+}

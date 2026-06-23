@@ -7,7 +7,8 @@ import { EcosistemasComponent } from './features/pages/ecosistemas/ecosistemas';
 import { IfratComponent } from './features/pages/ifrat/ifrat';
 import { IfratEmiteComponent } from './features/pages/ifrat-emite/ifrat-emite';
 import { DescargasComponent } from './features/pages/descargas/descargas';
-import { AldamaComponent } from './features/pages/aldama/aldama';
+import { SubetComponent } from './features/pages/subet/subet';
+import { PidefacilComponent } from './features/pages/pidefacil/pidefacil';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,10 @@ export const routes: Routes = [
     component: IfratComponent,
   },
   {
+    path: 'ifrat/:section',
+    component: IfratComponent,
+  },
+  {
     path: 'ifrat-emite',
     component: IfratEmiteComponent,
   },
@@ -43,11 +48,19 @@ export const routes: Routes = [
     component: DescargasComponent,
   },
   {
-    path: 'deliveryaldama',
-    component: AldamaComponent,
+    path: 'subet',
+    component: SubetComponent,
   },
   {
-    path: 'deliveryaldama/:section',
-    component: AldamaComponent,
+    path: 'subet/:section',
+    component: SubetComponent,
+  },
+  {
+    path: 'pidefacil',
+    component: PidefacilComponent,
+  },
+  {
+    path: 'pidefacil/:section',
+    component: PidefacilComponent,
   },
 ];

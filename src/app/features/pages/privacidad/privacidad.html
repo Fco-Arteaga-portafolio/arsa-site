@@ -1,0 +1,529 @@
+<div class="bg-gradient-to-b from-slate-900 via-slate-800 to-black" data-aos="fade-up">
+  <!-- Botón de retorno flotante -->
+  <div class="sticky top-20 z-40 mb-8 pt-8 max-w-4xl mx-auto px-6" data-aos="fade-down">
+    <button
+      (click)="goBack()"
+      class="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M19 12H5M12 19l-7-7 7-7" />
+      </svg>
+      Volver al Inicio
+    </button>
+  </div>
+
+  <!-- Contenido Principal -->
+  <main class="pb-20 max-w-4xl mx-auto px-6">
+    <!-- Introducción -->
+    <section class="mb-12 p-8 rounded-xl bg-blue-600/10 border border-blue-500/30" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-3xl font-bold text-white mb-4">Protección de tus Datos Personales</h2>
+      <p class="text-slate-300 leading-relaxed">
+        En <strong>AR-SA</strong> (Enterprise Software), respetamos tu privacidad y estamos
+        comprometidos con la protección de tus datos personales conforme a la
+        <strong
+          >Ley Federal de Protección de Datos Personales en Posesión de Particulares
+          (LFPDPPP)</strong
+        >
+        y sus disposiciones reglamentarias.
+      </p>
+    </section>
+
+    <!-- 1. IDENTIDAD DEL RESPONSABLE -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          1
+        </span>
+        Identidad del Responsable
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300 space-y-3">
+        <p><strong class="text-white">Razón Social:</strong> ARSA Enterprise Software</p>
+        <p><strong class="text-white">Correo:</strong> contacto@ar-sa.com.mx</p>
+        <p>
+          <strong class="text-white">Actividad Principal:</strong> Desarrollo de software
+          empresarial
+        </p>
+        <p>
+          El responsable del tratamiento de tus datos personales es ARSA, quien actúa bajo los
+          principios de licitud, consentimiento, información, calidad, proporcionalidad y
+          responsabilidad.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. DATOS PERSONALES QUE RECABAMOS -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          2
+        </span>
+        Datos Personales que Recabamos
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300">
+        <p class="mb-4">
+          Recabamos y procesamos los siguientes datos personales que nos proporcionas directamente:
+        </p>
+        <ul class="space-y-2 ml-4">
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span
+              ><strong>Datos de identificación:</strong> Nombre completo, cédula profesional</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span
+              ><strong>Datos de contacto:</strong> Correo electrónico, número telefónico,
+              domicilio</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span><strong>Datos laborales:</strong> Puesto, empresa, sector económico</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span
+              ><strong>Datos financieros:</strong> Información bancaria para pagos y
+              facturación</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span
+              ><strong>Datos de navegación:</strong> Dirección IP, cookies, historial de
+              navegación</span
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. FINALIDADES DEL TRATAMIENTO -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          3
+        </span>
+        Finalidades del Tratamiento
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300">
+        <p class="mb-4"><strong class="text-white">Finalidades Primarias:</strong></p>
+        <ul class="space-y-2 ml-4 mb-6">
+          <li class="flex gap-3">
+            <span class="text-green-400">→</span>
+            <span>Prestación de servicios de consultoría y desarrollo de software</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-green-400">→</span>
+            <span>Facturación, cobranza y gestión de pagos</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-green-400">→</span>
+            <span>Comunicación sobre servicios, actualizaciones y cambios</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-green-400">→</span>
+            <span>Cumplimiento de obligaciones fiscales y legales</span>
+          </li>
+        </ul>
+
+        <p class="mb-4"><strong class="text-white">Finalidades Secundarias:</strong></p>
+        <ul class="space-y-2 ml-4">
+          <li class="flex gap-3">
+            <span class="text-purple-400">→</span>
+            <span>Análisis de comportamiento para mejorar nuestros servicios</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-purple-400">→</span>
+            <span>Envío de información comercial, promociones y ofertas</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-purple-400">→</span>
+            <span>Evaluación de satisfacción del cliente</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. DERECHOS ARCO -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-orange-600 text-white font-bold"
+        >
+          ARCO
+        </span>
+        Tus Derechos ARCO
+      </h3>
+
+      <!-- Acceso -->
+      <div class="mb-6 bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+        <div class="bg-orange-600/20 border-b border-orange-600/50 p-4">
+          <h4 class="text-xl font-bold text-orange-400">
+            <span class="inline-block mr-3">📖</span> Derecho de Acceso
+          </h4>
+        </div>
+        <div class="p-6 text-slate-300">
+          <p class="mb-3">
+            Tienes derecho a <strong>acceder y conocer tus datos personales</strong> que tratamos,
+            así como los detalles de su tratamiento.
+          </p>
+          <p class="text-sm text-slate-400">
+            Puedes solicitar una copia de tus datos en formato accesible.
+          </p>
+        </div>
+      </div>
+
+      <!-- Rectificación -->
+      <div class="mb-6 bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+        <div class="bg-blue-600/20 border-b border-blue-600/50 p-4">
+          <h4 class="text-xl font-bold text-blue-400">
+            <span class="inline-block mr-3">✏️</span> Derecho de Rectificación
+          </h4>
+        </div>
+        <div class="p-6 text-slate-300">
+          <p class="mb-3">
+            Puedes
+            <strong
+              >solicitar la corrección de datos incompletos, inexactos o desactualizados</strong
+            >
+            que tenemos de ti.
+          </p>
+          <p class="text-sm text-slate-400">
+            Haremos la corrección en un plazo de 20 días hábiles.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cancelación -->
+      <div class="mb-6 bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+        <div class="bg-red-600/20 border-b border-red-600/50 p-4">
+          <h4 class="text-xl font-bold text-red-400">
+            <span class="inline-block mr-3">🗑️</span> Derecho de Cancelación
+          </h4>
+        </div>
+        <div class="p-6 text-slate-300">
+          <p class="mb-3">
+            Puedes <strong>solicitar la eliminación de tus datos personales</strong> siempre que ya
+            no sean necesarios para las finalidades establecidas.
+          </p>
+          <p class="text-sm text-slate-400">
+            La cancelación será procesada en un plazo de 20 días hábiles, excepto cuando existan
+            obligaciones legales de conservación.
+          </p>
+        </div>
+      </div>
+
+      <!-- Oposición -->
+      <div class="mb-6 bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+        <div class="bg-yellow-600/20 border-b border-yellow-600/50 p-4">
+          <h4 class="text-xl font-bold text-yellow-400">
+            <span class="inline-block mr-3">⛔</span> Derecho de Oposición
+          </h4>
+        </div>
+        <div class="p-6 text-slate-300">
+          <p class="mb-3">
+            Puedes
+            <strong>oponerteEste derecho te permite oponerte al tratamiento de tus datos</strong>,
+            especialmente a finalidades secundarias como marketing y análisis comercial.
+          </p>
+          <p class="text-sm text-slate-400">
+            La oposición será procesada considerando tus derechos e intereses legítimos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CÓMO EJERCER TUS DERECHOS ARCO -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 text-white font-bold"
+        >
+          5
+        </span>
+        Cómo Ejercer tus Derechos ARCO
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300">
+        <p class="mb-6">
+          Para ejercer cualquiera de tus derechos ARCO, envíanos tu solicitud incluyendo:
+        </p>
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center text-green-400 font-bold"
+            >
+              1
+            </div>
+            <div>
+              <p class="font-semibold text-white mb-1">Correo electrónico</p>
+              <p class="text-base">
+                Envía tu solicitud a: <strong class="text-blue-400">privacidad@ar-sa.com.mx</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center text-green-400 font-bold"
+            >
+              2
+            </div>
+            <div>
+              <p class="font-semibold text-white mb-1">Datos requeridos</p>
+              <p>
+                Nombre completo, correo electrónico, tipo de solicitud (Acceso, Rectificación,
+                Cancelación u Oposición)
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center text-green-400 font-bold"
+            >
+              3
+            </div>
+            <div>
+              <p class="font-semibold text-white mb-1">Identificación</p>
+              <p>
+                Incluye copia de identificación oficial para verificar tu identidad (INE, pasaporte
+                o cédula profesional)
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center text-green-400 font-bold"
+            >
+              4
+            </div>
+            <div>
+              <p class="font-semibold text-white mb-1">Descripción detallada</p>
+              <p>Explica claramente qué datos deseas acceder, rectificar, cancelar u oponerter</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-blue-600/10 border border-blue-500/30 rounded-lg">
+          <p class="text-sm text-slate-300">
+            <strong class="text-blue-400">Plazo de respuesta:</strong> Responderemos a tu solicitud
+            en un plazo de <strong>20 días hábiles</strong> contados a partir de la recepción de tu
+            solicitud.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SEGURIDAD DE TUS DATOS -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          6
+        </span>
+        Seguridad de tus Datos
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300">
+        <p class="mb-4">
+          Implementamos medidas de seguridad administrativas, técnicas y físicas para proteger tus
+          datos personales contra:
+        </p>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 ml-4">
+          <li class="flex gap-2">
+            <span class="text-blue-400">🔒</span>
+            <span>Acceso no autorizado</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-blue-400">🔒</span>
+            <span>Alteración o destrucción</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-blue-400">🔒</span>
+            <span>Pérdida, robo o mal uso</span>
+          </li>
+          <li class="flex gap-2">
+            <span class="text-blue-400">🔒</span>
+            <span>Divulgación no autorizada</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. COMPARTICIÓN DE DATOS -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          7
+        </span>
+        Compartición de Datos
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300">
+        <p class="mb-4">
+          Tus datos personales <strong>no serán compartidos con terceros</strong> sin tu
+          consentimiento previo, excepto cuando sea necesario para:
+        </p>
+        <ul class="space-y-2 ml-4">
+          <li class="flex gap-3">
+            <span class="text-slate-500">•</span>
+            <span>Cumplir con obligaciones legales o fiscales</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-slate-500">•</span>
+            <span
+              >Prestar los servicios contratados (integradores de sistemas, proveedores de
+              tecnología)</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-slate-500">•</span>
+            <span>Orden de autoridad competente</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. RETENCIÓN DE DATOS -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          8
+        </span>
+        Retención de Datos
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300">
+        <p>
+          Conservaremos tus datos personales durante el tiempo necesario para cumplir con las
+          finalidades establecidas, o mientras la ley lo requiera. En general:
+        </p>
+        <ul class="space-y-2 ml-4 mt-4">
+          <li class="flex gap-3">
+            <span class="text-slate-500">•</span>
+            <span
+              ><strong>Datos de contacto:</strong> Mientras exista la relación contractual + 5
+              años</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-slate-500">•</span>
+            <span><strong>Datos fiscales:</strong> Conforme a obligaciones legales (5 años)</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-slate-500">•</span>
+            <span><strong>Datos de navegación:</strong> Máximo 24 meses</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9. CAMBIOS EN EL AVISO DE PRIVACIDAD -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          9
+        </span>
+        Cambios en el Aviso de Privacidad
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300">
+        <p>
+          Nos reservamos el derecho de modificar este aviso de privacidad en cualquier momento. Las
+          modificaciones serán comunicadas mediante actualización en nuestra página web. Tu uso
+          continuado del sitio implica aceptación de los cambios.
+        </p>
+      </div>
+    </section>
+
+    <!-- 10. INFORMACIÓN DE CONTACTO -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          10
+        </span>
+        Información de Contacto
+      </h3>
+      <div class="bg-blue-600/10 border border-blue-500/30 rounded-lg p-6 text-slate-300">
+        <p class="mb-4"><strong class="text-white">Encargado de Privacidad:</strong></p>
+        <div class="space-y-2 ml-4">
+          <p>
+            <strong class="text-white">Email:</strong>
+            <span class="text-blue-400">privacidad@ar-sa.com.mx</span>
+          </p>
+          <p>
+            <strong class="text-white">Correo físico:</strong> Contacto disponible en la sección de
+            contacto de nuestro sitio web
+          </p>
+        </div>
+
+        <p class="mt-6 mb-4 font-semibold text-white">Si tienes quejas o inconformidades:</p>
+        <div class="ml-4 space-y-2">
+          <p class="text-slate-400">
+            Puedes presentar una queja ante el
+            <strong
+              >Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos
+              Personales (INAI)</strong
+            >
+          </p>
+          <p class="text-slate-500 text-sm">
+            Sitio web:
+            <a
+              href="https://www.gob.mx/inai"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-300"
+            >
+              www.gob.mx/inai
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fecha de última actualización -->
+    <div class="text-center pt-8 border-t border-slate-700 text-slate-500 text-sm">
+      <p>Última actualización: Mayo de 2026</p>
+    </div>
+
+    <!-- Botón de retorno final -->
+    <div class="flex justify-center mt-12">
+      <button
+        (click)="goBack()"
+        class="px-8 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-lg shadow-blue-950/30 flex items-center gap-2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Volver al Inicio
+      </button>
+    </div>
+  </main>
+</div>

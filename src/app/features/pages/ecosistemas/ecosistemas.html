@@ -1,0 +1,82 @@
+<main>
+  <section
+    class="relative py-32 bg-gradient-to-b from-arsa-light to-white overflow-hidden"
+    data-aos="fade-up"
+  >
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-arsa-primary rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-arsa-accent rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <!-- Header with back button -->
+      <div class="mb-16" data-aos="fade-down">
+        <!--    <button
+          (click)="goBack()"
+          class="mb-8 px-6 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-arsa-dark transition-all border border-arsa-primary/20"
+        >
+          ← Volver
+        </button>
+-->
+        <div class="text-center mb-12">
+          <h1
+            class="text-5xl md:text-7xl font-black text-arsa-dark mb-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Nuestro Ecosistema
+          </h1>
+          <p
+            class="text-xl text-gray-600 max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Soluciones empresariales integradas para modernizar tu operación
+          </p>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <app-producto-card
+          *ngFor="let producto of productos; let i = index"
+          [producto]="producto"
+          [attr.data-aos]="'zoom-in'"
+          [attr.data-aos-delay]="i * 100"
+        ></app-producto-card>
+      </div>
+
+      <!-- Integration Section -->
+      <div class="mt-24 pt-16 border-t border-gray-200" data-aos="fade-up">
+        <div class="text-center mb-12">
+          <h3 class="text-3xl font-black text-arsa-dark mb-4">Potenciados por AR-SA</h3>
+          <p class="text-gray-600 text-lg">
+            Todos nuestros productos cuentan con soporte profesional
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center bg-white rounded-xl p-8 border border-gray-200"
+        >
+          <div>
+            <div class="text-3xl mb-2">🔒</div>
+            <p class="font-bold text-arsa-dark">Seguridad</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">⚡</div>
+            <p class="font-bold text-arsa-dark">Rendimiento</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">🔗</div>
+            <p class="font-bold text-arsa-dark">Integración</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">📞</div>
+            <p class="font-bold text-arsa-dark">Soporte</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

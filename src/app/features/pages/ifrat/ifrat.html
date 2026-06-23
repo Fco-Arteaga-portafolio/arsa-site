@@ -1,0 +1,570 @@
+<main>
+  <!-- Navigation Tabs -->
+  <nav class="ifrat-tabs-nav">
+    <div class="ifrat-tabs-container">
+      <button (click)="navigateTo('inicio')" [ngClass]="{ active: activeSection === 'inicio' }">
+        Inicio
+      </button>
+      <button
+        (click)="navigateTo('funcionalidades')"
+        [ngClass]="{ active: activeSection === 'funcionalidades' }"
+      >
+        Funcionalidades
+      </button>
+      <button (click)="navigateTo('precios')" [ngClass]="{ active: activeSection === 'precios' }">
+        Precios
+      </button>
+      <button
+        (click)="navigateTo('preguntas')"
+        [ngClass]="{ active: activeSection === 'preguntas' }"
+      >
+        Preguntas Frecuentes
+      </button>
+      <button
+        (click)="navigateTo('requisitos')"
+        [ngClass]="{ active: activeSection === 'requisitos' }"
+      >
+        Requisitos
+      </button>
+      <button
+        (click)="navigateTo('privacidad')"
+        [ngClass]="{ active: activeSection === 'privacidad' }"
+      >
+        Privacidad
+      </button>
+      <button (click)="navigateTo('descarga')" [ngClass]="{ active: activeSection === 'descarga' }">
+        Descarga
+      </button>
+      <button (click)="navigateTo('eliminar')" [ngClass]="{ active: activeSection === 'eliminar' }">
+        Eliminar Cuenta
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== INICIO ===== -->
+  <section *ngIf="activeSection === 'inicio'" class="ifrat-container">
+    <header class="hero" data-aos="fade-up">
+      <div class="container">
+        <span class="badge" data-aos="fade-up" data-aos-delay="100"
+          >SISTEMA DE GRADO PROFESIONAL</span
+        >
+        <h1 data-aos="fade-up" data-aos-delay="200">
+          Todo lo que necesitas del SAT, <br /><span class="gradient-text"
+            >en tu propia computadora.</span
+          >
+        </h1>
+        <p class="subheadline">
+          Administración Tributaria de alto nivel diseñada para México.
+          <strong>Sin suscripciones mensuales, sin nubes, sin riesgos.</strong>
+        </p>
+        <div class="software-frame">
+          <div class="window-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+          </div>
+          <img src="/dashboard-ifrat.png" alt="Dashboard IFRAT" class="main-screenshot" />
+        </div>
+      </div>
+    </header>
+
+    <section id="soluciones" class="pain-section" data-aos="fade-up">
+      <div class="container">
+        <div class="section-title"><h2>Sabemos lo que es lidiar con el SAT</h2></div>
+        <div class="pain-grid">
+          <div class="pain-item" data-aos="fade-up" data-aos-delay="100">
+            <span>01</span>
+            <p>
+              ¿Sigues entrando manualmente al portal del SAT para descargar facturas?
+              <strong>Recupera esas horas perdidas.</strong>
+            </p>
+          </div>
+          <div class="pain-item" data-aos="fade-up" data-aos-delay="200">
+            <span>02</span>
+            <p>
+              El miedo a que un proveedor caiga en <strong>lista negra (69-B)</strong> es real.
+              IFRAT lo detecta por ti.
+            </p>
+          </div>
+          <div class="pain-item" data-aos="fade-up" data-aos-delay="300">
+            <span>03</span>
+            <p>
+              No saber cuánto IVA pagarás hasta el último día genera estrés.
+              <strong>Ten el control total hoy.</strong>
+            </p>
+          </div>
+          <div class="pain-item" data-aos="fade-up" data-aos-delay="400">
+            <span>04</span>
+            <p>
+              Tus datos son sensibles. Enviar XMLs a terceros es un riesgo que
+              <strong>no tienes por qué correr.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfiles" class="profiles-section" data-aos="fade-up">
+      <div class="container grid-2">
+        <div class="profile-card" data-aos="fade-right" data-aos-delay="100">
+          <h3>Para el Contador</h3>
+          <p class="profile-lead">Maximiza la rentabilidad de tu despacho.</p>
+          <ul class="check-list">
+            <li>Descarga masiva Multi-RFC en minutos.</li>
+            <li>Reportes en Excel listos para el cliente.</li>
+            <li>Organización automática por mes y tipo.</li>
+            <li>Detección preventiva de riesgos fiscales.</li>
+          </ul>
+        </div>
+        <div class="profile-card" data-aos="fade-left" data-aos-delay="100">
+          <h3>Para el Empresario</h3>
+          <p class="profile-lead">Duerme tranquilo con el control de tu PYME.</p>
+          <ul class="check-list">
+            <li>Visualiza ingresos y egresos sin saber contabilidad.</li>
+            <li>Proyecta tus impuestos antes del cierre.</li>
+            <li>Catálogo de clientes y proveedores automático.</li>
+            <li>Privacidad absoluta: tus datos no salen de tu PC.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="roi-section" id="costo" data-aos="fade-up">
+      <div class="container">
+        <div class="roi-content">
+          <h2>¿Cuánto te cuesta NO tener IFRAT?</h2>
+          <div class="roi-grid">
+            <div class="roi-stat">
+              <span class="big-number">3-5</span>
+              <p>Horas al mes perdidas por cada cliente</p>
+            </div>
+            <div class="roi-text">
+              <p>
+                Un contador que descarga XMLs manualmente pierde valioso tiempo operativo. A $100
+                pesos la hora, eso son <strong>$300-$500 MXN de tiempo perdido</strong> por cada
+                RFC, cada mes.
+              </p>
+              <p class="roi-highlight">
+                IFRAT cuesta menos que una hora de tu tiempo y trabaja las 24 horas del año.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecosystem" data-aos="fade-up">
+      <div class="container">
+        <div class="section-title"><h2 style="color: white">El ecosistema fiscal completo</h2></div>
+        <div class="eco-grid">
+          <div class="eco-card" data-aos="fade-right" data-aos-delay="100">
+            <h4>IFRAT Desktop</h4>
+            <p>Descarga y analiza tus CFDIs. Para el contador en la oficina.</p>
+            <span class="tag-here">Estás aquí ✓</span>
+          </div>
+          <div class="eco-card current" data-aos="fade-left" data-aos-delay="100">
+            <h4>IFRAT Emite</h4>
+            <p>Emite desde donde estés. Para el empresario en campo.</p>
+            <a href="#" class="btn-outline">Conocer Emite</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-final" data-aos="fade-up">
+      <div class="container">
+        <h2>
+          El SAT ya tiene tus datos procesados. <br />Es momento de que tú también los tengas.
+        </h2>
+        <p>Únete a los primeros 100 fundadores y obtén 40% de descuento tu primer año.</p>
+        <div class="urgency-counter">
+          Solo quedan <strong>42 licencias</strong> con precio de fundador
+        </div>
+        <a href="#precios" class="btn-main">Adquirir IFRAT Ahora →</a>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===== FUNCIONALIDADES ===== -->
+  <section *ngIf="activeSection === 'funcionalidades'" class="ifrat-container">
+    <section class="features-grid-section" data-aos="fade-up">
+      <div class="container">
+        <div class="section-title"><h2>Potencia y Simplicidad</h2></div>
+        <div class="features-grid">
+          <div class="f-item" data-aos="zoom-in" data-aos-delay="100">
+            <i>📥</i>
+            <h4>Descarga Masiva SAT</h4>
+            <p>Conexión directa vía CIEC/FIEL sin entrar al portal.</p>
+          </div>
+          <div class="f-item" data-aos="zoom-in" data-aos-delay="200">
+            <i>🏢</i>
+            <h4>Multi-RFC</h4>
+            <p>Gestiona múltiples contribuyentes con datos aislados.</p>
+          </div>
+          <div class="f-item" data-aos="zoom-in" data-aos-delay="300">
+            <i>📁</i>
+            <h4>Importación Local</h4>
+            <p>Procesa años de historial XML en segundos.</p>
+          </div>
+          <div class="f-item" data-aos="zoom-in" data-aos-delay="400">
+            <i>📊</i>
+            <h4>Dashboard BI</h4>
+            <p>KPIs visuales y flujo de efectivo anual.</p>
+          </div>
+          <div class="f-item" data-aos="zoom-in" data-aos-delay="500">
+            <i>📇</i>
+            <h4>Catálogos Automáticos</h4>
+            <p>Directorios creados a partir de tus CFDIs.</p>
+          </div>
+          <div class="f-item" data-aos="zoom-in" data-aos-delay="600">
+            <i>📄</i>
+            <h4>PDF del CFDI</h4>
+            <p>Genera representaciones impresas profesionales.</p>
+          </div>
+          <div class="f-item" data-aos="zoom-in" data-aos-delay="700">
+            <i>📗</i>
+            <h4>Exportar Excel</h4>
+            <p>Análisis profundo con más de 27 columnas.</p>
+          </div>
+          <div class="f-item soon" data-aos="zoom-in" data-aos-delay="800">
+            <i>📜</i>
+            <h4>Opinión de Cumplimiento</h4>
+            <p>Descarga masiva de estatus del SAT.</p>
+          </div>
+          <div class="f-item soon" data-aos="zoom-in" data-aos-delay="900">
+            <i>🛡️</i>
+            <h4>Radar 69-B</h4>
+            <p>Escudo contra empresas facturadoras.</p>
+          </div>
+          <div class="f-item soon" data-aos="zoom-in" data-aos-delay="1000">
+            <i>📧</i>
+            <h4>Buzón Tributario</h4>
+            <p>Notificaciones y alertas preventivas del SAT.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===== PRECIOS ===== -->
+  <section *ngIf="activeSection === 'precios'" class="ifrat-container">
+    <section class="pricing" data-aos="fade-up">
+      <div class="container">
+        <div class="pricing-title">
+          <h2>Configura tu Licencia IFRAT</h2>
+          <div class="founder-badge">
+            🔥 BENEFICIO DE FUNDADOR: Descuento por volumen activado permanentemente
+          </div>
+        </div>
+        <div class="calculator-wrapper">
+          <div class="calc-controls">
+            <div class="control-item">
+              <label>Licencia Base Anual <span>$1,200</span></label>
+              <p>Acceso total al sistema IFRAT (Win/Mac/Linux).</p>
+            </div>
+            <div class="control-item">
+              <div class="label-box">
+                <label>RFCs Adicionales</label>
+                <span id="rfc-num">{{ rfcCount }}</span>
+              </div>
+              <div id="rfc-save-tag" class="tag-save">Ahorro: {{ savingsPercent }}</div>
+            </div>
+            <div class="control-item">
+              <div class="label-box">
+                <label>Equipos (Instalaciones)</label>
+                <span id="mac-num">{{ machineCount }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="calc-total-card">
+            <h3>Resumen de Inversión</h3>
+            <div class="line">
+              <span>Subtotal</span> <span id="st-val">{{ subtotal }}</span>
+            </div>
+            <div class="line green">
+              <span>Ahorro aplicado</span> <span id="sv-val">{{ savings }}</span>
+            </div>
+            <div class="line-total">
+              <span>Total Anual</span> <span id="tt-val">{{ total }}</span>
+            </div>
+            <p class="iva-note">
+              Precios totales con IVA incluido. Facturación inmediata disponible.
+            </p>
+            <a href="#" class="btn-select active">Adquirir Licencia IFRAT</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===== PREGUNTAS FRECUENTES ===== -->
+  <section *ngIf="activeSection === 'preguntas'" class="ifrat-container">
+    <section class="faq" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <div class="faq-grid">
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <h4>¿Necesito internet?</h4>
+            <p>Solo para la descarga del SAT. El análisis y reportes funcionan 100% offline.</p>
+          </div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <h4>¿Mis claves SAT están seguras?</h4>
+            <p>Sí. IFRAT se instala localmente. Todo se cifra y guarda en tu disco duro.</p>
+          </div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <h4>¿Qué pasa si no renuevo mi licencia?</h4>
+            <p>
+              Conservas acceso a tus facturas e historial descargado. Sin embargo, la descarga de
+              nuevos CFDIs e importación de XMLs requieren licencia activa.
+            </p>
+          </div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <h4>¿El precio de fundador se mantiene al renovar?</h4>
+            <p>
+              Aplica el primer año. Las renovaciones se realizan al precio vigente publicado, que
+              puede ser mayor. Te avisaremos con 30 días de anticipación.
+            </p>
+          </div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+            <h4>¿Las actualizaciones tienen costo extra?</h4>
+            <p>
+              No. Todas las mejoras están incluidas mientras tu licencia esté activa. El SAT cambia
+              constantemente — IFRAT se actualiza contigo.
+            </p>
+          </div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+            <h4>¿Funciona con e.firma?</h4>
+            <p>Totalmente compatible con archivos .cer, .key y contraseña CIEC.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===== REQUISITOS ===== -->
+  <section *ngIf="activeSection === 'requisitos'" class="ifrat-container">
+    <section class="requirements" data-aos="fade-up">
+      <div class="container">
+        <h3>Requisitos del sistema</h3>
+        <div class="req-grid">
+          <div class="req-item">✓ Windows 10 u 11 (64 bits)</div>
+          <div class="req-item">✓ 8GB de RAM</div>
+          <div class="req-item">✓ 2GB de espacio libre en disco</div>
+          <div class="req-item">✓ Conexión a internet solo para descarga del SAT</div>
+        </div>
+        <p class="req-note">
+          <em
+            >IFRAT está optimizado para trabajar con hasta 10 RFCs por equipo, garantizando
+            velocidad y estabilidad sin importar las especificaciones de tu computadora.</em
+          >
+        </p>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===== PRIVACIDAD ===== -->
+  <section *ngIf="activeSection === 'privacidad'" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-arsa-dark mb-2">Aviso de Privacidad</h1>
+      </div>
+      <p class="text-gray-600 mb-8">Última actualización: Junio 2026</p>
+      <div class="space-y-8 text-gray-700 leading-relaxed">
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            1. Información que recopilamos en IFRAT Desktop
+          </h3>
+          <p>
+            IFRAT Desktop recopila información personal como nombre, correo electrónico, número de
+            teléfono y datos de ubicación para que IFRAT Desktop pueda funcionar correctamente. Esta
+            información es esencial para que IFRAT Desktop brinde sus servicios.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            2. Uso de información en IFRAT Desktop
+          </h3>
+          <p>
+            IFRAT Desktop utiliza tu información para proporcionar servicios de gestión fiscal a
+            través de IFRAT Desktop, mejorar nuestra plataforma IFRAT Desktop, contactarte sobre
+            actualizaciones de IFRAT Desktop y mantener la seguridad de tu cuenta en IFRAT Desktop.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            3. Protección de datos en IFRAT Desktop
+          </h3>
+          <p>
+            IFRAT Desktop implementa medidas de seguridad avanzadas, incluyendo encriptación de
+            datos en tránsito y en reposo, para proteger tu información personal dentro de IFRAT
+            Desktop.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            4. Compartir información de IFRAT Desktop
+          </h3>
+          <p>
+            IFRAT Desktop no comparte tu información personal con terceros sin tu consentimiento,
+            excepto cuando es necesario para el funcionamiento del servicio de IFRAT Desktop.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">5. Tus derechos en IFRAT Desktop</h3>
+          <p>
+            Tienes derecho a acceder, corregir, actualizar o solicitar la eliminación de tu
+            información personal en IFRAT Desktop en cualquier momento. IFRAT Desktop respeta tus
+            derechos.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            6. Duración de conservación de datos en IFRAT Desktop
+          </h3>
+          <p>
+            Conservamos tus datos mientras tengas una cuenta activa en IFRAT Desktop. Si solicitas
+            la eliminación de tu cuenta en IFRAT Desktop, todos tus datos se borrarán en un plazo
+            máximo de 20 días hábiles.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            7. Consentimiento y aceptación en IFRAT Desktop
+          </h3>
+          <p>
+            Al utilizar IFRAT Desktop, aceptas el tratamiento de tus datos conforme a este Aviso de
+            Privacidad de IFRAT Desktop. Si no estás de acuerdo con las prácticas de privacidad de
+            IFRAT Desktop descritas en este documento, no debes usar IFRAT Desktop.
+          </p>
+        </div>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
+          <p class="text-sm text-gray-600">
+            Para más información contáctanos en <span class="font-bold">contacto@ar-sa.com.mx</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ELIMINAR CUENTA ===== -->
+  <section *ngIf="activeSection === 'eliminar'" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-arsa-dark mb-2">Eliminar Cuenta</h1>
+      </div>
+      <div class="space-y-8">
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+          <h3 class="text-lg font-bold text-red-900 mb-2">
+            ⚠️ Acción irreversible en IFRAT Desktop
+          </h3>
+          <p class="text-red-800">
+            Eliminar tu cuenta de IFRAT Desktop es una acción permanente. Se borrarán todos tus
+            datos en IFRAT Desktop, historial de procesos de IFRAT Desktop y configuraciones de
+            IFRAT Desktop.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold text-arsa-dark mb-6">
+            ¿Qué sucederá al eliminar tu cuenta de IFRAT Desktop?
+          </h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span
+              ><span>Tu perfil de IFRAT Desktop será desactivado inmediatamente</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span
+              ><span>Se eliminarán todos tus datos personales de IFRAT Desktop</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span
+              ><span>No podrás acceder a tu historial de procesos en IFRAT Desktop</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span
+              ><span>Se cancelarán todas tus suscripciones activas en IFRAT Desktop</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold text-arsa-dark mb-4">
+            Proceso para eliminar tu cuenta en IFRAT Desktop
+          </h3>
+          <ol class="space-y-4 text-gray-700">
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">1.</span
+              ><span>Accede a la configuración de tu cuenta de IFRAT Desktop</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">2.</span
+              ><span
+                >Selecciona "Eliminar cuenta de IFRAT Desktop" en la sección de privacidad</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">3.</span
+              ><span>Confirma tu contraseña de IFRAT Desktop para verificar tu identidad</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">4.</span
+              ><span>Revisa y acepta los términos de eliminación de IFRAT Desktop</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">5.</span
+              ><span
+                >Confirma la eliminación de tu cuenta en IFRAT Desktop (no hay vuelta atrás)</span
+              >
+            </li>
+          </ol>
+        </div>
+        <div class="text-center">
+          <p class="text-gray-600 mb-6">
+            ¿Necesitas ayuda antes de eliminar tu cuenta de IFRAT Desktop?
+          </p>
+          <button
+            (click)="diagnosticService.openModal()"
+            class="bg-arsa-primary hover:bg-arsa-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all"
+          >
+            Contactar soporte de IFRAT Desktop
+          </button>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
+          <p class="text-sm text-gray-600">
+            También puedes eliminar tu cuenta enviando un correo a
+            <span class="font-bold">contacto@ar-sa.com.mx</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== DESCARGA ===== -->
+  <section *ngIf="activeSection === 'descarga'" class="ifrat-container">
+    <div class="container download-container" data-aos="fade-up">
+      <h1 data-aos="fade-down">Descarga IFRAT para tu equipo</h1>
+      <p class="version-tag" data-aos="fade-up" data-aos-delay="100">{{ versionTag }}</p>
+
+      <div class="download-grid">
+        <div
+          class="dl-card"
+          *ngFor="let download of downloads; let i = index"
+          [attr.data-aos]="'zoom-in'"
+          [attr.data-aos-delay]="i * 150"
+        >
+          <h3>{{ download.platform }}</h3>
+          <p>{{ download.format }}</p>
+          <a *ngIf="download.isAvailable" [href]="download.url || '#'" class="dl-button" download>
+            Descargar ahora
+          </a>
+          <button *ngIf="download.isLoading" class="dl-button loading" disabled>Cargando...</button>
+          <button
+            *ngIf="!download.isLoading && !download.isAvailable"
+            class="dl-button unavailable"
+            disabled
+          >
+            No disponible
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,606 @@
+<div class="bg-gradient-to-b from-slate-900 via-slate-800 to-black" data-aos="fade-up">
+  <!-- Botón de retorno flotante -->
+  <div class="sticky top-20 z-40 mb-8 pt-8 max-w-4xl mx-auto px-6" data-aos="fade-down">
+    <button
+      (click)="goBack()"
+      class="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium transition-all"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M19 12H5M12 19l-7-7 7-7" />
+      </svg>
+      Volver al Inicio
+    </button>
+  </div>
+
+  <!-- Contenido Principal -->
+  <main class="pb-20 max-w-4xl mx-auto px-6">
+    <!-- Introducción -->
+    <section class="mb-12 p-8 rounded-xl bg-red-600/10 border border-red-500/30" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-3xl font-bold text-white mb-4">Solicitud de Eliminación de Cuenta</h2>
+      <p class="text-slate-300 leading-relaxed">
+        Entendemos que a veces los usuarios necesitan eliminar sus cuentas. Te proporcionamos un
+        proceso claro, seguro y transparente para hacerlo. Esta página cumple con los requisitos de
+        <strong>Google Play Store</strong> y <strong>Apple App Store</strong> para la eliminación de
+        datos personales.
+      </p>
+    </section>
+
+    <!-- Información Importante -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-red-600 text-white font-bold"
+        >
+          ⚠️
+        </span>
+        Antes de Continuar
+      </h3>
+      <div class="bg-red-600/10 border border-red-500/30 rounded-lg p-6 text-slate-300 space-y-4">
+        <p class="font-semibold text-red-400">Por favor, ten en cuenta lo siguiente:</p>
+        <ul class="space-y-3 ml-4">
+          <li class="flex gap-3">
+            <span class="text-red-400 font-bold">●</span>
+            <span
+              ><strong class="text-white">La eliminación es permanente.</strong> No podrás recuperar
+              tu cuenta, datos, historial ni suscripciones después de la eliminación.</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-red-400 font-bold">●</span>
+            <span
+              ><strong class="text-white">Se eliminarán todos tus datos personales</strong> de
+              nuestros servidores, excepto aquellos que estamos legalmente obligados a
+              conservar.</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-red-400 font-bold">●</span>
+            <span
+              ><strong class="text-white">El proceso toma hasta 30 días hábiles.</strong> Durante
+              este tiempo, tu cuenta estará desactivada pero los datos aún no se eliminarán
+              completamente.</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-red-400 font-bold">●</span>
+            <span
+              ><strong class="text-white"
+                >No se pueden eliminar cuentas vinculadas a compras activas</strong
+              >
+              o suscripciones sin procesar primero las reembolsos.</span
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Proceso de Eliminación -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          1
+        </span>
+        Proceso de Eliminación
+      </h3>
+      <div class="space-y-4">
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="bg-blue-600/20 border-b border-blue-600/50 p-4">
+            <h4 class="text-lg font-bold text-blue-400">Paso 1: Completa el Formulario</h4>
+          </div>
+          <div class="p-6 text-slate-300">
+            <p class="mb-3">
+              Deberás proporcionarnos tu información de contacto para verificar tu identidad y
+              localizar tu cuenta.
+            </p>
+            <ul class="ml-4 space-y-2">
+              <li class="flex gap-2">
+                <span class="text-blue-400">→</span>
+                <span>Tu correo electrónico actual</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400">→</span>
+                <span>El correo asociado a tu cuenta (si es diferente)</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400">→</span>
+                <span>Razón de la eliminación (opcional pero útil para nosotros)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="bg-blue-600/20 border-b border-blue-600/50 p-4">
+            <h4 class="text-lg font-bold text-blue-400">Paso 2: Confirma tu Identidad</h4>
+          </div>
+          <div class="p-6 text-slate-300">
+            <p class="mb-3">
+              Recibirás un correo de confirmación.
+              <strong>Deberás hacer clic en el enlace de confirmación</strong>
+              para validar que realmente deseas eliminar tu cuenta.
+            </p>
+            <div class="mt-4 p-4 bg-blue-600/10 border border-blue-500/30 rounded-lg">
+              <p class="text-sm text-slate-300">
+                <strong class="text-blue-400">Nota:</strong> Este paso es obligatorio por seguridad.
+                Sin la confirmación por correo, tu solicitud no será procesada.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="bg-blue-600/20 border-b border-blue-600/50 p-4">
+            <h4 class="text-lg font-bold text-blue-400">Paso 3: Procesamiento de Solicitud</h4>
+          </div>
+          <div class="p-6 text-slate-300">
+            <p class="mb-3">
+              Una vez confirmada tu identidad, procesaremos tu solicitud en
+              <strong>hasta 30 días hábiles</strong>.
+            </p>
+            <ul class="ml-4 space-y-2">
+              <li class="flex gap-2">
+                <span class="text-blue-400">✓</span>
+                <span>Tu cuenta será desactivada inmediatamente</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400">✓</span>
+                <span>Eliminaremos todos tus datos personales de nuestros sistemas</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-blue-400">✓</span>
+                <span>Recibirás una confirmación final por correo</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="bg-blue-600/20 border-b border-blue-600/50 p-4">
+            <h4 class="text-lg font-bold text-blue-400">Paso 4: Confirmación Final</h4>
+          </div>
+          <div class="p-6 text-slate-300">
+            <p>
+              Recibirás un correo confirmando que tu cuenta ha sido completamente eliminada. Si no
+              recibes este correo después de 30 días, contáctanos inmediatamente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué se Elimina -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-red-600 text-white font-bold"
+        >
+          2
+        </span>
+        Qué Será Eliminado
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-red-600/10 border border-red-500/30 rounded-lg p-6">
+          <h4 class="text-lg font-bold text-red-400 mb-4">✓ Se Elimina</h4>
+          <ul class="space-y-3 text-slate-300">
+            <li class="flex gap-3">
+              <span class="text-red-400">●</span>
+              <span>Nombre y datos personales</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-400">●</span>
+              <span>Correo electrónico</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-400">●</span>
+              <span>Historial de transacciones</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-400">●</span>
+              <span>Foto de perfil</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-400">●</span>
+              <span>Comentarios y reseñas</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-400">●</span>
+              <span>Preferencias y configuración</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-400">●</span>
+              <span>Historial de navegación</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-yellow-600/10 border border-yellow-500/30 rounded-lg p-6">
+          <h4 class="text-lg font-bold text-yellow-400 mb-4">⚠️ No Se Elimina</h4>
+          <ul class="space-y-3 text-slate-300">
+            <li class="flex gap-3">
+              <span class="text-yellow-400">●</span>
+              <span>Registros legales/fiscales (requerido por ley)</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-yellow-400">●</span>
+              <span>Datos de transacciones contables</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-yellow-400">●</span>
+              <span>Logs de seguridad</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-yellow-400">●</span>
+              <span>Datos en backups (eliminados automáticamente después de 90 días)</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-yellow-400">●</span>
+              <span>Información de disputas activas</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternativas a la Eliminación -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 text-white font-bold"
+        >
+          3
+        </span>
+        Alternativas Antes de Eliminar
+      </h3>
+      <div class="bg-green-600/10 border border-green-500/30 rounded-lg p-6 text-slate-300">
+        <p class="mb-6">
+          Si lo único que te preocupa es tu privacidad o la actividad de tu cuenta, considera estas
+          alternativas menos invasivas:
+        </p>
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center text-green-400 font-bold"
+            >
+              A
+            </div>
+            <div>
+              <p class="font-semibold text-white mb-1">Desactivar Temporalmente</p>
+              <p class="text-sm text-slate-400">
+                Puedes desactivar tu cuenta por 7 días, 30 días o más sin perder acceso. En
+                cualquier momento puedes reactivarla.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center text-green-400 font-bold"
+            >
+              B
+            </div>
+            <div>
+              <p class="font-semibold text-white mb-1">Cambiar Privacidad</p>
+              <p class="text-sm text-slate-400">
+                Accede a tu configuración de privacidad para controlar quién puede ver tu
+                información y actividad.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center text-green-400 font-bold"
+            >
+              C
+            </div>
+            <div>
+              <p class="font-semibold text-white mb-1">Descargar Tus Datos</p>
+              <p class="text-sm text-slate-400">
+                Puedes descargar una copia de todos tus datos personales antes de eliminar tu
+                cuenta.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center text-green-400 font-bold"
+            >
+              D
+            </div>
+            <div>
+              <p class="font-semibold text-white mb-1">Contactar Soporte</p>
+              <p class="text-sm text-slate-400">
+                Si tienes problemas específicos, nuestro equipo puede ayudarte a resolverlos sin
+                necesidad de eliminar tu cuenta.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Eliminación -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-red-600 text-white font-bold"
+        >
+          4
+        </span>
+        Solicitar Eliminación de Cuenta
+      </h3>
+
+      <button
+        (click)="toggleForm()"
+        class="w-full p-4 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold transition-all mb-6"
+      >
+        {{ showForm ? '❌ Cancelar Solicitud' : '🗑️ Solicitar Eliminación de Cuenta' }}
+      </button>
+
+      <!-- Formulario -->
+      <div
+        *ngIf="showForm"
+        class="bg-slate-800/50 border border-slate-700 rounded-lg p-8 space-y-6"
+      >
+        <div class="p-4 bg-red-600/10 border border-red-500/30 rounded-lg">
+          <p class="text-red-400 font-semibold text-sm">
+            ⚠️ Esta acción es irreversible. Una vez confirmada, tu cuenta será eliminada
+            permanentemente.
+          </p>
+        </div>
+
+        <div>
+          <label class="block text-white font-semibold mb-3">Correo de Contacto *</label>
+          <input
+            type="email"
+            [(ngModel)]="formData.email"
+            placeholder="tu-correo@ejemplo.com"
+            class="w-full px-4 py-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+          />
+          <p class="text-slate-400 text-sm mt-2">
+            Usaremos este correo para enviarte la confirmación de eliminación
+          </p>
+        </div>
+
+        <div>
+          <label class="block text-white font-semibold mb-3">Correo Asociado a tu Cuenta *</label>
+          <input
+            type="email"
+            [(ngModel)]="formData.accountEmail"
+            placeholder="cuenta-registrada@ejemplo.com"
+            class="w-full px-4 py-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none"
+          />
+          <p class="text-slate-400 text-sm mt-2">
+            Si es diferente del correo de contacto, proporciona el que utilizaste para registrarte
+          </p>
+        </div>
+
+        <div>
+          <label class="block text-white font-semibold mb-3"
+            >¿Por qué deseas eliminar tu cuenta? (Opcional)</label
+          >
+          <textarea
+            [(ngModel)]="formData.reason"
+            placeholder="Tómate un momento para explicar por qué decides eliminar tu cuenta..."
+            rows="4"
+            class="w-full px-4 py-3 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none resize-none"
+          ></textarea>
+          <p class="text-slate-400 text-sm mt-2">Tu retroalimentación nos ayuda a mejorar</p>
+        </div>
+
+        <div class="bg-yellow-600/10 border border-yellow-500/30 rounded-lg p-4">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              [(ngModel)]="formData.confirmDelete"
+              class="mt-1 w-5 h-5 accent-red-600"
+            />
+            <span class="text-slate-300 text-sm">
+              <strong class="text-white">Confirmo que he leído y entendido que:</strong><br />
+              La eliminación de mi cuenta es permanente e irreversible, se eliminarán todos mis
+              datos personales, y no podré recuperar mi cuenta ni mi información una vez completado
+              el proceso.
+            </span>
+          </label>
+        </div>
+
+        <button
+          (click)="submitDeletionRequest()"
+          [disabled]="!isFormValid()"
+          class="w-full p-4 rounded-lg bg-red-600 hover:bg-red-500 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-bold transition-all"
+        >
+          Confirmar Eliminación de Cuenta
+        </button>
+      </div>
+
+      <!-- Mensaje de éxito -->
+      <div
+        *ngIf="formSubmitted"
+        class="mt-6 p-6 rounded-lg bg-green-600/10 border border-green-500/30 animate-pulse"
+      >
+        <p class="text-green-400 font-semibold text-lg mb-2">✓ Solicitud Enviada Exitosamente</p>
+        <p class="text-slate-300">
+          Hemos recibido tu solicitud de eliminación. En los próximos minutos recibirás un correo de
+          confirmación en <strong>{{ formData.email }}</strong
+          >. Haz clic en el enlace del correo para confirmar la eliminación.
+        </p>
+      </div>
+    </section>
+
+    <!-- Preguntas Frecuentes sobre Eliminación -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          5
+        </span>
+        Preguntas Frecuentes
+      </h3>
+      <div class="space-y-4">
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="p-4 bg-slate-700/50 cursor-pointer hover:bg-slate-700">
+            <h4 class="text-white font-bold">¿Cuánto tarda la eliminación?</h4>
+          </div>
+          <div class="p-4 text-slate-300">
+            El proceso toma hasta 30 días hábiles. Tu cuenta se desactivará inmediatamente, pero los
+            datos pueden tardar más en eliminarse completamente de nuestros sistemas y backups.
+          </div>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="p-4 bg-slate-700/50 cursor-pointer hover:bg-slate-700">
+            <h4 class="text-white font-bold">¿Puedo recuperar mi cuenta después?</h4>
+          </div>
+          <div class="p-4 text-slate-300">
+            No. Una vez que tu cuenta ha sido completamente eliminada, no hay forma de recuperarla.
+            Tendrás que crear una nueva cuenta si deseas usar nuestros servicios en el futuro.
+          </div>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="p-4 bg-slate-700/50 cursor-pointer hover:bg-slate-700">
+            <h4 class="text-white font-bold">¿Qué pasa con mis suscripciones activas?</h4>
+          </div>
+          <div class="p-4 text-slate-300">
+            Antes de eliminar tu cuenta, debes cancelar todas las suscripciones activas. Si tienes
+            pagos recurrentes, estos continuarán hasta que los canceles manualmente.
+          </div>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="p-4 bg-slate-700/50 cursor-pointer hover:bg-slate-700">
+            <h4 class="text-white font-bold">¿Mis datos se compartirán antes de ser eliminados?</h4>
+          </div>
+          <div class="p-4 text-slate-300">
+            No. Desde el momento en que solicites la eliminación, detenemos toda actividad en tu
+            cuenta. Tus datos no se compartirán ni se utilizarán para ningún propósito.
+          </div>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden">
+          <div class="p-4 bg-slate-700/50 cursor-pointer hover:bg-slate-700">
+            <h4 class="text-white font-bold">¿Puedo solicitar la eliminación desde la app?</h4>
+          </div>
+          <div class="p-4 text-slate-300">
+            Sí. Si estás usando nuestra app móvil, encontrarás la opción "Eliminar Cuenta" en la
+            sección de Configuración > Privacidad y Datos. También puedes hacerlo directamente desde
+            este sitio web.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Información de Contacto -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          6
+        </span>
+        ¿Necesitas Ayuda?
+      </h3>
+      <div class="bg-blue-600/10 border border-blue-500/30 rounded-lg p-6 text-slate-300">
+        <p class="mb-4">
+          Si tienes preguntas sobre el proceso de eliminación o necesitas asistencia:
+        </p>
+        <div class="space-y-3 ml-4">
+          <div>
+            <p class="font-semibold text-white mb-1">📧 Correo de Soporte</p>
+            <p class="text-blue-400">soporte@ar-sa.com.mx</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-white mb-1">⏱️ Tiempo de Respuesta</p>
+            <p>Respondemos en un plazo de 24-48 horas hábiles</p>
+          </div>
+
+          <div>
+            <p class="font-semibold text-white mb-1">📞 Línea de Atención</p>
+            <p>Disponible en la sección de contacto principal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conformidad Legal -->
+    <section class="mb-10">
+      <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold"
+        >
+          7
+        </span>
+        Conformidad Legal
+      </h3>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-slate-300">
+        <p class="mb-4">Este proceso cumple con los requisitos legales de:</p>
+        <ul class="space-y-3 ml-4 mb-6">
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span
+              ><strong>LFPDPPP</strong> (Ley Federal de Protección de Datos Personales -
+              México)</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span><strong>RGPD</strong> (Reglamento General de Protección de Datos - UE)</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span
+              ><strong>Google Play Store Policy</strong> - Requisitos de eliminación de
+              cuentas</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span
+              ><strong>Apple App Store Guidelines</strong> - Eliminación de datos de usuario</span
+            >
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-400">✓</span>
+            <span><strong>CCPA</strong> (California Consumer Privacy Act - USA)</span>
+          </li>
+        </ul>
+        <p class="text-sm text-slate-400">
+          Para más información sobre cómo manejamos tus datos, consulta nuestro
+          <a href="/privacidad" class="text-blue-400 hover:text-blue-300">Aviso de Privacidad</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Botón de retorno final -->
+    <div class="flex justify-center mt-12">
+      <button
+        (click)="goBack()"
+        class="px-8 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-lg shadow-blue-950/30 flex items-center gap-2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Volver al Inicio
+      </button>
+    </div>
+  </main>
+</div>

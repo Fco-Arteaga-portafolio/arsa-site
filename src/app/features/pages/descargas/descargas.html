@@ -1,0 +1,25 @@
+<div class="container download-container" data-aos="fade-up">
+  <h1 data-aos="fade-down">Descarga IFRAT para tu equipo</h1>
+  <p id="version-tag" class="version-tag" data-aos="fade-up" data-aos-delay="100">{{ versionTag }}</p>
+
+  <div class="download-grid">
+    <div class="dl-card" *ngFor="let download of downloads; let i = index" [attr.data-aos]="'zoom-in'" [attr.data-aos-delay]="i * 150">
+      <h3>{{ download.platform }}</h3>
+      <p>{{ download.format }}</p>
+      <a *ngIf="download.isAvailable" [href]="download.url || '#'" class="dl-button" download>
+        Descargar ahora
+      </a>
+      <button *ngIf="download.isLoading" class="dl-button loading" disabled>Cargando...</button>
+      <button
+        *ngIf="!download.isLoading && !download.isAvailable"
+        class="dl-button unavailable"
+        disabled
+      >
+        No disponible
+      </button>
+    </div>
+  </div>
+
+  <br />
+  <a href="/" class="back-link">← Volver al inicio</a>
+</div>
