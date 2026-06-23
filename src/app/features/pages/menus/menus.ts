@@ -77,7 +77,7 @@ import type { Product } from '../../../shared/models/menu.interface';
               @if (state.sections().length <= 1) {
                 <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ section.category_name }}</h3>
               }
-              <div class="space-y-3">
+              <div class="space-y-3 separate">
                 @for (product of section.products; track product.id) {
                   <app-product-card [product]="product" (imageClick)="openLightbox($event)" />
                 }
