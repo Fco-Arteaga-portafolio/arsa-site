@@ -65,6 +65,10 @@ export const routes: Routes = [
     component: PidefacilComponent,
   },
   {
+    path: 'menus',
+    component: MenusComponent,
+  },
+  {
     path: 'menus/:idSucursal',
     component: MenusComponent,
   },

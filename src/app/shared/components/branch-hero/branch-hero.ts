@@ -5,7 +5,7 @@ import type { Branch } from '../../models/menu.interface';
   selector: 'app-branch-hero',
   standalone: true,
   template: `
-    <div class="relative w-full h-64 md:h-80 overflow-hidden bg-[#1a1a2e]">
+    <div class="relative w-full h-64 md:h-80 overflow-hidden bg-[#1a1a2e] jf">
       <img
         [src]="branch.url_image"
         (error)="onImgError($event)"
