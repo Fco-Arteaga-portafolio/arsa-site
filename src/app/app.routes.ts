@@ -6,9 +6,12 @@ import { ContactoComponent } from './features/pages/contacto/contacto';
 import { EcosistemasComponent } from './features/pages/ecosistemas/ecosistemas';
 import { IfratComponent } from './features/pages/ifrat/ifrat';
 import { IfratEmiteComponent } from './features/pages/ifrat-emite/ifrat-emite';
+import { IfratFoliosComponent } from './features/pages/ifrat-folios/ifrat-folios';
+import { IfratPagosComponent } from './features/pages/ifrat-pagos/ifrat-pagos';
 import { DescargasComponent } from './features/pages/descargas/descargas';
 import { SubetComponent } from './features/pages/subet/subet';
 import { PidefacilComponent } from './features/pages/pidefacil/pidefacil';
+import { SuperFacilComponent } from './features/pages/super-facil/super-facil';
 import { MenusComponent } from './features/pages/menus/menus';
 
 export const routes: Routes = [
@@ -33,6 +36,10 @@ export const routes: Routes = [
     component: EcosistemasComponent,
   },
   {
+    path: 'ecosistemas/:familia',
+    component: EcosistemasComponent,
+  },
+  {
     path: 'ifrat',
     component: IfratComponent,
   },
@@ -43,6 +50,14 @@ export const routes: Routes = [
   {
     path: 'ifrat-emite',
     component: IfratEmiteComponent,
+  },
+  {
+    path: 'ifrat-folios',
+    component: IfratFoliosComponent,
+  },
+  {
+    path: 'ifrat-pagos',
+    component: IfratPagosComponent,
   },
   {
     path: 'descargas',
@@ -63,6 +78,14 @@ export const routes: Routes = [
   {
     path: 'pidefacil/:section',
     component: PidefacilComponent,
+  },
+  {
+    path: 'super-facil',
+    component: SuperFacilComponent,
+  },
+  {
+    path: 'super-facil/:section',
+    component: SuperFacilComponent,
   },
   {
     path: 'menus',
