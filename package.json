@@ -5,9 +5,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "concurrently --names \"ANGULAR,SERVER\" --prefix-colors \"blue,green\" \"ng serve\" \"cd server && npm start\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start:server": "cd server && npm start",
+    "build:all": "npm run build && cd server && npm install --production"
   },
   "prettier": {
     "printWidth": 100,
@@ -46,6 +49,7 @@
     "@angular/compiler-cli": "^21.0.0",
     "@types/aos": "^3.0.7",
     "autoprefixer": "^10.4.16",
+    "concurrently": "^10.0.3",
     "jsdom": "^27.1.0",
     "postcss": "^8.5.14",
     "typescript": "~5.9.0",

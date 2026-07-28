@@ -43,12 +43,12 @@ export class EcosistemasComponent implements OnInit {
       nombre: 'FÁCIL',
       icono: '🚀',
       descripcion:
-        'Plataformas digitales simples y accesibles para la vida diaria: pedidos, movilidad y más. Tecnología al servicio de todos.',
+        'Apps nativas que simplifican tu día a día: pide comida, viaja y controla tu presupuesto del hogar con herramientas offline-first, privadas y verdaderamente fáciles.',
       color: 'green',
       bgGradient: 'from-green-600 to-teal-600',
       badgeColor: 'bg-green-100 text-green-800',
-      productos: 3,
-      tags: ['Delivery', 'Movilidad', 'Multi-plataforma'],
+      productos: 4,
+      tags: ['Delivery', 'Movilidad', 'Presupuesto', 'Running'],
     },
   ];
 
@@ -154,19 +154,35 @@ export class EcosistemasComponent implements OnInit {
     },
     {
       titulo: 'Súper Fácil',
-      icono: '⭐',
+      icono: '🛒',
       descripcion:
-        'La plataforma todo-en-uno que simplifica tu día a día. Productos, servicios y más en un solo lugar, diseñado para ser verdaderamente fácil.',
+        'Control presupuestal y memoria económica del hogar 100% offline. Planifica tus compras con un grid de canasta básica, registra precios con escáner de barras y recibe alertas cuando tu costo de vida cambia.',
       caracteristicas: [
-        'Gestión integral',
-        'Interfaz sencilla',
-        'Multi-dispositivo',
-        'Soporte dedicado',
+        'Grid de canasta básica mexicana',
+        'Presupuesto predictivo por historial',
+        'Escáner de código de barras offline',
+        'Alertas de incremento en tu canasta',
       ],
       url: '/super-facil',
       botonTexto: 'Próximamente',
       colorPrimario: 'arsa-primary',
       colorSecundario: 'arsa-accent',
+    },
+    {
+      titulo: 'Run Run Run',
+      icono: '🏃',
+      descripcion:
+        'Aplicación para la comunidad runner. Seguimiento de actividad, rutas, ritmo y conexión con otros corredores.',
+      caracteristicas: [
+        'Seguimiento de actividad',
+        'Registro de rutas y ritmo',
+        'Comunidad runner',
+        'Estadísticas de rendimiento',
+      ],
+      url: '/run-run-run',
+      botonTexto: 'Conocer más',
+      colorPrimario: 'arsa-accent',
+      colorSecundario: 'blue-500',
     },
   ];
 

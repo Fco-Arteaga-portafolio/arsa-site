@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
-
+import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DiagnosticService } from '../../services/diagnostic.service';
 
 @Component({
   selector: 'app-diagnostic-modal',
@@ -10,22 +10,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './diagnostic-modal.component.html',
 })
 export class DiagnosticModalComponent {
-  // Control de apertura
   @Input({ required: true })
   isOpen = false;
 
-  // Evento de cierre
   @Output()
   close = new EventEmitter<void>();
 
-  // Evento submit
-  @Output()
-  submitForm = new EventEmitter<any>();
-
-  // Estado local del formulario
   loading = signal(false);
+  sent = signal(false);
+  errorMsg = signal('');
 
-  // Formulario
   diagnosticForm = {
     name: '',
     company: '',
@@ -34,40 +28,35 @@ export class DiagnosticModalComponent {
     problem: '',
   };
 
-  // Cerrar modal
+  constructor(private diagnosticService: DiagnosticService) {}
+
   closeModal(): void {
     this.close.emit();
   }
 
-  // Submit
   async submitDiagnostic(): Promise<void> {
-    // Validación mínima
     if (!this.diagnosticForm.name || !this.diagnosticForm.email || !this.diagnosticForm.problem) {
       return;
     }
 
     try {
       this.loading.set(true);
+      this.errorMsg.set('');
 
-      // Emitimos hacia el padre
-      this.submitForm.emit(this.diagnosticForm);
+      await this.diagnosticService.sendDiagnostic(this.diagnosticForm);
 
-      // Simulación async
-      await new Promise((resolve) => setTimeout(resolve, 800));
-
-      // Reset
-      this.diagnosticForm = {
-        name: '',
-        company: '',
-        email: '',
-        service: '',
-        problem: '',
-      };
-
-      // Cerramos
-      this.closeModal();
+      this.sent.set(true);
+      this.diagnosticForm = { name: '', company: '', email: '', service: '', problem: '' };
+    } catch (err: any) {
+      this.errorMsg.set(err.message || 'Error al enviar. Intenta de nuevo.');
     } finally {
       this.loading.set(false);
     }
+  }
+
+  resetAndClose(): void {
+    this.sent.set(false);
+    this.errorMsg.set('');
+    this.closeModal();
   }
 }

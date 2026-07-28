@@ -39,7 +39,5 @@ export class AppComponent {
     this.diagnosticService.closeModal();
   }
 
-  handleDiagnosticSubmit(data: any): void {
-    console.log(data);
-  }
+  
 }

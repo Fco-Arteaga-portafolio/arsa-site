@@ -12,6 +12,7 @@ import { DescargasComponent } from './features/pages/descargas/descargas';
 import { SubetComponent } from './features/pages/subet/subet';
 import { PidefacilComponent } from './features/pages/pidefacil/pidefacil';
 import { SuperFacilComponent } from './features/pages/super-facil/super-facil';
+import { RunRunRunComponent } from './features/pages/run-run-run/run-run-run';
 import { MenusComponent } from './features/pages/menus/menus';
 
 export const routes: Routes = [
@@ -94,5 +95,13 @@ export const routes: Routes = [
   {
     path: 'menus/:idSucursal',
     component: MenusComponent,
+  },
+  {
+    path: 'run-run-run',
+    component: RunRunRunComponent,
+  },
+  {
+    path: 'run-run-run/:section',
+    component: RunRunRunComponent,
   },
 ];

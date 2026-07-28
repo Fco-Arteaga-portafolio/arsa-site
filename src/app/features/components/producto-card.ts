@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 export interface Producto {
   titulo: string;
@@ -21,6 +22,7 @@ export interface Producto {
 })
 export class ProductoCardComponent {
   @Input() producto!: Producto;
+  private router = inject(Router);
 
   get borderColorClass(): string {
     return this.producto.colorPrimario === 'arsa-accent'
@@ -46,7 +48,7 @@ export class ProductoCardComponent {
 
   irA(): void {
     if (this.producto.url && this.producto.url !== '#') {
-      window.location.href = this.producto.url;
+      this.router.navigateByUrl(this.producto.url);
     }
   }
 }
