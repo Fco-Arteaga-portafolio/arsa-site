@@ -1,0 +1,255 @@
+<main>
+  <!-- Navigation Tabs -->
+  <nav class="sticky top-20 z-40 bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 flex gap-8 overflow-x-auto">
+      <button
+        (click)="navigateTo('inicio')"
+        class="py-4 px-2 font-semibold whitespace-nowrap"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'inicio',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'inicio',
+        }"
+      >
+        Inicio
+      </button>
+      <button
+        (click)="navigateTo('privacidad')"
+        class="py-4 px-2 font-semibold whitespace-nowrap"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'privacidad',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'privacidad',
+        }"
+      >
+        Privacidad
+      </button>
+      <button
+        (click)="navigateTo('eliminar')"
+        class="py-4 px-2 font-semibold whitespace-nowrap"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'eliminar',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'eliminar',
+        }"
+      >
+        Eliminar Cuenta
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== INICIO ===== -->
+  <section *ngIf="activeSection === 'inicio'" class="py-28 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div
+        class="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-sm font-bold mb-8"
+      >
+        Próximamente
+      </div>
+
+      <h1 class="text-6xl md:text-8xl font-black text-arsa-dark mb-6 tracking-tight">
+        Run Run Run
+      </h1>
+
+      <p class="text-2xl text-gray-500 font-semibold mb-8">🏃‍♂️🏃‍♀️🏃</p>
+
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+        Una nueva aplicación está en camino. Diseñada para <strong>runners</strong>,
+        corredores y comunidad.
+      </p>
+
+      <div class="max-w-md mx-auto bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+        <div class="text-4xl mb-4">⏳</div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-2">Pronto sabrás más</h3>
+        <p class="text-gray-500">
+          Estamos trabajando en algo increíble para la comunidad runner.
+          Regresa pronto para más detalles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRIVACIDAD ===== -->
+  <section *ngIf="activeSection === 'privacidad'" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-arsa-dark mb-2">Aviso de Privacidad</h1>
+      </div>
+      <p class="text-gray-600 mb-8">Última actualización: Julio 2026</p>
+
+      <div class="space-y-8 text-gray-700 leading-relaxed">
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            1. Información que recopilamos en Run Run Run
+          </h3>
+          <p>
+            Run Run Run recopila información personal como nombre, correo electrónico,
+            ubicación y datos de actividad física (rutas, distancia, ritmo) para que la
+            aplicación pueda funcionar correctamente y brindar sus servicios a la comunidad runner.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            2. Uso de información en Run Run Run
+          </h3>
+          <p>
+            Run Run Run utiliza tu información para proporcionar seguimiento de actividad,
+            conectar con otros corredores, mejorar la plataforma, contactarte sobre
+            actualizaciones y mantener la seguridad de tu cuenta.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            3. Protección de datos en Run Run Run
+          </h3>
+          <p>
+            Run Run Run implementa medidas de seguridad avanzadas, incluyendo encriptación
+            de datos en tránsito y en reposo, para proteger tu información personal.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            4. Compartir información de Run Run Run
+          </h3>
+          <p>
+            Run Run Run no comparte tu información personal con terceros sin tu
+            consentimiento, excepto cuando es necesario para el funcionamiento del servicio.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            5. Tus derechos en Run Run Run
+          </h3>
+          <p>
+            Tienes derecho a acceder, corregir, actualizar o solicitar la eliminación de tu
+            información personal en cualquier momento.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            6. Duración de conservación de datos en Run Run Run
+          </h3>
+          <p>
+            Conservamos tus datos mientras tengas una cuenta activa. Si solicitas la
+            eliminación de tu cuenta, todos tus datos se borrarán en un plazo máximo de 20
+            días hábiles.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-arsa-dark mb-3">
+            7. Consentimiento y aceptación en Run Run Run
+          </h3>
+          <p>
+            Al utilizar Run Run Run, aceptas el tratamiento de tus datos conforme a este
+            Aviso de Privacidad. Si no estás de acuerdo, no debes usar la aplicación.
+          </p>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
+          <p class="text-sm text-gray-600">
+            Para más información contáctanos en
+            <span class="font-bold">contacto@ar-sa.com.mx</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ELIMINAR CUENTA ===== -->
+  <section *ngIf="activeSection === 'eliminar'" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-arsa-dark mb-2">Eliminar Cuenta</h1>
+      </div>
+
+      <div class="space-y-8">
+        <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+          <h3 class="text-lg font-bold text-red-900 mb-2">
+            ⚠️ Acción irreversible en Run Run Run
+          </h3>
+          <p class="text-red-800">
+            Eliminar tu cuenta de Run Run Run es una acción permanente. Se borrarán todos
+            tus datos, historial de actividad, rutas y configuraciones.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold text-arsa-dark mb-6">
+            ¿Qué sucederá al eliminar tu cuenta de Run Run Run?
+          </h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span>
+              <span>Tu perfil de Run Run Run será desactivado inmediatamente</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span>
+              <span>Se eliminarán todos tus datos personales de Run Run Run</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span>
+              <span>No podrás acceder a tu historial de actividad en Run Run Run</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-lg">✓</span>
+              <span>Se cancelarán todas tus suscripciones activas en Run Run Run</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold text-arsa-dark mb-6">
+            Proceso para eliminar tu cuenta en Run Run Run
+          </h3>
+          <ol class="space-y-4 text-gray-700">
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">1.</span>
+              <span>Accede a la configuración de tu cuenta de Run Run Run</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">2.</span>
+              <span
+                >Selecciona "Eliminar cuenta" en la sección de privacidad</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">3.</span>
+              <span>Confirma tu contraseña para verificar tu identidad</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">4.</span>
+              <span
+                >Revisa y acepta los términos de eliminación</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span class="font-bold text-arsa-primary">5.</span>
+              <span
+                >Confirma la eliminación de tu cuenta (no hay vuelta atrás)</span
+              >
+            </li>
+          </ol>
+        </div>
+
+        <div class="text-center">
+          <button
+            (click)="diagnosticService.openModal()"
+            class="bg-arsa-primary hover:bg-arsa-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all"
+          >
+            Contactar soporte
+          </button>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
+          <p class="text-sm text-gray-600">
+            También puedes eliminar tu cuenta enviando un correo a
+            <span class="font-bold">contacto@ar-sa.com.mx</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
