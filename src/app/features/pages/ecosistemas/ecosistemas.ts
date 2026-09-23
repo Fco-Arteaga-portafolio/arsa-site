@@ -60,14 +60,14 @@ export class EcosistemasComponent implements OnInit {
     },
     {
       id: 'workspace',
-      nombre: 'Workspace',
+      nombre: 'Nexus',
       icono: '☁️',
       descripcion:
-        'Servicios en la nube y suscripciones de software como servicio. Tu espacio personal de trabajo con almacenamiento, acceso desde cualquier dispositivo y soporte incluido.',
+        'Plataforma privada de trabajo para PYMEs: archivos, documentos, PDF y colaboración en un solo lugar.',
       color: 'violet',
       bgGradient: 'from-purple-600 to-violet-700',
       badgeColor: 'bg-purple-100 text-purple-800',
-      tags: ['Cloud', 'SaaS', 'Suscripción', 'Almacenamiento'],
+      tags: ['Archivos', 'Documentos', 'PDF', 'Colaboración'],
     },
   ];
 
@@ -275,8 +275,8 @@ export class EcosistemasComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      // Workspace ya no es una familia con vista intermedia: la tarjeta va directo
-      // a la página del producto (/workspace). Redirigimos la URL vieja.
+      // Nexus (id interno: workspace) ya no es una familia con vista intermedia:
+      // la tarjeta va directo a la página del producto (/workspace). Redirigimos la URL vieja.
       if (params.get('familia') === 'workspace') {
         this.router.navigate(['/workspace'], { replaceUrl: true });
         return;

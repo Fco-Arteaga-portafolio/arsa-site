@@ -55,32 +55,38 @@
         >
           ☁️ Ya disponible
         </div>
-        <h1 class="text-5xl md:text-7xl font-black text-arsa-dark mb-4">Workspace</h1>
-        <p class="text-2xl text-violet-600 font-bold mb-8">Tu espacio personal de trabajo en la nube</p>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Tu espacio personal en la nube con almacenamiento y acceso desde cualquier dispositivo.
-          Elige el plan que se ajuste a tus necesidades y actívalo hoy mismo.
-        </p>
-      </div>
+        <h1 class="text-5xl md:text-7xl font-black text-arsa-dark mb-4">Nexus</h1>
+        <p class="text-2xl text-violet-600 font-bold mb-8">Plataforma privada de trabajo para PYMEs</p>
 
-      <!-- Features Grid -->
-      <div class="grid md:grid-cols-2 gap-4 mb-12" data-aos="fade-up">
-        <div class="flex items-center gap-4 bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-          <div class="text-3xl">☁️</div>
-          <p class="text-gray-700 font-medium">Almacenamiento en la nube</p>
+        <!-- Categorías -->
+        <div class="flex justify-center gap-4 flex-wrap mb-8">
+          <div
+            class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-2 font-bold text-sm shadow-sm"
+          >
+            📁 Archivos
+          </div>
+          <div
+            class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-2 font-bold text-sm shadow-sm"
+          >
+            📄 Documentos
+          </div>
+          <div
+            class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-2 font-bold text-sm shadow-sm"
+          >
+            🧾 PDF
+          </div>
+          <div
+            class="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-2 font-bold text-sm shadow-sm"
+          >
+            👥 Colaboración
+          </div>
         </div>
-        <div class="flex items-center gap-4 bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-          <div class="text-3xl">📱</div>
-          <p class="text-gray-700 font-medium">Acceso desde cualquier dispositivo</p>
-        </div>
-        <div class="flex items-center gap-4 bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-          <div class="text-3xl">⚡</div>
-          <p class="text-gray-700 font-medium">Configuración inmediata</p>
-        </div>
-        <div class="flex items-center gap-4 bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-          <div class="text-3xl">🎧</div>
-          <p class="text-gray-700 font-medium">Soporte incluido</p>
-        </div>
+
+        <p class="text-lg text-gray-500 font-medium">
+          Impulsado por <strong class="text-gray-700">Nextcloud</strong>,
+          <strong class="text-gray-700">OnlyOffice</strong> y
+          <strong class="text-gray-700">Stirling PDF</strong>.
+        </p>
       </div>
 
       <!-- CTA a la nube -->
@@ -91,7 +97,7 @@
           rel="noopener"
           class="inline-flex items-center gap-3 bg-violet-600 hover:bg-violet-700 text-white px-10 py-5 rounded-2xl font-black text-lg transition-all shadow-lg shadow-violet-600/20 active:scale-95"
         >
-          🌐 Entrar a Workspace
+          🌐 Entrar a Nexus
           <span>→</span>
         </a>
         <p class="text-gray-600 mt-4">Accede a tu nube desde cualquier dispositivo.</p>
@@ -177,7 +183,7 @@
 
   <!-- ===== PRIVACIDAD / ELIMINAR CUENTA (compartidas) ===== -->
   <app-privacidad-eliminar
-    [appName]="'Workspace'"
+    [appName]="'Nexus'"
     [activeSection]="activeSection"
   ></app-privacidad-eliminar>
 </main>

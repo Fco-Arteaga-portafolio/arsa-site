@@ -33,7 +33,7 @@ export interface CrearPreferenciaResult {
 }
 
 /**
- * Servicio de la familia Workspace.
+ * Servicio de la familia Nexus.
  * Usa rutas relativas (/api/...). En desarrollo, `ng serve` las proxya hacia
  * https://nube.ar-sa.com.mx:8444 mediante proxy.conf.json (evita CORS en local).
  * En producción el `/api` debe quedar expuesto por el servidor/reverse proxy del sitio.
