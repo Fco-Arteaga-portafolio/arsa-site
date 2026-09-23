@@ -149,7 +149,7 @@ export class EcosistemasComponent implements OnInit {
       colorSecundario: 'arsa-accent',
     },
     {
-      titulo: 'Sube T',
+      titulo: 'subeFacil',
       icono: '🛵',
       descripcion:
         'Plataforma de movilidad compartida y gestión de viajes. Conecta pasajeros, gestiona flotas independientes, optimiza rutas y reserva asientos bajo demanda.',
@@ -181,7 +181,7 @@ export class EcosistemasComponent implements OnInit {
       colorSecundario: 'arsa-accent',
     },
     {
-      titulo: 'Run Run Run',
+      titulo: 'runExp',
       icono: '🏃',
       descripcion:
         'Aplicación para la comunidad runner. Seguimiento de actividad, rutas, ritmo y conexión con otros corredores.',
