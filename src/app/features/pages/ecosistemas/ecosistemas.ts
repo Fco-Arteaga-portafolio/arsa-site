@@ -7,7 +7,12 @@ import { environment } from '../../../../environments/environment';
 // Productos FÁCIL en validación (scaffolding): NO deben verse en producción.
 // Se ocultan con environment.mostrarProductosPendientes (ver src/environments/);
 // en local se muestran para validación.
-const PRODUCTOS_FACIL_PENDIENTES: string[] = ['/tribufi', '/cardsstudio', '/cobrafacil', '/scriptura'];
+const PRODUCTOS_FACIL_PENDIENTES: string[] = [
+  '/tribufi',
+  '/cardsstudio',
+  '/cobrafacil',
+  '/scriptura',
+];
 
 interface Familia {
   id: string;
@@ -247,36 +252,15 @@ export class EcosistemasComponent implements OnInit {
     return this.productosFacil.filter((p) => !PRODUCTOS_FACIL_PENDIENTES.includes(p.url));
   }
 
-  productosWorkspace: Producto[] = [
-    {
-      titulo: 'Workspace NubeSaaS',
-      icono: '☁️',
-      descripcion:
-        'Tu espacio personal en la nube con almacenamiento y acceso desde cualquier dispositivo. Elige el plan que se ajuste a tus necesidades y actívalo hoy mismo.',
-      caracteristicas: [
-        'Almacenamiento en la nube',
-        'Acceso desde cualquier dispositivo',
-        'Configuración inmediata',
-        'Soporte incluido',
-      ],
-      url: '/workspace',
-      botonTexto: 'Ver planes',
-      colorPrimario: 'arsa-accent',
-      colorSecundario: 'blue-500',
-    },
-  ];
-
   get productosActuales(): Producto[] {
     if (this.familiaSeleccionada === 'ifrat') return this.productosIFRAT;
     if (this.familiaSeleccionada === 'facil') return this.productosFacilVisibles;
-    if (this.familiaSeleccionada === 'workspace') return this.productosWorkspace;
     return [];
   }
 
   productosFamilia(familiaId: string): number {
     if (familiaId === 'ifrat') return this.productosIFRAT.length;
     if (familiaId === 'facil') return this.productosFacilVisibles.length;
-    if (familiaId === 'workspace') return this.productosWorkspace.length;
     return 0;
   }
 
@@ -291,12 +275,27 @@ export class EcosistemasComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
+      // Workspace ya no es una familia con vista intermedia: la tarjeta va directo
+      // a la página del producto (/workspace). Redirigimos la URL vieja.
+      if (params.get('familia') === 'workspace') {
+        this.router.navigate(['/workspace'], { replaceUrl: true });
+        return;
+      }
       this.familiaSeleccionada = params.get('familia');
     });
   }
 
   irAFamilia(familiaId: string): void {
     this.router.navigate(['/ecosistemas', familiaId]);
+  }
+
+  /** Clic en tarjeta de familia: workspace va directo a su página de producto. */
+  clicEnFamilia(familia: Familia): void {
+    if (familia.id === 'workspace') {
+      this.router.navigate(['/workspace']);
+      return;
+    }
+    this.irAFamilia(familia.id);
   }
 
   ctaClases(familia: Familia): string {

@@ -17,7 +17,7 @@ import { TribufiComponent } from './features/pages/ecosistemas/tribufi/tribufi';
 import { CardsStudioComponent } from './features/pages/ecosistemas/cardsstudio/cardsstudio';
 import { CobraFacilComponent } from './features/pages/ecosistemas/cobrafacil/cobrafacil';
 import { ScripturaComponent } from './features/pages/ecosistemas/scriptura/scriptura';
-import { WorkspacePaquetesComponent } from './features/pages/ecosistemas/workspace/paquetes/paquetes';
+import { WorkspaceComponent } from './features/pages/ecosistemas/workspace/workspace';
 import { WorkspaceCheckoutComponent } from './features/pages/ecosistemas/workspace/checkout/checkout';
 import { WorkspaceConfirmacionComponent } from './features/pages/ecosistemas/workspace/confirmacion/confirmacion';
 import { MenusComponent } from './features/pages/menus/menus';
@@ -129,7 +129,7 @@ export const routes: Routes = [
   },
   {
     path: 'workspace',
-    component: WorkspacePaquetesComponent,
+    component: WorkspaceComponent,
   },
   {
     path: 'workspace/checkout',
@@ -138,5 +138,9 @@ export const routes: Routes = [
   {
     path: 'workspace/confirmacion',
     component: WorkspaceConfirmacionComponent,
+  },
+  {
+    path: 'workspace/:section',
+    component: WorkspaceComponent,
   },
 ];

@@ -11,7 +11,7 @@ import { DiagnosticService } from '../../../shared/services/diagnostic.service';
 })
 export class PrivacidadEliminarComponent {
   @Input() appName = '';
-  @Input() activeSection: 'inicio' | 'privacidad' | 'eliminar' = 'privacidad';
+  @Input() activeSection: 'inicio' | 'paquetes' | 'privacidad' | 'eliminar' = 'privacidad';
 
   constructor(public diagnosticService: DiagnosticService) {}
 }
