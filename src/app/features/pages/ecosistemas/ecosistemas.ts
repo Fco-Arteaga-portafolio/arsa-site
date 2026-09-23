@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoCardComponent, Producto } from '../../components/producto-card';
+import { environment } from '../../../../environments/environment';
+
+// Productos FÁCIL en validación (scaffolding): NO deben verse en producción.
+// Se ocultan con environment.mostrarProductosPendientes (ver src/environments/);
+// en local se muestran para validación.
+const PRODUCTOS_FACIL_PENDIENTES: string[] = ['/tribufi', '/cardsstudio', '/cobrafacil', '/scriptura'];
 
 interface Familia {
   id: string;
@@ -11,7 +17,6 @@ interface Familia {
   color: string;
   bgGradient: string;
   badgeColor: string;
-  productos: number;
   tags: string[];
 }
 
@@ -35,7 +40,6 @@ export class EcosistemasComponent implements OnInit {
       color: 'blue',
       bgGradient: 'from-blue-600 to-indigo-700',
       badgeColor: 'bg-blue-100 text-blue-800',
-      productos: 4,
       tags: ['Fiscal', 'Desktop', 'SAT', 'Empresarial'],
     },
     {
@@ -47,7 +51,6 @@ export class EcosistemasComponent implements OnInit {
       color: 'green',
       bgGradient: 'from-green-600 to-teal-600',
       badgeColor: 'bg-green-100 text-green-800',
-      productos: 8,
       tags: ['Delivery', 'Movilidad', 'Presupuesto', 'Running'],
     },
     {
@@ -59,7 +62,6 @@ export class EcosistemasComponent implements OnInit {
       color: 'violet',
       bgGradient: 'from-purple-600 to-violet-700',
       badgeColor: 'bg-purple-100 text-purple-800',
-      productos: 1,
       tags: ['Cloud', 'SaaS', 'Suscripción', 'Almacenamiento'],
     },
   ];
@@ -240,6 +242,11 @@ export class EcosistemasComponent implements OnInit {
     },
   ];
 
+  get productosFacilVisibles(): Producto[] {
+    if (environment.mostrarProductosPendientes) return this.productosFacil;
+    return this.productosFacil.filter((p) => !PRODUCTOS_FACIL_PENDIENTES.includes(p.url));
+  }
+
   productosWorkspace: Producto[] = [
     {
       titulo: 'Workspace NubeSaaS',
@@ -261,9 +268,16 @@ export class EcosistemasComponent implements OnInit {
 
   get productosActuales(): Producto[] {
     if (this.familiaSeleccionada === 'ifrat') return this.productosIFRAT;
-    if (this.familiaSeleccionada === 'facil') return this.productosFacil;
+    if (this.familiaSeleccionada === 'facil') return this.productosFacilVisibles;
     if (this.familiaSeleccionada === 'workspace') return this.productosWorkspace;
     return [];
+  }
+
+  productosFamilia(familiaId: string): number {
+    if (familiaId === 'ifrat') return this.productosIFRAT.length;
+    if (familiaId === 'facil') return this.productosFacilVisibles.length;
+    if (familiaId === 'workspace') return this.productosWorkspace.length;
+    return 0;
   }
 
   get familiaActual(): Familia | undefined {

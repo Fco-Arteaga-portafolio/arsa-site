@@ -21,8 +21,24 @@ import { WorkspacePaquetesComponent } from './features/pages/ecosistemas/workspa
 import { WorkspaceCheckoutComponent } from './features/pages/ecosistemas/workspace/checkout/checkout';
 import { WorkspaceConfirmacionComponent } from './features/pages/ecosistemas/workspace/confirmacion/confirmacion';
 import { MenusComponent } from './features/pages/menus/menus';
+import { environment } from '../environments/environment';
+
+// Rutas de productos FÁCIL en validación (scaffolding): solo se registran, y por
+// lo tanto solo son accesibles, cuando environment.mostrarProductosPendientes es
+// true. En producción la flag está en false (ver src/environments/environment.prod.ts).
+const RutasProductosPendientes: Routes = [
+  { path: 'tribufi', component: TribufiComponent },
+  { path: 'tribufi/:section', component: TribufiComponent },
+  { path: 'cardsstudio', component: CardsStudioComponent },
+  { path: 'cardsstudio/:section', component: CardsStudioComponent },
+  { path: 'cobrafacil', component: CobraFacilComponent },
+  { path: 'cobrafacil/:section', component: CobraFacilComponent },
+  { path: 'scriptura', component: ScripturaComponent },
+  { path: 'scriptura/:section', component: ScripturaComponent },
+];
 
 export const routes: Routes = [
+  ...(environment.mostrarProductosPendientes ? RutasProductosPendientes : []),
   {
     path: '',
     component: Landing,
@@ -110,38 +126,6 @@ export const routes: Routes = [
   {
     path: 'run-run-run/:section',
     component: RunRunRunComponent,
-  },
-  {
-    path: 'tribufi',
-    component: TribufiComponent,
-  },
-  {
-    path: 'tribufi/:section',
-    component: TribufiComponent,
-  },
-  {
-    path: 'cardsstudio',
-    component: CardsStudioComponent,
-  },
-  {
-    path: 'cardsstudio/:section',
-    component: CardsStudioComponent,
-  },
-  {
-    path: 'cobrafacil',
-    component: CobraFacilComponent,
-  },
-  {
-    path: 'cobrafacil/:section',
-    component: CobraFacilComponent,
-  },
-  {
-    path: 'scriptura',
-    component: ScripturaComponent,
-  },
-  {
-    path: 'scriptura/:section',
-    component: ScripturaComponent,
   },
   {
     path: 'workspace',
