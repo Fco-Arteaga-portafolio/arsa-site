@@ -38,61 +38,108 @@
   <!-- Inicio Section -->
   <section *ngIf="activeSection === 'inicio'" class="py-20 bg-gradient-to-b from-white to-gray-50">
     <div class="max-w-7xl mx-auto px-6">
+      <!-- Hero -->
       <div class="text-center mb-16" data-aos="fade-up">
         <div
-          class="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-sm font-bold mb-6"
+          class="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-sm font-bold mb-6"
         >
-          En Construcción
+          🚀 Ya disponible
         </div>
-        <h1 class="text-5xl md:text-7xl font-black text-arsa-dark mb-6">subeFacil</h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Plataforma de movilidad compartida y gestión de viajes diseñada para conectar pasajeros,
-          conductores independientes y administradores de flotas.
+        <h1 class="text-5xl md:text-7xl font-black text-arsa-dark mb-4">Sube Fácil</h1>
+        <p class="text-2xl text-arsa-primary font-bold mb-8">
+          La forma más inteligente de viajar, conducir y gestionar flotillas
+        </p>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          ¿Necesitas llegar a tu destino sin pagar de más? Sube Fácil te conecta con viajes
+          publicados por conductores verificados. Busca por origen, destino y fecha, elige tu asiento
+          y reserva al instante. Paga en línea con tarjeta, Apple Pay o Google Pay, o en efectivo si
+          prefieres. Sin letras chiquitas, sin sorpresas.
         </p>
       </div>
 
-      <!-- Features Grid -->
-      <div class="grid md:grid-cols-2 gap-8 mb-16" data-aos="fade-up">
-        <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-all">
+      <!-- Para pasajeros / conductores / flotillas -->
+      <div class="grid md:grid-cols-3 gap-6 mb-16" data-aos="fade-up">
+        <div class="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+          <div class="text-3xl mb-4">🛣️</div>
+          <h3 class="text-2xl font-bold text-arsa-dark mb-4">Para pasajeros</h3>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Encuentra viajes programados entre ciudades o solicita un viaje al instante.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Ve el mapa de asientos y elige tu lugar favorito.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Paga de forma segura directamente desde la app.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Historial completo de tus viajes.
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
           <div class="text-3xl mb-4">🚗</div>
-          <h3 class="text-2xl font-bold text-arsa-dark mb-3">Viajes Bajo Demanda y Programados</h3>
-          <p class="text-gray-600">
-            Solicita viajes en tiempo real o reserva tu asiento con anticipación en trayectos
-            programados de forma flexible.
-          </p>
+          <h3 class="text-2xl font-bold text-arsa-dark mb-4">Para conductores</h3>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Publica tus rutas y ofrece lugares disponibles.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Recibe solicitudes de viaje de pasajeros cercanos.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Activa pagos en línea y recibe el cobro directo en tu cuenta bancaria.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Gestiona tus vehículos, ganancias y más desde un panel sencillo.
+            </li>
+          </ul>
         </div>
 
-        <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-all">
-          <div class="text-3xl mb-4">💺</div>
-          <h3 class="text-2xl font-bold text-arsa-dark mb-3">Configuración Visual de Asientos</h3>
-          <p class="text-gray-600">
-            Interfaz interactiva para conductores y pasajeros que permite visualizar la distribución
-            interna del vehículo, bloquear o apartar lugares específicos.
-          </p>
-        </div>
-
-        <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-all">
+        <div class="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
           <div class="text-3xl mb-4">🏢</div>
-          <h3 class="text-2xl font-bold text-arsa-dark mb-3">Administración de Flotas</h3>
-          <p class="text-gray-600">
-            Herramientas avanzadas para dar de alta múltiples vehículos, asignar conductores
-            calificados, gestionar disponibilidad y programar rutas optimizadas.
-          </p>
-        </div>
-
-        <div class="rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-all">
-          <div class="text-3xl mb-4">🛡️</div>
-          <h3 class="text-2xl font-bold text-arsa-dark mb-3">Seguridad y Reputación</h3>
-          <p class="text-gray-600">
-            Monitoreo de rutas en tiempo real, compartición de ubicación mediante enlaces temporales
-            y un sistema mutuo de calificaciones para mayor confianza.
-          </p>
+          <h3 class="text-2xl font-bold text-arsa-dark mb-4">Para flotillas y empresas</h3>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Administra múltiples conductores y vehículos desde un solo lugar.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Asigna unidades y supervisa viajes en tiempo real.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Controla pagos y genera reportes de operación.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-500 font-bold">✓</span>
+              Ideal para transporte ejecutivo, rutas escolares, turístico y corporativo.
+            </li>
+          </ul>
         </div>
       </div>
 
-      <!-- Store Buttons -->
+      <!-- Cierre -->
       <div class="text-center mb-12" data-aos="fade-up">
-        <p class="text-gray-600 mb-6">📲 Descárgala gratis, ya disponible para iPhone y Android</p>
+        <p class="text-2xl text-arsa-dark font-black max-w-3xl mx-auto leading-snug">
+          Sube Fácil es más que una app de viajes: es una plataforma completa de movilidad que
+          conecta personas, vehículos y oportunidades.
+        </p>
+        <p class="text-gray-600 mt-4 mb-6">Descárgala y súbete al viaje. 📲</p>
+      </div>
+
+      <!-- Store Buttons -->
+      <div class="text-center" data-aos="fade-up">
         <div class="flex justify-center gap-4 flex-wrap">
           <a
             href="https://play.google.com/store/apps/details?id=mx.com.arsa.rides"
