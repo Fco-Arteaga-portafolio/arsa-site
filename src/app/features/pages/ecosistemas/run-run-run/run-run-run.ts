@@ -5,15 +5,20 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
 import { PrivacidadEliminarComponent } from '../../../components/privacidad-eliminar/privacidad-eliminar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faGooglePlay, faApple } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-run-run-run',
   standalone: true,
-  imports: [CommonModule, PrivacidadEliminarComponent],
+  imports: [CommonModule, PrivacidadEliminarComponent, FontAwesomeModule],
   templateUrl: './run-run-run.html',
   styleUrl: './run-run-run.css',
 })
 export class RunRunRunComponent implements OnInit, OnDestroy {
+  iconGooglePlay = faGooglePlay;
+  iconApple = faApple;
+
   activeSection: 'inicio' | 'privacidad' | 'eliminar' = 'inicio';
   private destroy$ = new Subject<void>();
 
