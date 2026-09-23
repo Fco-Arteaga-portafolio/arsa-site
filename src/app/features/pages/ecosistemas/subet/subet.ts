@@ -5,15 +5,20 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
 import { PrivacidadEliminarComponent } from '../../../components/privacidad-eliminar/privacidad-eliminar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faGooglePlay, faApple } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-subet',
   standalone: true,
-  imports: [CommonModule, PrivacidadEliminarComponent],
+  imports: [CommonModule, PrivacidadEliminarComponent, FontAwesomeModule],
   templateUrl: './subet.html',
   styleUrl: './subet.css',
 })
 export class SubetComponent implements OnInit, OnDestroy {
+  iconGooglePlay = faGooglePlay;
+  iconApple = faApple;
+
   activeSection: 'inicio' | 'privacidad' | 'eliminar' = 'inicio';
   private destroy$ = new Subject<void>();
 
