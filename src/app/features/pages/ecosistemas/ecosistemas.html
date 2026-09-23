@@ -13,12 +13,12 @@
             Nuestro Ecosistema
           </h1>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Dos grandes familias que integran todo nuestro portafolio de soluciones empresariales
+            Tres grandes familias que integran todo nuestro portafolio de soluciones empresariales
           </p>
         </div>
 
         <!-- Family Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
           @for (familia of familias; track familia.id) {
             <div
               (click)="irAFamilia(familia.id)"
@@ -63,7 +63,7 @@
                 <!-- CTA -->
                 <div
                   class="inline-flex items-center gap-2 font-bold text-lg transition-all duration-300"
-                  [ngClass]="familia.color === 'blue' ? 'text-blue-600 group-hover:text-blue-700' : 'text-green-600 group-hover:text-green-700'"
+                  [ngClass]="ctaClases(familia)"
                 >
                   Explorar familia
                   <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>

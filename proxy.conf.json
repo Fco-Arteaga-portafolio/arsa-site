@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://nube.ar-sa.com.mx:8444",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

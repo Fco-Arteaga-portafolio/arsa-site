@@ -1,0 +1,183 @@
+<main>
+  <!-- ===== WORKSPACE: PÁGINA DE CONFIRMACIÓN / GRACIAS ===== -->
+  <section class="relative min-h-screen py-32 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+    <!-- Decoración de fondo -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-2xl mx-auto px-6">
+      @switch (estado) {
+        @case ('Pendiente') {
+          <!-- Confirmando el pago (polling activo) -->
+          <div class="bg-white rounded-[2rem] border border-gray-200 shadow-lg p-10 md:p-14 text-center">
+            <div
+              class="w-16 h-16 mx-auto border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mb-6"
+            ></div>
+            <h1 class="text-3xl font-black text-slate-900 mb-3">Confirmando tu pago...</h1>
+            <p class="text-gray-600">
+              Estamos verificando el estado de tu orden. Esto puede tardar unos momentos.
+              No cierres ni recargues esta página.
+            </p>
+            @if (hayErrorConsulta) {
+              <p class="mt-4 text-sm text-amber-600 font-medium">
+                Tuvimos un problema en la última consulta; seguimos intentando automáticamente.
+              </p>
+            }
+          </div>
+        }
+        @case ('Aprobada') {
+          <!-- Pago aprobado: entregar usuario y contraseña -->
+          <div class="bg-white rounded-[2rem] border border-gray-200 shadow-lg overflow-hidden">
+            <div class="h-2 w-full bg-gradient-to-r from-green-500 to-emerald-600"></div>
+            <div class="p-10 md:p-14">
+              <div
+                class="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center text-3xl mb-6"
+              >
+                ✅
+              </div>
+              <h1 class="text-3xl font-black text-slate-900 text-center mb-3">¡Pago confirmado!</h1>
+              <p class="text-gray-600 text-center mb-8">Tu espacio de trabajo ya está listo.</p>
+
+              <!-- Advertencia MUY visible -->
+              <div class="mb-8 rounded-2xl border-2 border-red-400 bg-red-50 p-6">
+                <p class="font-black text-red-700 text-lg mb-1">
+                  ⚠️ Guarda esta contraseña ahora, no la volverás a ver.
+                </p>
+                <p class="text-red-600 text-sm">
+                  El sistema solo muestra la contraseña una vez. Si la pierdes, no hay forma de
+                  recuperarla todavía (el envío por correo estará disponible más adelante).
+                </p>
+              </div>
+
+              <!-- Credenciales (guardadas en memoria del componente) -->
+              <div class="space-y-4">
+                @if (usuario) {
+                  <div
+                    class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-2xl border border-gray-200 bg-slate-50 p-5"
+                  >
+                    <div>
+                      <p class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-1">
+                        Usuario
+                      </p>
+                      <p class="font-mono text-lg font-bold text-slate-900 break-all">{{ usuario }}</p>
+                    </div>
+                    <button
+                      (click)="copiarAlPortapapeles(usuario, 'usuario')"
+                      class="px-5 py-2.5 rounded-xl bg-white border border-gray-300 font-bold hover:bg-gray-50 transition-all text-sm shrink-0"
+                    >
+                      {{ usuarioCopiado ? '✓ Copiado' : 'Copiar al portapapeles' }}
+                    </button>
+                  </div>
+                }
+
+                @if (password) {
+                  <div
+                    class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 rounded-2xl border border-gray-200 bg-slate-50 p-5"
+                  >
+                    <div>
+                      <p class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-1">
+                        Contraseña
+                      </p>
+                      <p class="font-mono text-lg font-bold text-slate-900 break-all">{{ password }}</p>
+                    </div>
+                    <button
+                      (click)="copiarAlPortapapeles(password, 'password')"
+                      class="px-5 py-2.5 rounded-xl bg-white border border-gray-300 font-bold hover:bg-gray-50 transition-all text-sm shrink-0"
+                    >
+                      {{ passwordCopiada ? '✓ Copiado' : 'Copiar al portapapeles' }}
+                    </button>
+                  </div>
+                }
+
+                @if (!password) {
+                  <p class="text-sm text-amber-700 font-medium">
+                    La contraseña ya no está disponible: solo se muestra una vez. Si no la guardaste,
+                    contáctanos para soporte.
+                  </p>
+                }
+              </div>
+
+              <a
+                routerLink="/workspace"
+                class="mt-10 inline-block w-full text-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-black transition-all"
+              >
+                Volver a planes
+              </a>
+            </div>
+          </div>
+        }
+        @case ('Cancelada') {
+          <!-- Pago no completado -->
+          <div class="bg-white rounded-[2rem] border border-gray-200 shadow-lg p-10 md:p-14 text-center">
+            <div
+              class="w-16 h-16 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-3xl mb-6"
+            >
+              ⚠️
+            </div>
+            <h1 class="text-3xl font-black text-slate-900 mb-3">El pago no se completó</h1>
+            <p class="text-gray-600 mb-8">
+              No recibimos la confirmación del pago. Puedes intentarlo nuevamente cuando quieras.
+            </p>
+            <button
+              (click)="reiniciarPago()"
+              class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-black transition-all shadow-lg shadow-purple-600/20"
+            >
+              Intentar de nuevo
+            </button>
+            <a
+              routerLink="/workspace"
+              class="block mt-4 text-gray-600 hover:text-slate-900 font-medium"
+            >
+              Volver a planes
+            </a>
+          </div>
+        }
+        @case ('agotado') {
+          <!-- Se agotaron los 100 intentos (~5 min) -->
+          <div class="bg-white rounded-[2rem] border border-gray-200 shadow-lg p-10 md:p-14 text-center">
+            <div
+              class="w-16 h-16 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-3xl mb-6"
+            >
+              ⏳
+            </div>
+            <h1 class="text-3xl font-black text-slate-900 mb-3">Tu pago sigue procesándose</h1>
+            <p class="text-gray-600 mb-6">
+              Estuvimos esperando la confirmación del pago por varios minutos y aún no tenemos el
+              resultado final. Si el cargo ya apareció en tu cuenta, contáctanos y comparte la
+              referencia de tu orden.
+            </p>
+            <div class="rounded-2xl border border-gray-200 bg-slate-50 p-5 mb-8">
+              <p class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-1">
+                Referencia de tu orden
+              </p>
+              <p class="font-mono text-lg font-bold text-slate-900 break-all">{{ ordenId }}</p>
+            </div>
+            <a
+              routerLink="/workspace"
+              class="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-black transition-all"
+            >
+              Volver a planes
+            </a>
+          </div>
+        }
+        @default {
+          <!-- Sin orden guardada -->
+          <div class="bg-white rounded-[2rem] border border-gray-200 shadow-lg p-10 md:p-14 text-center">
+            <h1 class="text-3xl font-black text-slate-900 mb-3">No encontramos tu orden</h1>
+            <p class="text-gray-600 mb-8">
+              Para completar tu contratación primero elige un plan y genera la orden de pago.
+            </p>
+            <a
+              routerLink="/workspace"
+              class="inline-block w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-black transition-all"
+            >
+              Ver planes disponibles
+            </a>
+          </div>
+        }
+      }
+    </div>
+  </section>
+</main>

@@ -1,0 +1,140 @@
+<main>
+  <!-- ===== WORKSPACE: PÁGINA DE CHECKOUT ===== -->
+  <section class="relative py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
+    <!-- Decoración de fondo -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-3xl mx-auto px-6">
+      <a
+        routerLink="/workspace"
+        class="inline-flex items-center gap-2 mb-8 px-6 py-3 rounded-lg bg-white hover:bg-gray-50 text-slate-900 transition-all border border-gray-200 font-medium"
+      >
+        ← Volver a planes
+      </a>
+
+      <div class="bg-white rounded-[2rem] border border-gray-200 shadow-lg overflow-hidden">
+        <div class="h-2 w-full bg-gradient-to-r from-purple-600 to-violet-700"></div>
+
+        <div class="p-8 md:p-12">
+          <h1 class="text-3xl md:text-4xl font-black text-slate-900 mb-2">Contratar Workspace</h1>
+          <p class="text-gray-600 mb-8">Completa tus datos y genera tu orden de pago.</p>
+
+          @if (cargandoPaquetes) {
+            <!-- Cargando paquete -->
+            <div class="flex items-center gap-3 py-8 text-gray-600">
+              <div class="w-6 h-6 border-2 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+              Cargando información del paquete...
+            </div>
+          } @else if (paqueteSeleccionado) {
+            <!-- Paquete elegido (solo lectura) -->
+            <div class="mb-8 p-6 rounded-2xl bg-slate-50 border border-gray-200">
+              <p class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+                Paquete seleccionado
+              </p>
+              <div class="flex items-end justify-between gap-4 flex-wrap">
+                <div>
+                  <p class="text-xl font-black text-slate-900">{{ paqueteSeleccionado.nombre }}</p>
+                  <p class="text-gray-600">{{ paqueteSeleccionado.gigaBytes }} GB de almacenamiento</p>
+                </div>
+                <p class="text-2xl font-black text-slate-900">
+                  {{ formatearPrecio(paqueteSeleccionado.precio) }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Formulario -->
+            <form (ngSubmit)="enviar()" novalidate>
+              <div class="space-y-6">
+                <!-- Usuario deseado -->
+                <div>
+                  <label for="nombreUsuarioDeseado" class="block font-bold text-slate-900 mb-2">
+                    Nombre de usuario deseado
+                  </label>
+                  <input
+                    id="nombreUsuarioDeseado"
+                    name="nombreUsuarioDeseado"
+                    type="text"
+                    [(ngModel)]="nombreUsuarioDeseado"
+                    (ngModelChange)="mensajeUsuario = ''"
+                    (blur)="validarUsuario()"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-600 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                    placeholder="ej. michelle.nube"
+                    autocomplete="off"
+                    maxlength="64"
+                  />
+                  @if (mensajeUsuario) {
+                    <p class="mt-2 text-sm text-red-600 font-medium">{{ mensajeUsuario }}</p>
+                  }
+                  <p class="mt-2 text-sm text-gray-500">
+                    Solo minúsculas, números y los caracteres
+                    <code class="font-mono">. _ -</code>. Entre 3 y 64 caracteres.
+                  </p>
+                </div>
+
+                <!-- Email -->
+                <div>
+                  <label for="email" class="block font-bold text-slate-900 mb-2">
+                    Correo electrónico
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    [(ngModel)]="email"
+                    (ngModelChange)="mensajeEmail = ''"
+                    (blur)="validarEmail()"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-600 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                    placeholder="tu@correo.com"
+                  />
+                  @if (mensajeEmail) {
+                    <p class="mt-2 text-sm text-red-600 font-medium">{{ mensajeEmail }}</p>
+                  }
+                </div>
+              </div>
+
+              @if (errorMensaje) {
+                <div class="mt-6 bg-red-50 border border-red-200 rounded-2xl p-5">
+                  <p class="font-bold text-red-700">{{ errorMensaje }}</p>
+                  @if (errorAyuda) {
+                    <p class="mt-1 text-red-600">{{ errorAyuda }}</p>
+                  }
+                </div>
+              }
+
+              <button
+                type="submit"
+                [disabled]="enviando"
+                class="mt-8 w-full bg-purple-600 hover:bg-purple-700 disabled:opacity-60 disabled:cursor-not-allowed text-white px-8 py-4 rounded-xl font-black text-lg transition-all shadow-lg shadow-purple-600/20 active:scale-95"
+              >
+                {{ enviando ? 'Generando orden de pago...' : 'Continuar al pago' }}
+              </button>
+
+              <p class="mt-4 text-sm text-gray-500">
+                Al continuar serás redirigido a Mercado Pago para completar el pago.
+                No cierres la página hasta que el pago esté terminado.
+              </p>
+            </form>
+          } @else {
+            @if (sinPaquete) {
+              <!-- Sin paquete válido -->
+              <div class="bg-red-50 border border-red-200 rounded-[2rem] p-10 text-center">
+                <p class="text-red-700 font-semibold mb-4">
+                  No encontramos el paquete seleccionado. Regresa a los planes y elige uno nuevamente.
+                </p>
+                <a
+                  routerLink="/workspace"
+                  class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-all"
+                >
+                  Ver planes disponibles
+                </a>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -13,6 +13,9 @@ import { SubetComponent } from './features/pages/subet/subet';
 import { PidefacilComponent } from './features/pages/pidefacil/pidefacil';
 import { SuperFacilComponent } from './features/pages/super-facil/super-facil';
 import { RunRunRunComponent } from './features/pages/run-run-run/run-run-run';
+import { WorkspacePaquetesComponent } from './features/pages/workspace/paquetes/paquetes';
+import { WorkspaceCheckoutComponent } from './features/pages/workspace/checkout/checkout';
+import { WorkspaceConfirmacionComponent } from './features/pages/workspace/confirmacion/confirmacion';
 import { MenusComponent } from './features/pages/menus/menus';
 
 export const routes: Routes = [
@@ -103,5 +106,17 @@ export const routes: Routes = [
   {
     path: 'run-run-run/:section',
     component: RunRunRunComponent,
+  },
+  {
+    path: 'workspace',
+    component: WorkspacePaquetesComponent,
+  },
+  {
+    path: 'workspace/checkout',
+    component: WorkspaceCheckoutComponent,
+  },
+  {
+    path: 'workspace/confirmacion',
+    component: WorkspaceConfirmacionComponent,
   },
 ];

@@ -50,6 +50,18 @@ export class EcosistemasComponent implements OnInit {
       productos: 4,
       tags: ['Delivery', 'Movilidad', 'Presupuesto', 'Running'],
     },
+    {
+      id: 'workspace',
+      nombre: 'Workspace',
+      icono: '☁️',
+      descripcion:
+        'Servicios en la nube y suscripciones de software como servicio. Tu espacio personal de trabajo con almacenamiento, acceso desde cualquier dispositivo y soporte incluido.',
+      color: 'violet',
+      bgGradient: 'from-purple-600 to-violet-700',
+      badgeColor: 'bg-purple-100 text-purple-800',
+      productos: 1,
+      tags: ['Cloud', 'SaaS', 'Suscripción', 'Almacenamiento'],
+    },
   ];
 
   productosIFRAT: Producto[] = [
@@ -186,9 +198,29 @@ export class EcosistemasComponent implements OnInit {
     },
   ];
 
+  productosWorkspace: Producto[] = [
+    {
+      titulo: 'Workspace NubeSaaS',
+      icono: '☁️',
+      descripcion:
+        'Tu espacio personal en la nube con almacenamiento y acceso desde cualquier dispositivo. Elige el plan que se ajuste a tus necesidades y actívalo hoy mismo.',
+      caracteristicas: [
+        'Almacenamiento en la nube',
+        'Acceso desde cualquier dispositivo',
+        'Configuración inmediata',
+        'Soporte incluido',
+      ],
+      url: '/workspace',
+      botonTexto: 'Ver planes',
+      colorPrimario: 'arsa-accent',
+      colorSecundario: 'blue-500',
+    },
+  ];
+
   get productosActuales(): Producto[] {
     if (this.familiaSeleccionada === 'ifrat') return this.productosIFRAT;
     if (this.familiaSeleccionada === 'facil') return this.productosFacil;
+    if (this.familiaSeleccionada === 'workspace') return this.productosWorkspace;
     return [];
   }
 
@@ -209,6 +241,12 @@ export class EcosistemasComponent implements OnInit {
 
   irAFamilia(familiaId: string): void {
     this.router.navigate(['/ecosistemas', familiaId]);
+  }
+
+  ctaClases(familia: Familia): string {
+    if (familia.color === 'blue') return 'text-blue-600 group-hover:text-blue-700';
+    if (familia.color === 'green') return 'text-green-600 group-hover:text-green-700';
+    return 'text-purple-600 group-hover:text-purple-700';
   }
 
   volverAFamilias(): void {
