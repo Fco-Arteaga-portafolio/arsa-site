@@ -1,0 +1,120 @@
+<main>
+  <!-- Navigation Tabs -->
+  <nav class="sticky top-20 z-40 bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 flex gap-8 overflow-x-auto">
+      <button
+        (click)="navigateTo('inicio')"
+        class="py-4 px-2 font-semibold whitespace-nowrap"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'inicio',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'inicio',
+        }"
+      >
+        Inicio
+      </button>
+      <button
+        (click)="navigateTo('privacidad')"
+        class="py-4 px-2 font-semibold whitespace-nowrap"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'privacidad',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'privacidad',
+        }"
+      >
+        Privacidad
+      </button>
+      <button
+        (click)="navigateTo('eliminar')"
+        class="py-4 px-2 font-semibold whitespace-nowrap"
+        [ngClass]="{
+          'text-arsa-primary border-b-2 border-arsa-primary': activeSection === 'eliminar',
+          'text-gray-600 hover:text-arsa-dark': activeSection !== 'eliminar',
+        }"
+      >
+        Eliminar Cuenta
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== INICIO ===== -->
+  <!-- TODO: definir contenido de producto para scriptura -->
+  <section *ngIf="activeSection === 'inicio'" class="py-28 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div
+        class="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-sm font-bold mb-8"
+      >
+        Próximamente
+      </div>
+
+      <h1 class="text-6xl md:text-8xl font-black text-arsa-dark mb-6 tracking-tight">
+        scriptura
+      </h1>
+
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+        Una nueva aplicación está en camino. Muy pronto conocerás todos los detalles.
+      </p>
+
+      <div class="max-w-md mx-auto bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+        <div class="text-4xl mb-4">⏳</div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-2">Pronto sabrás más</h3>
+        <p class="text-gray-500">
+          Estamos trabajando en esto. Regresa pronto para más detalles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRIVACIDAD ===== -->
+  <section *ngIf="activeSection === 'privacidad'" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-arsa-dark mb-2">Aviso de Privacidad</h1>
+      </div>
+
+      <!-- TODO: contenido por definir para scriptura -->
+      <div class="bg-orange-50 border border-orange-200 rounded-lg p-6 text-gray-700 leading-relaxed">
+        El contenido de este aviso de privacidad está pendiente de definirse para
+        <strong>scriptura</strong>.
+      </div>
+
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
+        <p class="text-sm text-gray-600">
+          Para más información contáctanos en
+          <span class="font-bold">contacto@ar-sa.com.mx</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ELIMINAR CUENTA ===== -->
+  <section *ngIf="activeSection === 'eliminar'" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <h1 class="text-4xl font-black text-arsa-dark mb-2">Eliminar Cuenta</h1>
+      </div>
+
+      <div class="space-y-8">
+        <!-- TODO: contenido por definir para scriptura -->
+        <div class="bg-orange-50 border border-orange-200 rounded-lg p-6 text-gray-700 leading-relaxed">
+          El proceso de eliminación de cuenta está pendiente de definirse para
+          <strong>scriptura</strong>.
+        </div>
+
+        <div class="text-center">
+          <button
+            (click)="diagnosticService.openModal()"
+            class="bg-arsa-primary hover:bg-arsa-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all"
+          >
+            Contactar soporte
+          </button>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
+          <p class="text-sm text-gray-600">
+            También puedes eliminar tu cuenta enviando un correo a
+            <span class="font-bold">contacto@ar-sa.com.mx</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

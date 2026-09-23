@@ -13,6 +13,10 @@ import { SubetComponent } from './features/pages/subet/subet';
 import { PidefacilComponent } from './features/pages/pidefacil/pidefacil';
 import { SuperFacilComponent } from './features/pages/super-facil/super-facil';
 import { RunRunRunComponent } from './features/pages/run-run-run/run-run-run';
+import { TribufiComponent } from './features/pages/tribufi/tribufi';
+import { CardsStudioComponent } from './features/pages/cardsstudio/cardsstudio';
+import { CobraFacilComponent } from './features/pages/cobrafacil/cobrafacil';
+import { ScripturaComponent } from './features/pages/scriptura/scriptura';
 import { WorkspacePaquetesComponent } from './features/pages/workspace/paquetes/paquetes';
 import { WorkspaceCheckoutComponent } from './features/pages/workspace/checkout/checkout';
 import { WorkspaceConfirmacionComponent } from './features/pages/workspace/confirmacion/confirmacion';
@@ -106,6 +110,38 @@ export const routes: Routes = [
   {
     path: 'run-run-run/:section',
     component: RunRunRunComponent,
+  },
+  {
+    path: 'tribufi',
+    component: TribufiComponent,
+  },
+  {
+    path: 'tribufi/:section',
+    component: TribufiComponent,
+  },
+  {
+    path: 'cardsstudio',
+    component: CardsStudioComponent,
+  },
+  {
+    path: 'cardsstudio/:section',
+    component: CardsStudioComponent,
+  },
+  {
+    path: 'cobrafacil',
+    component: CobraFacilComponent,
+  },
+  {
+    path: 'cobrafacil/:section',
+    component: CobraFacilComponent,
+  },
+  {
+    path: 'scriptura',
+    component: ScripturaComponent,
+  },
+  {
+    path: 'scriptura/:section',
+    component: ScripturaComponent,
   },
   {
     path: 'workspace',

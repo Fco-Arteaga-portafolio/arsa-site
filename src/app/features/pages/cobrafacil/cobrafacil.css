@@ -1,0 +1,8 @@
+/* Estilos básicos para cobraFacil */
+:host {
+  display: block;
+}
+
+main {
+  min-height: 100vh;
+}
