@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DiagnosticService } from '../../../shared/services/diagnostic.service';
+import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
 
 @Component({
-  selector: 'app-run-run-run',
+  selector: 'app-scriptura',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './run-run-run.html',
-  styleUrl: './run-run-run.css',
+  templateUrl: './scriptura.html',
+  styleUrl: './scriptura.css',
 })
-export class RunRunRunComponent implements OnInit, OnDestroy {
+export class ScripturaComponent implements OnInit, OnDestroy {
   activeSection: 'inicio' | 'privacidad' | 'eliminar' = 'inicio';
   private destroy$ = new Subject<void>();
 
@@ -38,6 +38,6 @@ export class RunRunRunComponent implements OnInit, OnDestroy {
   }
 
   navigateTo(section: 'inicio' | 'privacidad' | 'eliminar'): void {
-    this.router.navigate(['/run-run-run', section]);
+    this.router.navigate(['/scriptura', section]);
   }
 }

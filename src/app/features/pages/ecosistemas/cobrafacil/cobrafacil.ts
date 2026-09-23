@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DiagnosticService } from '../../../shared/services/diagnostic.service';
+import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
 
 @Component({
-  selector: 'app-scriptura',
+  selector: 'app-cobrafacil',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './scriptura.html',
-  styleUrl: './scriptura.css',
+  templateUrl: './cobrafacil.html',
+  styleUrl: './cobrafacil.css',
 })
-export class ScripturaComponent implements OnInit, OnDestroy {
+export class CobraFacilComponent implements OnInit, OnDestroy {
   activeSection: 'inicio' | 'privacidad' | 'eliminar' = 'inicio';
   private destroy$ = new Subject<void>();
 
@@ -38,6 +38,6 @@ export class ScripturaComponent implements OnInit, OnDestroy {
   }
 
   navigateTo(section: 'inicio' | 'privacidad' | 'eliminar'): void {
-    this.router.navigate(['/scriptura', section]);
+    this.router.navigate(['/cobrafacil', section]);
   }
 }

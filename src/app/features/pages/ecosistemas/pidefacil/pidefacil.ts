@@ -10,7 +10,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DiagnosticService } from '../../../shared/services/diagnostic.service';
+import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
 
 // 1. Agrega los nuevos imports de FontAwesome aquí arriba:
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';

@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DiagnosticService } from '../../../shared/services/diagnostic.service';
+import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
 
 @Component({
-  selector: 'app-cobrafacil',
+  selector: 'app-run-run-run',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './cobrafacil.html',
-  styleUrl: './cobrafacil.css',
+  templateUrl: './run-run-run.html',
+  styleUrl: './run-run-run.css',
 })
-export class CobraFacilComponent implements OnInit, OnDestroy {
+export class RunRunRunComponent implements OnInit, OnDestroy {
   activeSection: 'inicio' | 'privacidad' | 'eliminar' = 'inicio';
   private destroy$ = new Subject<void>();
 
@@ -38,6 +38,6 @@ export class CobraFacilComponent implements OnInit, OnDestroy {
   }
 
   navigateTo(section: 'inicio' | 'privacidad' | 'eliminar'): void {
-    this.router.navigate(['/cobrafacil', section]);
+    this.router.navigate(['/run-run-run', section]);
   }
 }

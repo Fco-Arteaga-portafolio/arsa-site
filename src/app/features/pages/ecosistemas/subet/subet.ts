@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DiagnosticService } from '../../../shared/services/diagnostic.service';
+import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
 
 @Component({
-  selector: 'app-super-facil',
+  selector: 'app-subet',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './super-facil.html',
-  styleUrl: './super-facil.css',
+  templateUrl: './subet.html',
+  styleUrl: './subet.css',
 })
-export class SuperFacilComponent implements OnInit, OnDestroy {
+export class SubetComponent implements OnInit, OnDestroy {
   activeSection: 'inicio' | 'privacidad' | 'eliminar' = 'inicio';
   private destroy$ = new Subject<void>();
 
@@ -26,6 +26,7 @@ export class SuperFacilComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedRoute.paramMap.pipe(takeUntil(this.destroy$)).subscribe((params) => {
       const section = params.get('section') as 'inicio' | 'privacidad' | 'eliminar' | null;
+      console.log('Sección actualizada a:', section || 'inicio');
       this.activeSection = section || 'inicio';
       this.cdr.markForCheck();
       window.scrollTo(0, 0);
@@ -38,6 +39,7 @@ export class SuperFacilComponent implements OnInit, OnDestroy {
   }
 
   navigateTo(section: 'inicio' | 'privacidad' | 'eliminar'): void {
-    this.router.navigate(['/super-facil', section]);
+    console.log('Navegando a:', section);
+    this.router.navigate(['/subet', section]);
   }
 }
