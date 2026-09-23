@@ -15,11 +15,12 @@ import { DiagnosticService } from '../../../../shared/services/diagnostic.servic
 // 1. Agrega los nuevos imports de FontAwesome aquí arriba:
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGooglePlay, faApple } from '@fortawesome/free-brands-svg-icons';
+import { PrivacidadEliminarComponent } from '../../../components/privacidad-eliminar/privacidad-eliminar';
 
 @Component({
   selector: 'app-pidefacil',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule], // 2. Agrega FontAwesomeModule en tus imports del componente
+  imports: [CommonModule, FontAwesomeModule, PrivacidadEliminarComponent], // 2. Agrega FontAwesomeModule en tus imports del componente
   templateUrl: './pidefacil.html',
   styleUrl: './pidefacil.css',
 })

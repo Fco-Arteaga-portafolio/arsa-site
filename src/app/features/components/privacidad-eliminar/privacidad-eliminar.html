@@ -1,0 +1,186 @@
+<!-- Secciones Aviso de Privacidad y Eliminar Cuenta compartidas por la familia FÁCIL.
+     El nombre de la app se inyecta con [appName]. -->
+
+<!-- ===== PRIVACIDAD ===== -->
+<section *ngIf="activeSection === 'privacidad'" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="mb-8">
+      <h1 class="text-4xl font-black text-arsa-dark mb-2">Aviso de Privacidad</h1>
+    </div>
+    <p class="text-gray-600 mb-8">Última actualización: Junio 2026</p>
+
+    <div class="space-y-8 text-gray-700 leading-relaxed">
+      <div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-3">
+          1. Información que recopilamos en {{ appName }}
+        </h3>
+        <p>
+          {{ appName }} recopila información personal como nombre, correo electrónico, número de
+          teléfono y datos de ubicación para que {{ appName }} pueda funcionar correctamente. Esta
+          información es esencial para que {{ appName }} brinde sus servicios.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-3">2. Uso de información en {{ appName }}</h3>
+        <p>
+          {{ appName }} utiliza tu información para proporcionar servicios de pedidos y entregas a
+          través de {{ appName }}, mejorar nuestra plataforma {{ appName }}, contactarte sobre
+          actualizaciones de {{ appName }} y mantener la seguridad de tu cuenta en {{ appName }}.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-3">
+          3. Protección de datos en {{ appName }}
+        </h3>
+        <p>
+          {{ appName }} implementa medidas de seguridad avanzadas, incluyendo encriptación de datos
+          en tránsito y en reposo, para proteger tu información personal dentro de {{ appName }}.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-3">
+          4. Compartir información de {{ appName }}
+        </h3>
+        <p>
+          {{ appName }} no comparte tu información personal con terceros sin tu consentimiento,
+          excepto cuando es necesario para el funcionamiento del servicio de {{ appName }}.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-3">5. Tus derechos en {{ appName }}</h3>
+        <p>
+          Tienes derecho a acceder, corregir, actualizar o solicitar la eliminación de tu
+          información personal en {{ appName }} en cualquier momento. {{ appName }} respeta tus
+          derechos.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-3">
+          6. Duración de conservación de datos en {{ appName }}
+        </h3>
+        <p>
+          Conservamos tus datos mientras tengas una cuenta activa en {{ appName }}. Si solicitas la
+          eliminación de tu cuenta en {{ appName }}, todos tus datos se borrarán en un plazo máximo
+          de 20 días hábiles. {{ appName }} no conservará información personal después de que hayas
+          solicitado la eliminación de tu cuenta en {{ appName }}.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-arsa-dark mb-3">
+          7. Consentimiento y aceptación en {{ appName }}
+        </h3>
+        <p>
+          Al utilizar {{ appName }}, aceptas el tratamiento de tus datos conforme a este Aviso de
+          Privacidad de {{ appName }}. Si no estás de acuerdo con las prácticas de privacidad de
+          {{ appName }} descritas en este documento, no debes usar {{ appName }}.
+        </p>
+      </div>
+
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
+        <p class="text-sm text-gray-600">
+          Para más información sobre la privacidad en {{ appName }} o ejercer tus derechos en
+          {{ appName }}, contáctanos en
+          <span class="font-bold">contacto@ar-sa.com.mx</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ELIMINAR CUENTA ===== -->
+<section *ngIf="activeSection === 'eliminar'" class="py-20 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="mb-8">
+      <h1 class="text-4xl font-black text-arsa-dark mb-2">Eliminar Cuenta</h1>
+    </div>
+
+    <div class="space-y-8">
+      <div class="bg-red-50 border border-red-200 rounded-lg p-6">
+        <h3 class="text-lg font-bold text-red-900 mb-2">⚠️ Acción irreversible en {{ appName }}</h3>
+        <p class="text-red-800">
+          Eliminar tu cuenta de {{ appName }} es una acción permanente. Se borrarán todos tus datos
+          en {{ appName }}, historial de pedidos de {{ appName }} y configuraciones de
+          {{ appName }}.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg border border-gray-200 p-8">
+        <h3 class="text-xl font-bold text-arsa-dark mb-6">
+          ¿Qué sucederá al eliminar tu cuenta de {{ appName }}?
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex gap-3">
+            <span class="text-lg">✓</span>
+            <span>Tu perfil de {{ appName }} será desactivado inmediatamente</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-lg">✓</span>
+            <span>Se eliminarán todos tus datos personales de {{ appName }}</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-lg">✓</span>
+            <span>No podrás acceder a tu historial de pedidos en {{ appName }}</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-lg">✓</span>
+            <span>Se cancelarán todas tus suscripciones activas en {{ appName }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-lg border border-gray-200 p-8">
+        <h3 class="text-xl font-bold text-arsa-dark mb-4">
+          Proceso para eliminar tu cuenta en {{ appName }}
+        </h3>
+        <ol class="space-y-4 text-gray-700">
+          <li class="flex gap-3">
+            <span class="font-bold text-arsa-primary">1.</span>
+            <span>Accede a la configuración de tu cuenta de {{ appName }}</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-bold text-arsa-primary">2.</span>
+            <span>Selecciona "Eliminar cuenta de {{ appName }}" en la sección de privacidad</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-bold text-arsa-primary">3.</span>
+            <span>Confirma tu contraseña de {{ appName }} para verificar tu identidad</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-bold text-arsa-primary">4.</span>
+            <span>Revisa y acepta los términos de eliminación de {{ appName }}</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-bold text-arsa-primary">5.</span>
+            <span>Confirma la eliminación de tu cuenta en {{ appName }} (no hay vuelta atrás)</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="text-center">
+        <p class="text-gray-600 mb-6">
+          ¿Necesitas ayuda antes de eliminar tu cuenta de {{ appName }}?
+        </p>
+        <button
+          (click)="diagnosticService.openModal()"
+          class="bg-arsa-primary hover:bg-arsa-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all"
+        >
+          Contactar soporte de {{ appName }}
+        </button>
+      </div>
+
+      <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
+        <p class="text-sm text-gray-600">
+          También puedes eliminar tu cuenta de {{ appName }} enviando un correo a
+          <span class="font-bold">contacto@ar-sa.com.mx</span> con tu solicitud de eliminación de
+          cuenta en {{ appName }}.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

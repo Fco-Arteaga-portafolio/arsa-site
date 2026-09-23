@@ -63,58 +63,9 @@
     </div>
   </section>
 
-  <!-- ===== PRIVACIDAD ===== -->
-  <section *ngIf="activeSection === 'privacidad'" class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <h1 class="text-4xl font-black text-arsa-dark mb-2">Aviso de Privacidad</h1>
-      </div>
-
-      <!-- TODO: contenido por definir para scriptura -->
-      <div class="bg-orange-50 border border-orange-200 rounded-lg p-6 text-gray-700 leading-relaxed">
-        El contenido de este aviso de privacidad está pendiente de definirse para
-        <strong>scriptura</strong>.
-      </div>
-
-      <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
-        <p class="text-sm text-gray-600">
-          Para más información contáctanos en
-          <span class="font-bold">contacto@ar-sa.com.mx</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ELIMINAR CUENTA ===== -->
-  <section *ngIf="activeSection === 'eliminar'" class="py-20 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="mb-8">
-        <h1 class="text-4xl font-black text-arsa-dark mb-2">Eliminar Cuenta</h1>
-      </div>
-
-      <div class="space-y-8">
-        <!-- TODO: contenido por definir para scriptura -->
-        <div class="bg-orange-50 border border-orange-200 rounded-lg p-6 text-gray-700 leading-relaxed">
-          El proceso de eliminación de cuenta está pendiente de definirse para
-          <strong>scriptura</strong>.
-        </div>
-
-        <div class="text-center">
-          <button
-            (click)="diagnosticService.openModal()"
-            class="bg-arsa-primary hover:bg-arsa-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all"
-          >
-            Contactar soporte
-          </button>
-        </div>
-
-        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center">
-          <p class="text-sm text-gray-600">
-            También puedes eliminar tu cuenta enviando un correo a
-            <span class="font-bold">contacto@ar-sa.com.mx</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ===== PRIVACIDAD / ELIMINAR CUENTA (compartidas) ===== -->
+  <app-privacidad-eliminar
+    [appName]="'scriptura'"
+    [activeSection]="activeSection"
+  ></app-privacidad-eliminar>
 </main>

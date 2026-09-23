@@ -4,11 +4,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
+import { PrivacidadEliminarComponent } from '../../../components/privacidad-eliminar/privacidad-eliminar';
 
 @Component({
   selector: 'app-run-run-run',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PrivacidadEliminarComponent],
   templateUrl: './run-run-run.html',
   styleUrl: './run-run-run.css',
 })

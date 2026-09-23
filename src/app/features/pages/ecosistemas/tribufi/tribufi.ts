@@ -4,11 +4,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DiagnosticService } from '../../../../shared/services/diagnostic.service';
+import { PrivacidadEliminarComponent } from '../../../components/privacidad-eliminar/privacidad-eliminar';
 
 @Component({
   selector: 'app-tribufi',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PrivacidadEliminarComponent],
   templateUrl: './tribufi.html',
   styleUrl: './tribufi.css',
 })
