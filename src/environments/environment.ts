@@ -2,7 +2,8 @@ export const environment = {
   production: false,
   apiBaseUrl: 'https://ar-sa.com.mx',
   // Productos FÁCIL en validación (tribufi, cardsstudio, cobrafacil, scriptura).
-  // En local (ng serve) se muestran para que un desarrollador los valide.
-  // En producción están ocultos: la flag vive en environment.prod.ts.
-  mostrarProductosPendientes: true,
+  // Ocultos tanto en desarrollo como en producción hasta validarlos.
+  // Para validarlos localmente, cambie esta línea a true (igual comportamiento
+  // que environment.prod.ts para el deploy).
+  mostrarProductosPendientes: false,
 };
