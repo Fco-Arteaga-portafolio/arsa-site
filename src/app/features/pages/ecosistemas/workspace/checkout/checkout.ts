@@ -19,6 +19,7 @@ export class WorkspaceCheckoutComponent implements OnInit {
   paqueteId: number | null = null;
   paqueteSeleccionado: Paquete | null = null;
   sinPaquete = false;
+  pagoCancelado = false;
 
   nombreUsuarioDeseado = '';
   email = '';
@@ -44,6 +45,11 @@ export class WorkspaceCheckoutComponent implements OnInit {
       this.paqueteId = queryId;
     } else if (this.paqueteId === null) {
       this.sinPaquete = true;
+    }
+
+    // failureUrl de Mercado Pago: ?paqueteId=X&error=1 → el pago fue cancelado.
+    if (this.route.snapshot.queryParamMap.get('error') === '1') {
+      this.pagoCancelado = true;
     }
 
     this.cargarPaquetes();

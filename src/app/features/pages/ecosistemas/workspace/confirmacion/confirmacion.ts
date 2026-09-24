@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { WorkspaceService } from '../workspace.service';
 
 type EstadoVista = 'Pendiente' | 'Aprobada' | 'Cancelada' | 'agotado' | 'sinOrden';
@@ -29,10 +29,17 @@ export class WorkspaceConfirmacionComponent implements OnInit, OnDestroy {
   constructor(
     private service: WorkspaceService,
     private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
+    // Prioridad: el checkout guarda workspace_ordenId antes de enviar a Mercado
+    // Pago. Como fallback (pestaña nueva, modo privado o link directo), leemos
+    // el ordenId del query param que manda el successUrl.
     this.ordenId = localStorage.getItem('workspace_ordenId') ?? '';
+    if (!this.ordenId) {
+      this.ordenId = this.route.snapshot.queryParamMap.get('ordenId') ?? '';
+    }
     if (!this.ordenId) {
       this.estado = 'sinOrden';
       return;

@@ -139,6 +139,15 @@ export const routes: Routes = [
     path: 'workspace/confirmacion',
     component: WorkspaceConfirmacionComponent,
   },
+  // Ruta antigua de cierre de pago: algunos backends desplegados aún la usan
+  // como successUrl de Mercado Pago. Mapea directo al componente de
+  // confirmación (los query params ?ordenId=... llegan intactos, cosa que un
+  // redirectTo descartaría). Debe declararse ANTES de workspace/:section para
+  // que la ruta literal gane.
+  {
+    path: 'workspace/gracias',
+    component: WorkspaceConfirmacionComponent,
+  },
   {
     path: 'workspace/:section',
     component: WorkspaceComponent,

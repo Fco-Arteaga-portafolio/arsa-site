@@ -22,6 +22,18 @@
           <h1 class="text-3xl md:text-4xl font-black text-slate-900 mb-2">Contratar Nexus</h1>
           <p class="text-gray-600 mb-8">Completa tus datos y genera tu orden de pago.</p>
 
+          @if (pagoCancelado) {
+            <!-- Regreso desde Mercado Pago con pago cancelado (failureUrl ?error=1) -->
+            <div class="mb-8 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+              <div>
+                <p class="font-bold text-amber-800">El pago no se completó.</p>
+                <p class="mt-1 text-amber-700">
+                  Tu orden fue cancelada o quedó pendiente. Revisa tus datos y vuelve a intentarlo cuando quieras.
+                </p>
+              </div>
+            </div>
+          }
+
           @if (cargandoPaquetes) {
             <!-- Cargando paquete -->
             <div class="flex items-center gap-3 py-8 text-gray-600">
