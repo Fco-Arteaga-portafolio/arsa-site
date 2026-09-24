@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../../../../environments/environment';
 
 export interface Paquete {
   id: number;
@@ -34,15 +35,21 @@ export interface CrearPreferenciaResult {
 
 /**
  * Servicio de la familia Nexus.
- * Usa rutas relativas (/api/...). En desarrollo, `ng serve` las proxya hacia
- * https://nube.ar-sa.com.mx:8444 mediante proxy.conf.json (evita CORS en local).
- * En producción el `/api` debe quedar expuesto por el servidor/reverse proxy del sitio.
+ * Los endpoint /api/... se resuelven contra environment.workspaceApiBaseUrl:
+ * - Desarrollo: '' (rutas relativas) y `ng serve` las proxya a
+ *   https://nube.ar-sa.com.mx:8444 mediante proxy.conf.json (evita CORS en local).
+ * - Producción: https://nube.ar-sa.com.mx:8444 (llamada directa; el backend ya
+ *   permite CORS para el origen https://ar-sa.com.mx).
  */
 @Injectable({ providedIn: 'root' })
 export class WorkspaceService {
+  private get apiBase(): string {
+    return environment.workspaceApiBaseUrl;
+  }
+
   /** GET /api/paquetes — lista los planes disponibles. */
   async getPaquetes(): Promise<Paquete[]> {
-    const response = await fetch('/api/paquetes');
+    const response = await fetch(`${this.apiBase}/api/paquetes`);
     if (!response.ok) {
       throw new Error('Error al cargar los planes disponibles.');
     }
@@ -57,7 +64,7 @@ export class WorkspaceService {
   async crearPreferencia(solicitud: PreferenciaRequest): Promise<CrearPreferenciaResult> {
     let response: Response;
     try {
-      response = await fetch('/api/preferences', {
+      response = await fetch(`${this.apiBase}/api/preferences`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(solicitud),
@@ -87,7 +94,7 @@ export class WorkspaceService {
   /** GET /api/preferences/{ordenId}/estado — consulta el estado de la orden. */
   async getEstadoOrden(ordenId: string): Promise<EstadoOrden> {
     const response = await fetch(
-      `/api/preferences/${encodeURIComponent(ordenId)}/estado`,
+      `${this.apiBase}/api/preferences/${encodeURIComponent(ordenId)}/estado`,
     );
     if (!response.ok) {
       throw new Error('Error al consultar el estado de la orden.');

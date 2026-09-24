@@ -1,6 +1,10 @@
 export const environment = {
   production: true,
   apiBaseUrl: 'https://ar-sa.com.mx',
+  // Backend de la familia Nexus (workspace). En producción llama directo a la
+  // base real. El backend permite CORS únicamente para el origen
+  // https://ar-sa.com.mx (sin www).
+  workspaceApiBaseUrl: 'https://nube.ar-sa.com.mx:8444',
   // TODO(validacion): los productos tribufi, cardsstudio, cobrafacil y
   // scriptura están OCULTOS en producción.
   // Cuando un desarrollador valide que están listos, cambie esta línea a
