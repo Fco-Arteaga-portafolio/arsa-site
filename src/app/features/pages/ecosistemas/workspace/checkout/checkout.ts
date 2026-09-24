@@ -24,7 +24,12 @@ export class WorkspaceCheckoutComponent implements OnInit {
   nombreUsuarioDeseado = '';
   email = '';
 
-  enviando = false;
+  /** True mientras se genera la orden en el backend (POST /api/preferences). */
+  cargando = false;
+  /** True cuando la pasarela ya se abrió: oculta el formulario y muestra la vista de espera/instrucciones. */
+  pagoIniciado = false;
+  /** URL de la pasarela, para poder reabrirla desde la vista de espera si la pestaña no se abrió o se cerró. */
+  checkoutUrl = '';
   errorMensaje = '';
   errorAyuda = '';
   mensajeUsuario = '';
@@ -124,8 +129,15 @@ export class WorkspaceCheckoutComponent implements OnInit {
     return valido;
   }
 
-  async enviar(): Promise<void> {
-    if (this.enviando) return;
+  /**
+   * Flujo de pago (botón "Pagar"):
+   * 1. Activa cargando y hace POST /api/preferences para generar la orden.
+   * 2. Con la respuesta { ordenId, checkoutUrl }:
+   *    - Abre la pasarela de Mercado Pago en una pestaña nueva.
+   *    - Cambia a pagoIniciado = true para mostrar la vista de espera/instrucciones.
+   */
+  async pagar(): Promise<void> {
+    if (this.cargando || this.pagoIniciado) return;
 
     this.errorMensaje = '';
     this.errorAyuda = '';
@@ -134,7 +146,7 @@ export class WorkspaceCheckoutComponent implements OnInit {
 
     if (!this.validarFormulario() || !this.paqueteSeleccionado) return;
 
-    this.enviando = true;
+    this.cargando = true;
     try {
       const resultado = await this.service.crearPreferencia({
         nombreUsuarioDeseado: this.nombreUsuarioDeseado.trim(),
@@ -149,8 +161,11 @@ export class WorkspaceCheckoutComponent implements OnInit {
         localStorage.setItem('workspace_username', this.nombreUsuarioDeseado.trim());
         localStorage.setItem('workspace_email', this.email.trim());
 
-        // Redirección completa a Mercado Pago (no iframe ni popup).
-        window.location.href = resultado.checkoutUrl;
+        // Abre la pasarela en una pestaña nueva conservando esta ventana abierta
+        // con la pantalla de instrucciones y espera.
+        this.checkoutUrl = resultado.checkoutUrl;
+        window.open(resultado.checkoutUrl, '_blank', 'noopener,noreferrer');
+        this.pagoIniciado = true;
         return;
       }
 
@@ -172,7 +187,18 @@ export class WorkspaceCheckoutComponent implements OnInit {
         err instanceof Error ? err.message : 'Ocurrió un error inesperado. Intenta de nuevo.';
       this.errorAyuda = 'El pago no se procesó. Intenta de nuevo en unos momentos.';
     } finally {
-      this.enviando = false;
+      this.cargando = false;
     }
+  }
+
+  /** Reabre la pasarela de Mercado Pago en una pestaña nueva (desde la vista de espera). */
+  abrirPasarela(): void {
+    if (!this.checkoutUrl) return;
+    window.open(this.checkoutUrl, '_blank', 'noopener,noreferrer');
+  }
+
+  /** Regresa al formulario de contratación para intentar el pago de nuevo. */
+  reintentarPago(): void {
+    this.pagoIniciado = false;
   }
 }
