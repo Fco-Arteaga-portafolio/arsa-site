@@ -22,7 +22,9 @@
           @if (pagoIniciado) {
             <!-- ===== VISTA DE ESPERA / INSTRUCCIONES (pago iniciado) ===== -->
             <h1 class="text-3xl md:text-4xl font-black text-slate-900 mb-2">Contratar Nexus</h1>
-            <p class="text-gray-600 mb-8">El pago está en proceso. Sigue las instrucciones para terminar tu contratación.</p>
+            <p class="text-gray-600 mb-8">
+              Esperando confirmación de tu pago. Abrimos Mercado Pago en una pestaña nueva para no perder esta pantalla.
+            </p>
 
             <!-- Aviso principal -->
             <div class="mb-8 flex items-start gap-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
@@ -32,11 +34,9 @@
                 </svg>
               </div>
               <div>
-                <p class="font-bold text-emerald-800">
-                  La pasarela de Mercado Pago se abrió en una pestaña nueva de tu navegador.
-                </p>
+                <p class="font-bold text-emerald-800">Se abrió el proceso de pago en otra pestaña.</p>
                 <p class="mt-1 text-emerald-700">
-                  Estás a un solo paso: completa el pago allí y regresa cuando quieras.
+                  Cuando finalice tu pago, te llegará un correo con los accesos de tu cuenta para continuar el proceso.
                 </p>
               </div>
             </div>
@@ -48,7 +48,7 @@
                   1
                 </span>
                 <p class="text-slate-700 pt-1">
-                  Completa tu pago en la nueva pestaña de <strong>Mercado Pago</strong>.
+                  Termina tu pago en la pestaña nueva de <strong>Mercado Pago</strong>.
                 </p>
               </li>
               <li class="flex items-start gap-4">
@@ -56,15 +56,15 @@
                   2
                 </span>
                 <p class="text-slate-700 pt-1">
-                  Una vez confirmado el pago, nuestro backend creará automáticamente tu cuenta y te
-                  enviará un <strong>correo electrónico con tus accesos</strong>.
+                  Al confirmarse, tu cuenta se crea automáticamente y recibirás un
+                  <strong>correo con tus accesos</strong> para continuar.
                 </p>
               </li>
               <li class="flex items-start gap-4">
                 <span class="flex-none w-8 h-8 rounded-full bg-violet-600 text-white font-bold flex items-center justify-center text-sm">
                   3
                 </span>
-                <p class="text-slate-700 pt-1">Puedes cerrar esta ventana al terminar.</p>
+                <p class="text-slate-700 pt-1">Puedes cerrar esta ventana: tu proceso no se pierde.</p>
               </li>
             </ol>
 
