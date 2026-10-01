@@ -7,6 +7,40 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-color: rgba(12, 125, 173, .8) transparent;
+    scrollbar-width: thin;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scrollbar-color: rgba(12, 125, 173, .8) transparent;
+    scrollbar-width: thin;
+  }
+
+  *::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #0c7dad;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background-clip: content-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #075a7c;
+    background-clip: content-box;
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: transparent;
   }
 
   body {

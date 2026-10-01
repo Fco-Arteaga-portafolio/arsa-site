@@ -1,84 +1,36 @@
-<header
-  class="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-[#050816]/80 backdrop-blur-xl"
->
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex items-center justify-between h-20">
-      <!-- Logo -->
-      <a href="#inicio" class="flex items-center gap-4">
-        <img src="/logo.png" alt="ARSA" class="h-10 w-auto" />
+<header class="arsa-navbar">
+  <div class="arsa-navbar__inner">
+    <a href="/#inicio" class="arsa-brand" (click)="closeMobileMenu()" aria-label="ARSA inicio">
+      <span class="arsa-brand__mark"><img src="/arsa-logo.png" alt="" /></span>
+      <span>AR-SA</span>
+    </a>
 
-        <div>
-          <p class="text-white font-black text-xl leading-none">AR-SA</p>
+    <nav class="arsa-nav" aria-label="Navegación principal">
+      <a href="/#servicios">Servicios</a>
+      <a href="/#portafolio">Portafolio</a>
+      <a href="/#tecnologias">Tecnologías</a>
+      <a href="/#proceso">Proceso</a>
+      <a href="/#fundadores">Fundadores</a>
+      <a routerLink="/enterprise">Enterprise</a>
+      <a href="/#contacto">Contacto</a>
+    </nav>
 
-          <p class="text-slate-500 text-[10px] uppercase tracking-[0.3em] mt-1">
-            Enterprise Software
-          </p>
-        </div>
-      </a>
-
-      <!-- Navigation -->
-      <nav class="hidden lg:flex items-center gap-10">
-        <a href="/#servicios" class="text-slate-300 hover:text-white transition-colors font-medium">
-          Servicios
-        </a>
-
-        <a
-          href="/ecosistemas"
-          class="text-slate-300 hover:text-white transition-colors font-medium"
-        >
-          Ecosistema
-        </a>
-
-        <a href="/contacto" class="text-slate-300 hover:text-white transition-colors font-medium">
-          Contacto
-        </a>
-      </nav>
-
-      <!-- CTA -->
-      <div class="hidden lg:flex items-center gap-4">
-        <button
-          (click)="diagnosticService.openModal()"
-          class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-950/30"
-        >
-          Solicitar diagnóstico
-        </button>
-      </div>
-
-      <!-- Mobile hamburger -->
-      <button class="lg:hidden text-white p-2" (click)="toggleMobileMenu()" aria-label="Menú">
-        @if (!isMobileMenuOpen) {
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        } @else {
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        }
-      </button>
-    </div>
+    <button class="arsa-nav__cta" type="button" (click)="diagnosticService.openModal()">Cotizar sin costo <span>↗</span></button>
+    <button class="arsa-nav__toggle" type="button" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen" aria-label="Abrir menú">
+      @if (!isMobileMenuOpen) { <span></span><span></span> } @else { <span class="close-line"></span><span class="close-line"></span> }
+    </button>
   </div>
 
-  <!-- Mobile menu panel -->
   @if (isMobileMenuOpen) {
-    <div class="lg:hidden border-t border-white/10 bg-[#050816]/95 backdrop-blur-xl">
-      <div class="px-6 py-6 space-y-4">
-        <a href="/#servicios" (click)="closeMobileMenu()" class="block text-slate-300 hover:text-white transition-colors font-medium text-lg">
-          Servicios
-        </a>
-        <a routerLink="/ecosistemas" (click)="closeMobileMenu()" class="block text-slate-300 hover:text-white transition-colors font-medium text-lg">
-          Ecosistema
-        </a>
-        <a routerLink="/contacto" (click)="closeMobileMenu()" class="block text-slate-300 hover:text-white transition-colors font-medium text-lg">
-          Contacto
-        </a>
-        <button
-          (click)="closeMobileMenu(); diagnosticService.openModal()"
-          class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-950/30 mt-4"
-        >
-          Solicitar diagnóstico
-        </button>
-      </div>
+    <div class="arsa-mobile-menu">
+      <a href="/#servicios" (click)="closeMobileMenu()">Servicios <span>↘</span></a>
+      <a href="/#portafolio" (click)="closeMobileMenu()">Portafolio <span>↘</span></a>
+      <a href="/#tecnologias" (click)="closeMobileMenu()">Tecnologías <span>↘</span></a>
+      <a href="/#proceso" (click)="closeMobileMenu()">Proceso <span>↘</span></a>
+      <a href="/#fundadores" (click)="closeMobileMenu()">Fundadores <span>↘</span></a>
+      <a routerLink="/enterprise" (click)="closeMobileMenu()">Enterprise <span>↗</span></a>
+      <a href="/#contacto" (click)="closeMobileMenu()">Contacto <span>↘</span></a>
+      <button type="button" (click)="closeMobileMenu(); diagnosticService.openModal()">Cotizar sin costo <span>↗</span></button>
     </div>
   }
 </header>

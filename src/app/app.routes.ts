@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Landing } from './features/pages/landing/landing';
+import { Enterprise } from './features/pages/enterprise/enterprise';
 import { Privacidad } from './features/pages/privacidad/privacidad';
 import { EliminarCuentaComponent } from './features/pages/eliminar-cuenta/eliminar-cuenta';
 import { ContactoComponent } from './features/pages/contacto/contacto';
@@ -42,6 +43,10 @@ export const routes: Routes = [
   {
     path: '',
     component: Landing,
+  },
+  {
+    path: 'enterprise',
+    component: Enterprise,
   },
   {
     path: 'privacidad',

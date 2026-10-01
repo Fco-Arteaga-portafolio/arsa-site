@@ -15,6 +15,7 @@ import * as AOS from 'aos';
 })
 export class AppComponent {
   isMenusRoute = signal(false);
+  isLandingRoute = signal(false);
   title = 'arsa-landing';
 
   constructor(
@@ -23,11 +24,15 @@ export class AppComponent {
   ) {
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((event) => this.isMenusRoute.set(event.url.startsWith('/menus')));
+      .subscribe((event) => {
+        this.isMenusRoute.set(event.url.startsWith('/menus'));
+        this.isLandingRoute.set(event.url === '/');
+      });
   }
 
   ngOnInit() {
     this.isMenusRoute.set(this.router.url.startsWith('/menus'));
+    this.isLandingRoute.set(this.router.url === '/');
     AOS.init({
       duration: 1000,
       once: true,

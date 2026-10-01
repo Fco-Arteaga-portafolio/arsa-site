@@ -1,4 +1,4 @@
-import { Injectable, signal, isDevMode } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { environment } from '../../../environments/environment';
 
 export interface DiagnosticData {
@@ -15,12 +15,7 @@ export interface DiagnosticData {
 export class DiagnosticService {
   isModalOpen = signal(false);
 
-  private get apiUrl(): string {
-    if (isDevMode()) {
-      return 'http://localhost:3001';
-    }
-    return environment.apiBaseUrl;
-  }
+  private readonly apiEndpoint = `${environment.apiBaseUrl.replace(/\/$/, '')}/api-delivery/api/send-diagnostic`;
 
   openModal(): void {
     this.isModalOpen.set(true);
@@ -31,7 +26,7 @@ export class DiagnosticService {
   }
 
   async sendDiagnostic(data: DiagnosticData): Promise<{ success: boolean; message: string }> {
-    const response = await fetch(`${this.apiUrl}/api/send-diagnostic`, {
+    const response = await fetch(this.apiEndpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),

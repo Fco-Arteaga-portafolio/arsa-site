@@ -10,6 +10,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3001;
 const isProduction = process.env.NODE_ENV === 'production';
+const smtpUser = process.env.SMTP_USER || 'contacto@ar-sa.com.mx';
+const contactEmail = process.env.CONTACT_TO_EMAIL || 'ing.juanlopezsa@gmail.com';
 
 app.use(cors());
 app.use(express.json());
@@ -25,10 +27,17 @@ const transporter = nodemailer.createTransport({
   port: parseInt(process.env.SMTP_PORT || '465'),
   secure: process.env.SMTP_SECURE !== 'false',
   auth: {
-    user: process.env.SMTP_USER || 'contacto@ar-sa.com.mx',
+    user: smtpUser,
     pass: process.env.SMTP_PASS,
   },
 });
+
+const escapeHtml = (value = '') => String(value)
+  .replaceAll('&', '&amp;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;')
+  .replaceAll('"', '&quot;')
+  .replaceAll("'", '&#039;');
 
 app.post('/api/send-diagnostic', async (req, res) => {
   try {
@@ -50,22 +59,36 @@ app.post('/api/send-diagnostic', async (req, res) => {
     };
 
     const serviceText = serviceLabels[service] || service || 'No especificado';
+    const safeName = escapeHtml(name);
+    const safeCompany = escapeHtml(company || 'No especificada');
+    const safeEmail = escapeHtml(email);
+    const safeService = escapeHtml(serviceText);
+    const safeProblem = escapeHtml(problem).replaceAll('\n', '<br>');
 
     const mailOptions = {
-      from: 'contacto@ar-sa.com.mx',
-      to: 'contacto@ar-sa.com.mx',
+      from: smtpUser,
+      to: contactEmail,
+      replyTo: email,
       subject: `Nuevo diagnóstico técnico de ${name}`,
       html: `
         <h2>Nuevo diagnóstico técnico</h2>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Empresa:</strong> ${company || 'No especificada'}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Servicio:</strong> ${serviceText}</p>
+        <p><strong>Nombre:</strong> ${safeName}</p>
+        <p><strong>Empresa:</strong> ${safeCompany}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
+        <p><strong>Servicio:</strong> ${safeService}</p>
         <p><strong>Problema:</strong></p>
-        <p>${problem}</p>
+        <p>${safeProblem}</p>
         <hr />
         <p style="color: #666;">Enviado desde arsa-landing</p>
       `,
+      text: [
+        'Nuevo diagnóstico técnico',
+        `Nombre: ${name}`,
+        `Empresa: ${company || 'No especificada'}`,
+        `Email: ${email}`,
+        `Servicio: ${serviceText}`,
+        `Problema: ${problem}`,
+      ].join('\n'),
     };
 
     await transporter.sendMail(mailOptions);

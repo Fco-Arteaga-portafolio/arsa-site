@@ -1,0 +1,30 @@
+.arsa-site-footer {
+  background: #061b29;
+  border-color: rgba(49, 185, 223, .2);
+  color: #d7e9ee;
+}
+
+.arsa-site-footer .arsa-footer-mark {
+  align-items: center;
+  background: #e8f4f7;
+  border: 1px solid rgba(49, 185, 223, .4);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+  display: flex;
+  height: 64px;
+  justify-content: center;
+  overflow: hidden;
+  width: 80px;
+}
+
+.arsa-site-footer .arsa-footer-mark img {
+  height: 56px;
+  object-fit: contain;
+  width: 72px;
+}
+
+.arsa-site-footer .text-slate-500 { color: #91aeb8; }
+.arsa-site-footer .text-slate-400 { color: #b7cbd1; }
+.arsa-site-footer .text-slate-300 { color: #d7e9ee; }
+.arsa-site-footer .text-white { color: #f5fcfd; }
+.arsa-site-footer .hover\:text-white:hover { color: #fff; }

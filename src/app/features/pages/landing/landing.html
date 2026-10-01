@@ -1,15 +1,63 @@
-<main>
-  <!-- 2. HERO SECTION -->
-  <!-- Animación: Aparece desde abajo (fade-up) -->
-  <section id="inicio" data-aos="fade-up">
-    <app-hero></app-hero>
-  </section>
+<main class="landing-page">
+  <section class="hero" id="inicio">
+    <canvas #networkCanvas class="hero__network" aria-hidden="true"></canvas>
+    <div class="hero__orb hero__orb--one" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--two" aria-hidden="true"></div>
 
-  <!-- 3. SERVICIOS (Consultoría y Software a Medida) -->
-  <!-- Animación: Aparece desde la izquierda con un pequeño retraso -->
-  <section id="servicios" class="py-20" data-aos="fade-right" data-aos-delay="200">
-    <div class="max-w-7xl mx-auto px-6">
-      <app-services></app-services>
+    <div class="landing-shell hero__content">
+      <div class="hero__topline">
+        <span class="status-dot"></span><span>{{ copy().hero.eyebrow }}</span>
+        <div class="language-switch" aria-label="Language"><button type="button" [class.is-active]="language() === 'es'" (click)="setLanguage('es')">ES</button><span>/</span><button type="button" [class.is-active]="language() === 'en'" (click)="setLanguage('en')">EN</button></div>
+      </div>
+
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">AR-SA / DIGITAL PARTNER</p>
+          <h1>{{ copy().hero.title }} <em>{{ copy().hero.highlight }}</em></h1>
+          <p class="hero__description">{{ copy().hero.description }}</p>
+          <div class="hero__actions"><a class="button button--primary-blue" href="#contacto">{{ copy().hero.primary }} <span>↗</span></a><a class="button button--ghost" href="#servicios">{{ copy().hero.secondary }} <span>↓</span></a></div>
+          <p class="hero__note">{{ copy().hero.note }}</p>
+        </div>
+        <div class="hero__visual" aria-label="ARSA digital ecosystem visualization">
+          <div class="visual-ring visual-ring--outer"></div><div class="visual-ring visual-ring--inner"></div><div class="visual-core"><span class="visual-core__letters" aria-label="ARSA"><b>A</b><i>R</i><b>S</b><i>A</i></span><small>SOFTWARE</small></div>
+          <div class="visual-node visual-node--one"><span>OCR</span><i></i></div><div class="visual-node visual-node--two"><span>CRM</span><i></i></div><div class="visual-node visual-node--three"><span>MVP</span><i></i></div><div class="visual-node visual-node--four"><span>DATA</span><i></i></div>
+          <p class="visual-caption">{{ copy().hero.scroll }}</p>
+        </div>
+      </div>
+
+      <div class="hero__footer"><p>{{ copy().trust.label }}</p><div class="trust-list">@for (item of copy().trust.items; track item) { <span>{{ item }}</span> }</div><a href="#servicios" class="scroll-cue" aria-label="Scroll">↓</a></div>
     </div>
   </section>
+
+  <section class="section section--light intro" id="servicios"><div class="landing-shell"><div class="section-heading"><p class="eyebrow">{{ copy().services.eyebrow }}</p><h2>{{ copy().services.title }}</h2><p>{{ copy().services.description }}</p></div><div class="service-grid">@for (card of copy().services.cards; track card.number) { <article class="service-card"><span class="service-card__number">{{ card.number }}</span><h3>{{ card.title }}</h3><p>{{ card.body }}</p><div class="tag-row">@for (tag of card.tags; track tag) { <span>{{ tag }}</span> }</div><span class="service-card__arrow">↗</span></article> }</div></div></section>
+
+  <section class="section section--dark portfolio" id="portafolio">
+    <div class="landing-shell">
+      <div class="section-heading section-heading--split"><div><p class="eyebrow">{{ copy().portfolio.eyebrow }}</p><h2>{{ copy().portfolio.title }}</h2></div><p>{{ copy().portfolio.description }}</p></div>
+      <div class="portfolio-carousel" tabindex="0" (keydown.arrowleft)="previousPortfolio()" (keydown.arrowright)="nextPortfolio()" aria-label="Portafolio de ARSA">
+        <button class="portfolio-carousel__arrow portfolio-carousel__arrow--prev" type="button" (click)="previousPortfolio()" aria-label="Proyecto anterior">←</button>
+        <div class="portfolio-stage" (pointerdown)="startPortfolioSwipe($event)" (pointerup)="endPortfolioSwipe($event)" (pointercancel)="cancelPortfolioSwipe()">
+          @for (item of copy().portfolio.items; track item.title; let index = $index) {
+            <article [class]="'portfolio-slide portfolio-slide--' + item.color + ' ' + portfolioPosition(index)" [attr.aria-hidden]="portfolioPosition(index) === 'is-hidden'" [attr.tabindex]="portfolioPosition(index) === 'is-hidden' ? -1 : 0" (click)="selectPortfolio(index)" (keydown.enter)="selectPortfolio(index)">
+              <div class="portfolio-slide__visual"><img [src]="item.image" [alt]="item.title" loading="lazy" draggable="false" /><span class="portfolio-card__label">{{ item.label }}</span><span class="portfolio-slide__index">{{ formatPortfolioIndex(index + 1) }} / {{ formatPortfolioIndex(copy().portfolio.items.length) }}</span></div>
+              <div class="portfolio-slide__body"><div><h3>{{ item.title }}</h3><p>{{ item.body }}</p></div><a href="#contacto" (click)="$event.stopPropagation()">{{ copy().portfolio.view }} <span>↗</span></a></div>
+            </article>
+          }
+        </div>
+        <button class="portfolio-carousel__arrow portfolio-carousel__arrow--next" type="button" (click)="nextPortfolio()" aria-label="Siguiente proyecto">→</button>
+        <div class="portfolio-carousel__dots">@for (item of copy().portfolio.items; track item.title; let index = $index) { <button type="button" [class.is-active]="activePortfolio() === index" (click)="selectPortfolio(index)" [attr.aria-label]="'Ver ' + item.title"></button> }</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light technology" id="tecnologias"><div class="landing-shell"><div class="section-heading section-heading--split"><div><p class="eyebrow">{{ copy().technologies.eyebrow }}</p><h2>{{ copy().technologies.title }}</h2></div><p>{{ copy().technologies.description }}</p></div><div class="tech-grid">@for (group of copy().technologies.groups; track group.title) { <article class="tech-group"><h3>{{ group.title }}</h3><div class="tech-list">@for (item of group.items; track item) { <span>{{ item }}</span> }</div></article> }</div></div></section>
+
+  <section class="section section--sand process" id="proceso"><div class="landing-shell"><div class="section-heading"><p class="eyebrow">{{ copy().process.eyebrow }}</p><h2>{{ copy().process.title }}</h2></div><div class="process-grid">@for (step of copy().process.steps; track step.number) { <article class="process-step"><span>{{ step.number }}</span><h3>{{ step.title }}</h3><p>{{ step.body }}</p></article> }</div></div></section>
+
+  <section class="section founders" id="fundadores"><div class="landing-shell"><div class="section-heading section-heading--split"><div><p class="eyebrow">{{ copy().founders.eyebrow }}</p><h2>{{ copy().founders.title }}</h2></div><p>{{ copy().founders.description }}</p></div><div class="founders-grid">@for (person of copy().founders.people; track person.name; let index = $index) { <article class="founder-card"><div class="founder-card__portrait"><img [src]="person.image" [alt]="person.name" loading="lazy" /><span>0{{ index + 1 }}</span></div><div class="founder-card__body"><p class="founder-card__role">{{ person.role }}</p><h3>{{ person.name }}</h3><p>{{ person.body }}</p>@if (person.linkedin) { <a class="founder-card__link" [href]="person.linkedin" target="_blank" rel="noopener">LinkedIn <span>↗</span></a> }</div></article> }</div></div></section>
+
+  <section class="contact-section" id="contacto"><div class="landing-shell contact-section__inner"><div><p class="eyebrow">{{ copy().contact.eyebrow }}</p><h2>{{ copy().contact.title }}</h2><p class="contact-section__body">{{ copy().contact.body }}</p><span class="contact-section__note">✦ {{ copy().contact.noCost }}</span></div><div class="contact-links"><a class="contact-link" [href]="'mailto:' + copy().contact.email"><span>✉</span><div><small>{{ copy().contact.emailCta }}</small><strong>{{ copy().contact.email }}</strong></div><b>↗</b></a><a class="contact-link" [href]="whatsappUrl" target="_blank" rel="noopener"><span>◌</span><div><small>{{ copy().contact.whatsappCta }}</small><strong>{{ copy().contact.whatsapp }}</strong></div><b>↗</b></a></div></div></section>
+
+  <footer class="landing-footer"><div class="landing-shell"><div class="landing-footer__brand"><span class="landing-footer__mark"><img src="/arsa-logo.png" alt="ARSA" /></span><div><strong>AR-SA</strong><p>{{ copy().footer.caption }}</p></div></div><p>© {{ currentYear }} AR-SA. {{ copy().footer.rights }}</p></div></footer>
+  <a class="whatsapp-float" [href]="whatsappUrl" target="_blank" rel="noopener" aria-label="WhatsApp">◌<small>WhatsApp</small></a>
 </main>
