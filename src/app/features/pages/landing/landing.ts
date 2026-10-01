@@ -56,8 +56,9 @@ const spanishCopy: LandingCopy = {
   },
   founders: {
     eyebrow: 'Quiénes crean ARSA', title: 'Socios fundadores. Desarrolladores de software. Constructores de futuro.', description: 'ARSA nace de una sociedad entre personas que entienden la tecnología desde el producto, la arquitectura y la operación. Diseñamos soluciones porque también las construimos.', people: [
-    { name: 'Juan López Sarrelangue', role: 'Socio fundador · Producto e ingeniería', body: 'Fundador y desarrollador de software. Lidera la visión de producto y la construcción de soluciones a la medida que conectan operación, datos y crecimiento.', image: '/founders/juan-lopez-sarrelangue.png' },
-    { name: 'Francisco Arteaga', role: 'Socio fundador · Arquitectura y desarrollo', body: 'Fundador y desarrollador de software. Convierte retos complejos en productos estables, escalables y útiles para las personas que los operan.', image: '/founders/francisco-arteaga.png', linkedin: 'https://www.linkedin.com/in/francisco-arteaga-5b985785/' },
+
+      { name: 'Francisco Arteaga', role: 'Socio fundador · Arquitectura y desarrollo', body: 'Fundador y desarrollador de software. Convierte retos complejos en productos estables, escalables y útiles para las personas que los operan.', image: '/founders/francisco-arteaga.png', linkedin: 'https://www.linkedin.com/in/francisco-arteaga-5b985785/' },
+      { name: 'Juan López Sarrelangue', role: 'Socio fundador · Producto e ingeniería', body: 'Fundador y desarrollador de software. Lidera la visión de producto y la construcción de soluciones a la medida que conectan operación, datos y crecimiento.', image: '/founders/juan-lopez-sarrelangue.png' },
     ]
   },
   contact: { eyebrow: 'Tu siguiente movimiento', title: 'Hablemos de lo que tu negocio puede llegar a ser.', body: 'Cuéntanos el reto. Te respondemos con una conversación clara y una cotización sin costo.', email: 'ing.juanlopezsa@gmail.com', whatsapp: 'Escríbenos por WhatsApp', emailCta: 'Enviar un correo', whatsappCta: 'Abrir WhatsApp', noCost: 'Primera conversación sin costo' },
@@ -69,39 +70,48 @@ const englishCopy: LandingCopy = {
   nav: { services: 'Services', work: 'Portfolio', technology: 'Technology', process: 'Process', enterprise: 'Enterprise', contact: 'Contact', quote: 'Free estimate' },
   hero: { eyebrow: 'Software that moves business', title: 'The right technology turns', highlight: 'complexity into advantage.', description: 'We design and build custom software for companies that need to move forward with clarity, speed and control.', primary: "Let's talk about your project", secondary: 'Explore solutions', note: 'Strategy · Design · Engineering · Evolution', scroll: 'Discover ARSA' },
   trust: { label: 'Experts in', items: ['OCR & automation', 'CRM & operations', 'MVP & demos', 'Augmented reality'] },
-  services: { eyebrow: 'What we do', title: 'From an ambitious idea to an operation that works.', description: 'A senior team for complex challenges: from modernizing legacy systems to launching a completely new digital experience.', cards: [
-    { number: '01', title: 'Custom software', body: 'Web, mobile and desktop platforms designed around your processes, data and business goals.', tags: ['MVP', 'CRM', 'APIs'] },
-    { number: '02', title: 'Modernization & support', body: 'We take existing software, reduce friction and prepare it to grow without interrupting operations.', tags: ['Legacy', 'QA', '24/7 support'] },
-    { number: '03', title: 'Data that drives decisions', body: 'Databases, integrations and automations that turn scattered information into actionable decisions.', tags: ['SQL', 'Cloud', 'BI'] },
-    { number: '04', title: 'Immersive experiences', body: 'OCR, virtual reality, augmented reality and interactive demos that make your product clear and memorable.', tags: ['OCR', 'VR/AR', '3D'] },
-  ] },
-  portfolio: { eyebrow: 'Made by ARSA', title: 'Products already moving operations.', description: 'Our portfolio combines product, engineering and business insight. These are some solutions we have taken from idea to reality.', view: 'View solution', items: [
-    { label: 'Tax ecosystem', title: 'IFRAT', body: 'Tax automation, CFDI, folios, payments and business operations in one ecosystem.', image: '/dashboard-ifrat.png', color: 'blue' },
-    { label: 'Delivery & commerce', title: 'PideFácil', body: 'Orders, merchants and customers connected through an agile experience on every device.', image: '/portfolio/pidefacil-logo.png', color: 'cyan' },
-    { label: 'Local commerce', title: 'Menú Fácil', body: 'Digital catalogs, orders and local operations so every business can have its own channel.', image: '/portfolio/menu-facil-logo.png', color: 'sky' },
-    { label: 'Mobility', title: 'Run Run Run', body: 'A gamified mobile experience for physical activity, challenges and healthier habits.', image: '/portfolio/run-run-run-logo.png', color: 'mint' },
-    { label: 'Digital identity', title: 'Cards Studio', body: 'Digital cards, QR codes and shareable profiles that turn contacts into opportunities.', image: '/portfolio/cards-studio-logo.png', color: 'teal' },
-    { label: 'Social games', title: 'ConQuién', body: 'Board and card games transformed into a fun, multiplatform digital experience.', image: '/portfolio/conquien.png', color: 'gold' },
-    { label: 'Automation', title: 'ARSAx', body: 'Internal tools and automation that help teams work with greater focus.', image: '/portfolio/arsax.png', color: 'blue-dark' },
-    { label: 'Knowledge', title: 'Scriptura', body: 'Reading, search, notes and knowledge content with an offline-first experience.', image: '/portfolio/scriptura-logo.png', color: 'indigo' },
-    { label: 'Payments', title: 'Cobra Fácil', body: 'Mobile payments, products and history for businesses that need to sell simply.', image: '/portfolio/cobra-facil-logo.png', color: 'aqua' },
-    { label: 'Messaging', title: 'TribuFi', body: 'Resilient messaging and offline-first communication for distributed devices and teams.', image: '/portfolio/tribufi-logo.png', color: 'blue' },
-  ] },
-  technologies: { eyebrow: 'Our stack', title: 'We choose the tool that best solves the challenge.', description: 'Broad experience, technical judgment and the flexibility to work with your current reality.', groups: [
-    { title: 'Engineering', items: ['.NET', 'PHP', 'Java', 'JavaScript', 'Python', 'COBOL', 'Kotlin', 'Go'] },
-    { title: 'Product', items: ['Android', 'iOS', 'Flutter', 'React', 'Angular', 'APIs', 'OCR', 'Augmented reality'] },
-    { title: 'Infrastructure', items: ['SQL Server', 'PostgreSQL', 'MySQL', 'AWS', 'GCP', 'CI / CD', 'Security', 'Observability'] },
-  ] },
-  process: { eyebrow: 'How we work', title: 'Clarity first. Code second.', steps: [
-    { number: '01', title: 'Understand', body: 'We listen to the business, map the operation and find the opportunity that truly matters.' },
-    { number: '02', title: 'Design', body: 'We define scope, experience and architecture with prototypes everyone can validate.' },
-    { number: '03', title: 'Build', body: 'We develop in stages, share progress and deliver tangible value from the first sprint.' },
-    { number: '04', title: 'Evolve', body: 'We support the launch, measure results and keep the software growing with your business.' },
-  ] },
+  services: {
+    eyebrow: 'What we do', title: 'From an ambitious idea to an operation that works.', description: 'A senior team for complex challenges: from modernizing legacy systems to launching a completely new digital experience.', cards: [
+      { number: '01', title: 'Custom software', body: 'Web, mobile and desktop platforms designed around your processes, data and business goals.', tags: ['MVP', 'CRM', 'APIs'] },
+      { number: '02', title: 'Modernization & support', body: 'We take existing software, reduce friction and prepare it to grow without interrupting operations.', tags: ['Legacy', 'QA', '24/7 support'] },
+      { number: '03', title: 'Data that drives decisions', body: 'Databases, integrations and automations that turn scattered information into actionable decisions.', tags: ['SQL', 'Cloud', 'BI'] },
+      { number: '04', title: 'Immersive experiences', body: 'OCR, virtual reality, augmented reality and interactive demos that make your product clear and memorable.', tags: ['OCR', 'VR/AR', '3D'] },
+    ]
+  },
+  portfolio: {
+    eyebrow: 'Made by ARSA', title: 'Products already moving operations.', description: 'Our portfolio combines product, engineering and business insight. These are some solutions we have taken from idea to reality.', view: 'View solution', items: [
+      { label: 'Tax ecosystem', title: 'IFRAT', body: 'Tax automation, CFDI, folios, payments and business operations in one ecosystem.', image: '/dashboard-ifrat.png', color: 'blue' },
+      { label: 'Delivery & commerce', title: 'PideFácil', body: 'Orders, merchants and customers connected through an agile experience on every device.', image: '/portfolio/pidefacil-logo.png', color: 'cyan' },
+      { label: 'Local commerce', title: 'Menú Fácil', body: 'Digital catalogs, orders and local operations so every business can have its own channel.', image: '/portfolio/menu-facil-logo.png', color: 'sky' },
+      { label: 'Mobility', title: 'Run Run Run', body: 'A gamified mobile experience for physical activity, challenges and healthier habits.', image: '/portfolio/run-run-run-logo.png', color: 'mint' },
+      { label: 'Digital identity', title: 'Cards Studio', body: 'Digital cards, QR codes and shareable profiles that turn contacts into opportunities.', image: '/portfolio/cards-studio-logo.png', color: 'teal' },
+      { label: 'Social games', title: 'ConQuién', body: 'Board and card games transformed into a fun, multiplatform digital experience.', image: '/portfolio/conquien.png', color: 'gold' },
+      { label: 'Automation', title: 'ARSAx', body: 'Internal tools and automation that help teams work with greater focus.', image: '/portfolio/arsax.png', color: 'blue-dark' },
+      { label: 'Knowledge', title: 'Scriptura', body: 'Reading, search, notes and knowledge content with an offline-first experience.', image: '/portfolio/scriptura-logo.png', color: 'indigo' },
+      { label: 'Payments', title: 'Cobra Fácil', body: 'Mobile payments, products and history for businesses that need to sell simply.', image: '/portfolio/cobra-facil-logo.png', color: 'aqua' },
+      { label: 'Messaging', title: 'TribuFi', body: 'Resilient messaging and offline-first communication for distributed devices and teams.', image: '/portfolio/tribufi-logo.png', color: 'blue' },
+    ]
+  },
+  technologies: {
+    eyebrow: 'Our stack', title: 'We choose the tool that best solves the challenge.', description: 'Broad experience, technical judgment and the flexibility to work with your current reality.', groups: [
+      { title: 'Engineering', items: ['.NET', 'PHP', 'Java', 'JavaScript', 'Python', 'COBOL', 'Kotlin', 'Go'] },
+      { title: 'Product', items: ['Android', 'iOS', 'Flutter', 'React', 'Angular', 'APIs', 'OCR', 'Augmented reality'] },
+      { title: 'Infrastructure', items: ['SQL Server', 'PostgreSQL', 'MySQL', 'AWS', 'GCP', 'CI / CD', 'Security', 'Observability'] },
+    ]
+  },
+  process: {
+    eyebrow: 'How we work', title: 'Clarity first. Code second.', steps: [
+      { number: '01', title: 'Understand', body: 'We listen to the business, map the operation and find the opportunity that truly matters.' },
+      { number: '02', title: 'Design', body: 'We define scope, experience and architecture with prototypes everyone can validate.' },
+      { number: '03', title: 'Build', body: 'We develop in stages, share progress and deliver tangible value from the first sprint.' },
+      { number: '04', title: 'Evolve', body: 'We support the launch, measure results and keep the software growing with your business.' },
+    ]
+  },
   founders: {
     eyebrow: 'Who builds ARSA', title: 'Founding partners. Software developers. Builders of what comes next.', description: 'ARSA was born from a partnership of people who understand technology through product, architecture and operations. We design solutions because we build them too.', people: [
-      { name: 'Juan López Sarrelangue', role: 'Founding partner · Product & engineering', body: 'Founder and software developer. He leads product vision and the creation of custom solutions that connect operations, data and growth.', image: '/founders/juan-lopez-sarrelangue.png' },
+
       { name: 'Francisco Arteaga', role: 'Founding partner · Architecture & development', body: 'Founder and software developer. He turns complex challenges into stable, scalable and useful products for the people who operate them.', image: '/founders/francisco-arteaga.png', linkedin: 'https://www.linkedin.com/in/francisco-arteaga-5b985785/' },
+      { name: 'Juan López Sarrelangue', role: 'Founding partner · Product & engineering', body: 'Founder and software developer. He leads product vision and the creation of custom solutions that connect operations, data and growth.', image: '/founders/juan-lopez-sarrelangue.png' },
     ]
   },
   contact: { ...spanishCopy.contact, eyebrow: 'Your next move', title: 'Let’s talk about what your business can become.', body: 'Tell us about the challenge. We will reply with a clear conversation and a free estimate.', whatsapp: 'Write to us on WhatsApp', whatsappCta: 'Open WhatsApp', emailCta: 'Send an email', noCost: 'First conversation is free' },
