@@ -1,0 +1,845 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ar-sa.com.mx www.ar-sa.com.mx;
+
+    root /var/www/html/ar-sa.com.mx;
+    index index.html index.htm;
+
+    location = /api-delivery {
+        return 301 /api-delivery/;
+    }
+
+    location ^~ /api-delivery/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-delivery/ {
+        client_max_body_size 16m;
+        rewrite ^/api-delivery(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-delivery/.+\.php$ {
+        return 404;
+    }
+
+    # === API RIDES (Sube-T) ===
+    location = /api-rides {
+        return 301 /api-rides/;
+    }
+
+    location ^~ /api-rides/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-rides/ {
+        client_max_body_size 16m;
+        rewrite ^/api-rides(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/subeFacil/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-rides/.+\.php$ {
+        return 404;
+    }
+
+    # === API TRIBUFI ===
+    location = /api-tribufi {
+        return 301 /api-tribufi/;
+    }
+
+    location ^~ /api-tribufi/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-tribufi/ {
+        client_max_body_size 16m;
+        rewrite ^/api-tribufi(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/tribufi/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-tribufi/.+\.php$ {
+        return 404;
+    }
+
+     # === API RUN ===
+    location = /api-run {
+        return 301 /api-run/;
+    }
+
+    location ^~ /api-run/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-run/ {
+        client_max_body_size 16m;
+        rewrite ^/api-run(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/runExp/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-run/.+\.php$ {
+        return 404;
+    }
+
+    location /track/ {
+        try_files /track.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /cards/eliminar/ {
+        try_files /cards-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /cards/privacidad/ {
+        try_files /cards-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-pide-facil/ {
+        try_files /download.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-cobra-facil {
+        try_files /download2.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-sube-facil {
+        try_files /download3.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location = /descarga-run-exp {
+        return 301 /descarga-run-exp/;
+    }
+
+    location /descarga-run-exp/ {
+        try_files /download4.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-cards-studio/ {
+        try_files /download5.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-cobra-facil/ {
+        try_files /download6.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-tribufi/ {
+        try_files /download7.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    # === COBRA FACIL ===
+    location /cobra-facil/eliminar {
+        try_files /cobra-facil-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /cobra-facil/privacidad {
+        try_files /cobra-facil-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    # === TRIBUFI ===
+    location /tribufi/eliminar {
+        try_files /tribufi-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /tribufi/privacidad {
+        try_files /tribufi-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+    
+    location = /child-safety-standards {
+        return 301 /child-safety-standards/;
+    }
+
+    location /child-safety-standards/ {
+        try_files /child-safety-standards.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    # === API CARDS ===
+    location = /api-cards {
+        return 301 /api-cards/;
+    }
+
+    location ^~ /api-cards/misc/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/cardsStudio/backend/public/misc/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) { return 204; }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-cards/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) { return 204; }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-cards/ {
+        client_max_body_size 16m;
+        rewrite ^/api-cards(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/cardsStudio/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-cards/.+\.php$ {
+        return 404;
+    }
+
+    # === API COBRA ===
+    location = /api-cobra {
+        return 301 /api-cobra/;
+    }
+
+    location ^~ /api-cobra/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-cobra/ {
+        client_max_body_size 16m;
+        rewrite ^/api-cobra(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/cobraFacil/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-cobra/.+\.php$ {
+        return 404;
+    }
+
+    # === API SCRIPTURA ===
+    location = /api-scriptura {
+        return 301 /api-scriptura/;
+    }
+
+    location ^~ /api-scriptura/ {
+        client_max_body_size 16m;
+        fastcgi_read_timeout 600s;
+        fastcgi_send_timeout 600s;
+        rewrite ^/api-scriptura(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/scriptura/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-scriptura/.+\.php$ {
+        return 404;
+    }
+
+    location /digital/ {
+        try_files /digital.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /lo-necesito/ {
+        try_files /lo-necesito.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /card/ {
+        try_files /card.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location = /.well-known/apple-app-site-association {
+        default_type application/json;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /conquien/eliminar {
+        try_files /conquien-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /conquien/privacidad {
+        try_files /conquien-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /scriptura/eliminar {
+        try_files /scriptura-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /scriptura/privacidad {
+        try_files /scriptura-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /menu-facil/eliminar {
+        try_files /menu-facil-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /menu-facil/privacidad {
+        try_files /menu-facil-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+    
+    location /scriptura/donaciones {
+        try_files /donaciones.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+    
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name ar-sa.com.mx www.ar-sa.com.mx;
+
+    root /var/www/html/ar-sa.com.mx;
+    index index.html index.htm;
+
+    # SSL for ar-sa.com.mx
+    ssl_certificate /etc/letsencrypt/live/ar-sa.com.mx/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ar-sa.com.mx/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers 'ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384';
+    ssl_prefer_server_ciphers off;
+
+    add_header Strict-Transport-Security "max-age=63072000" always;
+
+    location = /api-delivery {
+        return 301 /api-delivery/;
+    }
+
+    location ^~ /api-delivery/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-delivery/ {
+        client_max_body_size 16m;
+        rewrite ^/api-delivery(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-delivery/.+\.php$ {
+        return 404;
+    }
+
+    # === API RIDES (Sube-T) ===
+    location = /api-rides {
+        return 301 /api-rides/;
+    }
+
+    location ^~ /api-rides/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-rides/ {
+        client_max_body_size 16m;
+        rewrite ^/api-rides(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/subeFacil/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-rides/.+\.php$ {
+        return 404;
+    }
+
+    location = /api-tribufi {
+        return 301 /api-tribufi/;
+    }
+
+    location ^~ /api-tribufi/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-tribufi/ {
+        client_max_body_size 16m;
+        rewrite ^/api-tribufi(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/tribufi/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-tribufi/.+\.php$ {
+        return 404;
+    }
+
+     # === API RUN ===
+    location = /api-run {
+        return 301 /api-run/;
+    }
+
+    location ^~ /api-run/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-run/ {
+        client_max_body_size 16m;
+        rewrite ^/api-run(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/runExp/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-run/.+\.php$ {
+        return 404;
+    }
+
+    location /track/ {
+        try_files /track.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /cards/eliminar {
+        try_files /cards-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /cards/privacidad {
+        try_files /cards-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-pide-facil/ {
+        try_files /download.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-cobra-facil {
+        try_files /download2.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-sube-facil {
+        try_files /download3.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location = /descarga-run-exp {
+        return 301 /descarga-run-exp/;
+    }
+
+    location /descarga-run-exp/ {
+        try_files /download4.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-cards-studio/ {
+        try_files /download5.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-cobra-facil/ {
+        try_files /download6.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /descarga-tribufi/ {
+        try_files /download7.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    # === COBRA FACIL ===
+    location /cobra-facil/eliminar {
+        try_files /cobra-facil-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /cobra-facil/privacidad {
+        try_files /cobra-facil-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    # === TRIBUFI ===
+    location /tribufi/eliminar {
+        try_files /tribufi-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /tribufi/privacidad {
+        try_files /tribufi-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location = /child-safety-standards {
+        return 301 /child-safety-standards/;
+    }
+
+    location /child-safety-standards/ {
+        try_files /child-safety-standards.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    # === API CARDS ===
+    location = /api-cards {
+        return 301 /api-cards/;
+    }
+
+    location ^~ /api-cards/misc/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/cardsStudio/backend/public/misc/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) { return 204; }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-cards/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) { return 204; }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-cards/ {
+        client_max_body_size 16m;
+        rewrite ^/api-cards(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/cardsStudio/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-cards/.+\.php$ {
+        return 404;
+    }
+
+    # === API COBRA ===
+    location = /api-cobra {
+        return 301 /api-cobra/;
+    }
+
+    location ^~ /api-cobra/uploads/ {
+        alias /var/www/html/ar-sa.com.mx/delivery-aldama/apps/pideFacil/backend/public/uploads/;
+        add_header Access-Control-Allow-Origin $uploads_cors_origin always;
+        add_header Access-Control-Allow-Credentials "true" always;
+        add_header Access-Control-Allow-Methods "GET, OPTIONS" always;
+        add_header Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With, Origin, Accept, Range, Cache-Control, Pragma" always;
+        add_header Access-Control-Max-Age 86400 always;
+        add_header Vary "Origin" always;
+        add_header Cache-Control $uploads_cache_control always;
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+        try_files $uri $uri/ =404;
+    }
+
+    location ^~ /api-cobra/ {
+        client_max_body_size 16m;
+        rewrite ^/api-cobra(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/cobraFacil/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-cobra/.+\.php$ {
+        return 404;
+    }
+
+    # === API SCRIPTURA ===
+    location = /api-scriptura {
+        return 301 /api-scriptura/;
+    }
+
+    location ^~ /api-scriptura/ {
+        client_max_body_size 16m;
+        fastcgi_read_timeout 600s;
+        fastcgi_send_timeout 600s;
+        rewrite ^/api-scriptura(/.*)$ $1 break;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/html/ar-sa.com.mx/delivery-aldama/apps/scriptura/backend/public/index.php;
+        fastcgi_param SCRIPT_NAME /index.php;
+        fastcgi_param DOCUMENT_URI /index.php;
+        fastcgi_param REQUEST_URI $uri$is_args$args;
+        fastcgi_param PATH_INFO $uri;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ ^/api-scriptura/.+\.php$ {
+        return 404;
+    }
+
+    location /digital/ {
+        try_files /digital.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /lo-necesito/ {
+        try_files /lo-necesito.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /card/ {
+        try_files /card.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /cdn/ {
+        root /var/www/html/olamsys.com;
+        autoindex on;
+    }
+
+    location = /.well-known/apple-app-site-association {
+        default_type application/json;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /conquien/eliminar {
+        try_files /conquien-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /conquien/privacidad {
+        try_files /conquien-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /scriptura/eliminar {
+        try_files /scriptura-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /scriptura/privacidad {
+        try_files /scriptura-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /menu-facil/eliminar {
+        try_files /menu-facil-eliminar-cuenta.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /menu-facil/privacidad {
+        try_files /menu-facil-privacidad.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+
+    location /scriptura/donaciones {
+        try_files /donaciones.html =404;
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+    }
+}
