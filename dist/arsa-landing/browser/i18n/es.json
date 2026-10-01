@@ -1,0 +1,28 @@
+{
+  "language": "es",
+  "name": "Español",
+  "meta": { "title": "ARSA | Software a la medida para empresas" },
+  "nav": {
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "technology": "Tecnologías",
+    "process": "Proceso",
+    "enterprise": "Enterprise",
+    "contact": "Contacto",
+    "quote": "Cotizar sin costo"
+  },
+  "hero": {
+    "eyebrow": "Software que mueve negocios",
+    "title": "La tecnología correcta convierte",
+    "highlight": "complejidad en ventaja.",
+    "description": "Diseñamos y construimos software a la medida para empresas que necesitan avanzar con claridad, velocidad y control.",
+    "primary": "Hablemos de tu proyecto",
+    "secondary": "Explorar soluciones"
+  },
+  "contact": {
+    "email": "ing.juanlopezsa@gmail.com",
+    "emailCta": "Enviar un correo",
+    "whatsappCta": "Abrir WhatsApp",
+    "noCost": "Primera conversación sin costo"
+  }
+}

@@ -375,6 +375,8 @@ server {
     }
 
     location / {
+        # Landing Angular compilada. Las rutas legacy conservan el root del servidor.
+        root /var/www/html/ar-sa.com.mx/arsa-site/dist/arsa-landing/browser;
         try_files $uri $uri/ /index.html;
     }
 
@@ -805,6 +807,8 @@ server {
     }
 
     location / {
+        # Landing Angular compilada. Las rutas legacy conservan el root del servidor.
+        root /var/www/html/ar-sa.com.mx/arsa-site/dist/arsa-landing/browser;
         try_files $uri $uri/ /index.html;
     }
 

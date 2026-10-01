@@ -1,0 +1,28 @@
+{
+  "language": "en",
+  "name": "English",
+  "meta": { "title": "ARSA | Custom software for ambitious companies" },
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "technology": "Technology",
+    "process": "Process",
+    "enterprise": "Enterprise",
+    "contact": "Contact",
+    "quote": "Free estimate"
+  },
+  "hero": {
+    "eyebrow": "Software that moves business",
+    "title": "The right technology turns",
+    "highlight": "complexity into advantage.",
+    "description": "We design and build custom software for companies that need to move forward with clarity, speed and control.",
+    "primary": "Let's talk about your project",
+    "secondary": "Explore solutions"
+  },
+  "contact": {
+    "email": "ing.juanlopezsa@gmail.com",
+    "emailCta": "Send an email",
+    "whatsappCta": "Open WhatsApp",
+    "noCost": "First conversation is free"
+  }
+}
