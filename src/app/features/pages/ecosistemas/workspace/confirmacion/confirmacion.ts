@@ -33,12 +33,18 @@ export class WorkspaceConfirmacionComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // Prioridad: el checkout guarda workspace_ordenId antes de enviar a Mercado
-    // Pago. Como fallback (pestaña nueva, modo privado o link directo), leemos
-    // el ordenId del query param que manda el successUrl.
-    this.ordenId = localStorage.getItem('workspace_ordenId') ?? '';
-    if (!this.ordenId) {
-      this.ordenId = this.route.snapshot.queryParamMap.get('ordenId') ?? '';
+    // La URL SIEMPRE tiene prioridad sobre lo guardado en localStorage. El link
+    // del correo de bienvenida (o el successUrl de Mercado Pago) puede abrirse en
+    // otra máquina/sesión, y workspace_ordenId local puede ser de una prueba
+    // anterior. Si la URL trae ordenId, se usa ese y se sincroniza localStorage.
+    const ordenIdDeUrl = this.route.snapshot.queryParamMap.get('ordenId') ?? '';
+    if (ordenIdDeUrl) {
+      this.ordenId = ordenIdDeUrl;
+      localStorage.setItem('workspace_ordenId', ordenIdDeUrl);
+    } else {
+      // Sin ordenId en la URL: el checkout ya guardó workspace_ordenId justo
+      // antes de enviar a Mercado Pago; lo usamos como fallback.
+      this.ordenId = localStorage.getItem('workspace_ordenId') ?? '';
     }
     if (!this.ordenId) {
       this.estado = 'sinOrden';

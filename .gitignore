@@ -45,3 +45,5 @@ server/.env
 # System files
 .DS_Store
 Thumbs.db
+.cursor/rules/no-auto-commit.mdc
+AGENTS.md
